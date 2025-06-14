@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 
 const About = () => {
@@ -33,7 +34,7 @@ const About = () => {
         <div className="flex justify-center items-center h-96 md:h-auto" style={parallaxStyle}>
            <div className="w-full max-w-xs md:max-w-sm group transition-transform duration-300 ease-out hover:translate-x-4">
              <div className="relative">
-                <div className="absolute -inset-8 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                <div className="absolute -inset-8 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 <img
                   src="/lovable-uploads/087076a8-5514-468b-a1f3-4df00fbfe41a.png"
                   alt="Moncy Yohannan"
