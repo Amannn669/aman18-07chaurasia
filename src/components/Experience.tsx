@@ -58,23 +58,27 @@ const Experience = () => {
           />
         </div>
         <div className="space-y-16">
-          {experienceData.map((item, index) => (
+          {experienceData.map((item, index) => {
+            const isReversed = index % 2 !== 0;
+            return (
             <div key={index} className="relative animate-enter">
-              <div className="md:flex items-start">
-                <div className="md:w-5/12 md:pr-8 text-center md:text-right mb-4 md:mb-0">
+              <div className={`md:flex items-start ${isReversed ? 'md:flex-row-reverse' : ''}`}>
+                <div className={`md:w-5/12 mb-6 md:mb-0 text-center ${isReversed ? 'md:text-left md:pl-8' : 'md:text-right md:pr-8'}`}>
                   <h3 className="text-xl font-bold">{item.role}</h3>
                   <p className="text-primary">{item.company}</p>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center mx-auto md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2">
+                
+                <div className="w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center mx-auto md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 shrink-0 z-10">
                   <div className="w-3 h-3 rounded-full bg-primary" />
                 </div>
-                <div className="md:w-5/12 md:pl-8 mt-4 md:mt-0 text-center md:text-left">
+
+                <div className={`md:w-5/12 mt-6 md:mt-0 text-center ${isReversed ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
                   <p className="font-black text-3xl text-muted-foreground mb-2">{item.year}</p>
                   <p className="text-muted-foreground">{item.description}</p>
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

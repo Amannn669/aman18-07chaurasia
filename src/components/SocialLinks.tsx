@@ -11,14 +11,14 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-4 md:left-8 z-50 hidden md:flex flex-col items-center space-y-4">
+    <div className="fixed bottom-0 left-2 md:left-4 z-50 hidden md:flex flex-col items-center space-y-4">
       {socialMedia.map((social, index) => (
         <a 
           key={index} 
           href={social.href} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+          className="p-1 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
         >
           <social.icon size={20} />
         </a>

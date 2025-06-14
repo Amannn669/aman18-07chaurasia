@@ -15,7 +15,7 @@ const Index = () => {
 
       <Header />
       <SocialLinks />
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <main className="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
         <Hero />
         <About />
         <WhatIDo />
