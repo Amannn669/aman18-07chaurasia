@@ -21,7 +21,7 @@ const FramedBox = ({ title, children }: FramedBoxProps) => {
       <div className="absolute -bottom-px -right-px w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-lg"></div>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value={title} className="border-b-0">
-          <AccordionTrigger className="text-2xl font-semibold hover:no-underline uppercase tracking-wider [&>svg]:hidden">{title}</AccordionTrigger>
+          <AccordionTrigger className="text-2xl font-semibold hover:no-underline uppercase tracking-wider [&>svg]:hidden active:scale-95 transition-transform duration-150">{title}</AccordionTrigger>
           <AccordionContent className="text-muted-foreground pt-4">
             {children}
           </AccordionContent>
