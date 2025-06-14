@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const About = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,16 +24,27 @@ const About = () => {
     };
   }, []);
 
-  const parallaxStyle = {
-    transform: `translateY(${scrollProgress * -80}px)`,
-    transition: 'transform 0.1s linear',
+  const maxHorizontalTranslation = 64; // Moves more to the right
+  const horizontalTranslationOnScroll = scrollProgress * maxHorizontalTranslation;
+  const horizontalTranslationOnHover = isHovered ? maxHorizontalTranslation : 0;
+  
+  const finalHorizontalTranslation = Math.max(horizontalTranslationOnScroll, horizontalTranslationOnHover);
+
+  const imageContainerStyle = {
+    transform: `translateY(${scrollProgress * -80}px) translateX(${finalHorizontalTranslation}px)`,
+    transition: 'transform 0.5s ease-out', // Slower and seamless transition
   };
 
   return (
     <section id="about" className="py-24" ref={sectionRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="flex justify-center items-center h-96 md:h-auto" style={parallaxStyle}>
-           <div className="w-full max-w-xs md:max-w-sm group transition-transform duration-300 ease-out hover:translate-x-8">
+        <div className="flex justify-center items-center h-96 md:h-auto">
+           <div 
+             className="w-full max-w-xs md:max-w-sm group"
+             style={imageContainerStyle}
+             onMouseEnter={() => setIsHovered(true)}
+             onMouseLeave={() => setIsHovered(false)}
+           >
              <div className="relative">
                 <div className="absolute -inset-8 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 <img
