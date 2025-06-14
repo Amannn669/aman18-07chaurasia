@@ -8,7 +8,7 @@ const About = () => {
         <div className="flex justify-center items-center">
            <img 
               src="https://cdn3d.iconscout.com/3d/premium/thumb/man-standing-with-a-book-and-a-cup-of-coffee-8376046-6646490.png" 
-              alt="3D Character" 
+              alt="" 
               className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float [animation-delay:-2s]"
             />
         </div>
