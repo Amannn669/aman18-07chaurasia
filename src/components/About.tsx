@@ -32,11 +32,11 @@ const About = () => {
     <section id="about" className="py-24" ref={sectionRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="flex justify-center items-center h-96 md:h-auto" style={parallaxStyle}>
-           <div className="w-full max-w-xs md:max-w-sm aspect-square">
+           <div className="w-full max-w-xs md:max-w-sm">
              <img
-               src="/lovable-uploads/37d517ff-c808-4bcd-8ce6-4f6f701d360f.png"
+               src="/lovable-uploads/087076a8-5514-468b-a1f3-4df00fbfe41a.png"
                alt="Moncy Yohannan"
-               className="w-full h-full object-cover rounded-full"
+               className="w-full h-full object-contain"
              />
            </div>
         </div>
