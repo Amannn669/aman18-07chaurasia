@@ -1,16 +1,13 @@
 
 import React from 'react';
+import AnimatedProfileImage from './AnimatedProfileImage';
 
 const About = () => {
   return (
     <section id="about" className="py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="flex justify-center items-center">
-           <img 
-              src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7810800/man-in-a-black-hoodie-clipart-xl.png" 
-              alt="3D Character" 
-              className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float [animation-delay:-2s]"
-            />
+           <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float [animation-delay:-2s]" />
         </div>
         <div className="text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary uppercase tracking-wider">About Me</h2>

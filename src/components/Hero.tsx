@@ -1,7 +1,7 @@
-
 import React from 'react';
 import AnimatedText from './AnimatedText';
 import { Download } from 'lucide-react';
+import AnimatedProfileImage from './AnimatedProfileImage';
 
 const Hero = () => {
   return (
@@ -15,11 +15,7 @@ const Hero = () => {
           <AnimatedText />
         </div>
         <div className="flex justify-center items-center">
-            <img 
-              src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7810800/man-in-a-black-hoodie-clipart-xl.png" 
-              alt="3D Character" 
-              className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float"
-            />
+            <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float" />
         </div>
       </div>
       <div className="absolute bottom-10 right-4 md:right-8 z-50 hidden md:flex items-center space-x-2">
