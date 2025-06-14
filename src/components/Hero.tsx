@@ -16,8 +16,8 @@ const Hero = () => {
         </div>
         <div className="flex justify-center items-center">
             <img 
-              src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7822941/man-waving-hand-clipart-xl.png" 
-              alt="" 
+              src="https://placehold.co/400x400/A78BFA/FFFFFF/png?text=Image" 
+              alt="Placeholder Image" 
               className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float"
             />
         </div>
