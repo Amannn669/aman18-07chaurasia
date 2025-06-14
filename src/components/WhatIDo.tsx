@@ -61,7 +61,7 @@ const WhatIDo = () => {
                   repeat={Infinity}
                 />
               )}
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground min-h-[5.5rem]">
                 Crafting seamless experiences from database to UI, I build robust and scalable full-stack applications.
               </p>
             </div>
@@ -82,7 +82,7 @@ const WhatIDo = () => {
                     repeat={Infinity}
                   />
                 )}
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground min-h-[5.5rem]">
                   Developing innovative applications that leverage the power of generative models to create, reason, and assist.
                 </p>
             </div>
@@ -103,7 +103,7 @@ const WhatIDo = () => {
                   repeat={Infinity}
                 />
               )}
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground min-h-[5.5rem]">
                 From data analysis to predictive modeling, I build intelligent systems that learn from data and drive decisions.
               </p>
             </div>
@@ -124,7 +124,7 @@ const WhatIDo = () => {
                     repeat={Infinity}
                   />
                 )}
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground min-h-[5.5rem]">
                   Expert in integrating cutting-edge AI tools into business workflows to boost productivity and unlock new capabilities.
                 </p>
             </div>
@@ -135,3 +135,4 @@ const WhatIDo = () => {
   );
 };
 export default WhatIDo;
+
