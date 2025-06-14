@@ -15,7 +15,7 @@ const FramedBox = ({ title, children }: FramedBoxProps) => {
 
   return (
     <div 
-      className="border border-muted-foreground/20 p-6 rounded-lg relative"
+      className="border border-muted-foreground/20 p-6 rounded-lg relative h-[17rem]"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >

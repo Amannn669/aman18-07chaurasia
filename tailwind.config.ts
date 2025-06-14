@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,12 +64,12 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: { height: '0', opacity: '0' },
-					to: { height: 'var(--radix-accordion-content-height)', opacity: '1' }
+					from: { height: '0', opacity: '0', transform: 'translateY(-10px)' },
+					to: { height: 'var(--radix-accordion-content-height)', opacity: '1', transform: 'translateY(0)' }
 				},
 				'accordion-up': {
-					from: { height: 'var(--radix-accordion-content-height)', opacity: '1' },
-					to: { height: '0', opacity: '0' }
+					from: { height: 'var(--radix-accordion-content-height)', opacity: '1', transform: 'translateY(0)' },
+					to: { height: '0', opacity: '0', transform: 'translateY(-10px)' }
 				},
         'float': {
           '0%, 100%': { transform: 'translateY(0)' },
