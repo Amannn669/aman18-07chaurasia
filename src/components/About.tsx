@@ -32,17 +32,12 @@ const About = () => {
     <section id="about" className="py-24" ref={sectionRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="flex justify-center items-center h-96 md:h-auto" style={parallaxStyle}>
-           <div className="relative w-full max-w-xs md:max-w-sm aspect-square">
-             {/* The animated gradient border */}
-             <div className="absolute -inset-1.5 bg-gradient-to-r from-primary via-purple-500 to-pink-500 rounded-full blur-xl opacity-70 animate-spin-slow" />
-             
-             <div className="relative w-full h-full">
-                 <img
-                   src="/lovable-uploads/37d517ff-c808-4bcd-8ce6-4f6f701d360f.png"
-                   alt="Moncy Yohannan"
-                   className="w-full h-full object-cover rounded-full"
-                 />
-             </div>
+           <div className="w-full max-w-xs md:max-w-sm aspect-square">
+             <img
+               src="/lovable-uploads/37d517ff-c808-4bcd-8ce6-4f6f701d360f.png"
+               alt="Moncy Yohannan"
+               className="w-full h-full object-cover rounded-full"
+             />
            </div>
         </div>
         <div className="text-center md:text-left">
