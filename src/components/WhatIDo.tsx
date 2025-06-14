@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
-import DesignAnimation from './DesignAnimation';
 
 const WhatIDo = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,20 +44,16 @@ const WhatIDo = () => {
             className="w-full max-w-md animate-float"
           />
         </div>
-        <div className="space-y-8">
-          <FramedBox title="Develop">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <FramedBox title="Full Stack">
             <div className="flex flex-col gap-4">
               {isVisible && (
                 <TypeAnimation
                   sequence={[
-                    '// From JavaScript & PHP...',
-                    1500,
-                    'const portfolio = createAwesomeSite();',
-                    1000,
-                    'portfolio.use(React, TypeScript, Node);',
-                    1000,
-                    'portfolio.add("a little bit of magic ✨");',
-                    2500,
+                    '// Building from scratch...', 1500,
+                    'const frontend = createReactApp();', 1000,
+                    'const backend = setupNodeServer();', 1000,
+                    'connect(frontend, backend);', 2500,
                   ]}
                   wrapper="span"
                   speed={50}
@@ -67,15 +62,70 @@ const WhatIDo = () => {
                 />
               )}
               <p className="text-muted-foreground">
-                Started building websites with JavaScript and PHP, now I craft them with TypeScript, React, Express, Node,... and a little bit of magic!
+                Crafting seamless experiences from database to UI, I build robust and scalable full-stack applications.
               </p>
             </div>
           </FramedBox>
-          <FramedBox title="Design">
+          <FramedBox title="Generative AI">
              <div className="flex flex-col gap-4">
-                {isVisible && <DesignAnimation />}
+                {isVisible && (
+                  <TypeAnimation
+                    sequence={[
+                      '// Tapping into creative AI...', 1500,
+                      'import { LLM } from "ai-models";', 1000,
+                      'const model = new LLM("gpt-4");', 1000,
+                      'model.generate("new ideas ✨");', 2500,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
+                    repeat={Infinity}
+                  />
+                )}
                 <p className="text-muted-foreground">
-                  I started designing as my hobby, but like all good hobbies, it slowly crept into my career—how it won't leave me alone!
+                  Developing innovative applications that leverage the power of generative models to create, reason, and assist.
+                </p>
+            </div>
+          </FramedBox>
+          <FramedBox title="Machine Learning">
+            <div className="flex flex-col gap-4">
+              {isVisible && (
+                <TypeAnimation
+                  sequence={[
+                    '// Uncovering data insights...', 1500,
+                    'import { train } from "ml-library";', 1000,
+                    'const model = train(trainingData);', 1000,
+                    'const predictions = model.predict(newData);', 2500,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
+                  repeat={Infinity}
+                />
+              )}
+              <p className="text-muted-foreground">
+                From data analysis to predictive modeling, I build intelligent systems that learn from data and drive decisions.
+              </p>
+            </div>
+          </FramedBox>
+          <FramedBox title="AI Workflow">
+             <div className="flex flex-col gap-4">
+                {isVisible && (
+                  <TypeAnimation
+                    sequence={[
+                      '// Automating with intelligence...', 1500,
+                      'const workflow = createAIAgent();', 1000,
+                      'workflow.integrate(["OpenAI", "Zapier"]);', 1000,
+                      'workflow.run();', 2500,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
+                    repeat={Infinity}
+                  />
+                )}
+                <p className="text-muted-foreground">
+                  Expert in integrating cutting-edge AI tools into business workflows to boost productivity and unlock new capabilities.
                 </p>
             </div>
           </FramedBox>
