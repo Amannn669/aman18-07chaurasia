@@ -60,7 +60,7 @@ const WhatIDo = () => {
                     'portfolio.add("a little bit of magic ✨");',
                     2500,
                   ]}
-                  wrapper="code"
+                  wrapper="span"
                   speed={50}
                   className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
                   repeat={Infinity}
