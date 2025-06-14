@@ -32,7 +32,7 @@ const Experience = () => {
         <div className="absolute w-px h-full bg-primary/20 top-0 left-1/2 -translate-x-1/2 hidden md:block" />
         <div className="space-y-16">
           {experienceData.map((item, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative animate-enter">
               <div className="md:flex items-start">
                 <div className="md:w-5/12 md:pr-8 md:text-right">
                   <h3 className="text-xl font-bold">{item.role}</h3>
