@@ -1,5 +1,4 @@
 
-```tsx
 import React, { useState, useEffect, useRef } from 'react';
 
 const experienceData = [
@@ -83,4 +82,3 @@ const Experience = () => {
 };
 
 export default Experience;
-```
