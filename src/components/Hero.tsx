@@ -16,8 +16,8 @@ const Hero = () => {
         </div>
         <div className="flex justify-center items-center">
             <img 
-              src="https://placehold.co/400x400/A78BFA/FFFFFF/png?text=Image" 
-              alt="Placeholder Image" 
+              src="https://ik.imagekit.io/yohann/my-portfolio/hero-character_34PFRW2FL.png?updatedAt=1685376043449" 
+              alt="3D character waving" 
               className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float"
             />
         </div>

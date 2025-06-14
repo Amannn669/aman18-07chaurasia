@@ -7,8 +7,8 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="flex justify-center items-center">
            <img 
-              src="https://placehold.co/400x400/A78BFA/FFFFFF/png?text=Image" 
-              alt="Placeholder Image" 
+              src="https://ik.imagekit.io/yohann/my-portfolio/about-character_EUpC5Uu03.png?updatedAt=1685376043132" 
+              alt="3D character reading a book" 
               className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float [animation-delay:-2s]"
             />
         </div>
