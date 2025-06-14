@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         <div className="flex justify-center items-center">
             <img 
-              src="https://cdn3d.iconscout.com/3d/premium/thumb/boy-waving-hand-4464947-3703528.png" 
+              src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7822941/man-waving-hand-clipart-xl.png" 
               alt="" 
               className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float"
             />

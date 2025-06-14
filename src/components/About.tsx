@@ -7,7 +7,7 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="flex justify-center items-center">
            <img 
-              src="https://cdn3d.iconscout.com/3d/premium/thumb/man-standing-with-a-book-and-a-cup-of-coffee-8376046-6646490.png" 
+              src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/7822938/man-is-reading-a-book-clipart-xl.png" 
               alt="" 
               className="w-full max-w-sm md:max-w-md lg:max-w-lg animate-float [animation-delay:-2s]"
             />
