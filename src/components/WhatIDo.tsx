@@ -9,8 +9,8 @@ const WhatIDo = () => {
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center md:text-left uppercase tracking-wider">What I Do</h2>
           <img 
-            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1080"
-            alt="A cool robot"
+            src="https://cdn3d.iconscout.com/3d/premium/thumb/man-working-on-laptop-while-sitting-on-chair-7088924-5777478.png"
+            alt="Character working at a desk"
             className="w-full max-w-md animate-float"
           />
         </div>
