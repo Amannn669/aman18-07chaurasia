@@ -1,13 +1,58 @@
 
-import React from 'react';
-import AnimatedProfileImage from './AnimatedProfileImage';
+import React, { useState, useEffect, useRef } from 'react';
 
 const About = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const { top, height } = sectionRef.current.getBoundingClientRect();
+        // Calculate progress from 0 to 1 as the section scrolls through the viewport
+        const progress = Math.max(0, Math.min(1, (window.innerHeight - top) / (window.innerHeight + height / 2)));
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Set initial state
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const parallaxStyle = {
+    transform: `translateY(${scrollProgress * -80}px)`,
+    transition: 'transform 0.1s linear',
+  };
+
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="py-24" ref={sectionRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="flex justify-center items-center">
-           <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float [animation-delay:-2s]" />
+        <div className="flex justify-center items-center h-96 md:h-auto" style={parallaxStyle}>
+           <div className="relative w-full max-w-xs md:max-w-sm aspect-square">
+             {/* The animated gradient border */}
+             <div className="absolute -inset-1.5 bg-gradient-to-r from-primary via-purple-500 to-pink-500 rounded-full blur-xl opacity-70 animate-spin-slow" />
+             
+             <div className="relative w-full h-full">
+                 {/* Original image - fades out on scroll */}
+                 <img
+                   src="/lovable-uploads/6059cde6-2c36-495a-8ffe-be094c43dd1d.png"
+                   alt="Moncy Yohannan - First"
+                   className="absolute inset-0 w-full h-full object-cover rounded-full transition-opacity duration-300"
+                   style={{ opacity: 1 - scrollProgress }}
+                 />
+                 {/* New image - fades in on scroll */}
+                 <img
+                   src="/lovable-uploads/37d517ff-c808-4bcd-8ce6-4f6f701d360f.png"
+                   alt="Moncy Yohannan - Second"
+                   className="absolute inset-0 w-full h-full object-cover rounded-full transition-opacity duration-300"
+                   style={{ opacity: scrollProgress }}
+                 />
+             </div>
+           </div>
         </div>
         <div className="text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary uppercase tracking-wider">About Me</h2>
