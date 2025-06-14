@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Collapsible,
   CollapsibleContent,
@@ -8,16 +8,13 @@ import {
 interface FramedBoxProps {
   title: string;
   children: React.ReactNode;
+  isOpen: boolean;
 }
 
-const FramedBox = ({ title, children }: FramedBoxProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const FramedBox = ({ title, children, isOpen }: FramedBoxProps) => {
   return (
     <div 
-      className="border border-muted-foreground/20 p-6 rounded-lg relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      className="border border-muted-foreground/20 p-6 rounded-lg relative h-full flex flex-col"
     >
       <div className="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg"></div>
       <div className="absolute -top-px -right-px w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-lg"></div>
