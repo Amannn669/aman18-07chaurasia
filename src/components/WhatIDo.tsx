@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
@@ -44,7 +43,7 @@ const WhatIDo = () => {
             className="w-full max-w-md animate-float"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <FramedBox title="Full Stack">
             <div className="flex flex-col gap-4">
               {isVisible && (
