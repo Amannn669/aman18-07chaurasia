@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import WhatIDo from '@/components/WhatIDo';
+import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import SocialLinks from '@/components/SocialLinks';
 
@@ -18,6 +19,7 @@ const Index = () => {
         <Hero />
         <About />
         <WhatIDo />
+        <Experience />
         <Contact />
       </main>
     </div>
