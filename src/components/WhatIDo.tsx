@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
+import { Accordion } from '@/components/ui/accordion';
 
 const WhatIDo = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,8 +45,8 @@ const WhatIDo = () => {
             className="w-full max-w-md animate-float"
           />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <FramedBox title="Full Stack">
+        <Accordion type="single" collapsible className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <FramedBox title="Full Stack" value="item-1">
             <div className="flex flex-col gap-4">
               {isVisible && (
                 <TypeAnimation
@@ -65,7 +67,7 @@ const WhatIDo = () => {
               </p>
             </div>
           </FramedBox>
-          <FramedBox title="Generative AI">
+          <FramedBox title="Generative AI" value="item-2">
              <div className="flex flex-col gap-4">
                 {isVisible && (
                   <TypeAnimation
@@ -86,7 +88,7 @@ const WhatIDo = () => {
                 </p>
             </div>
           </FramedBox>
-          <FramedBox title="Machine Learning">
+          <FramedBox title="Machine Learning" value="item-3">
             <div className="flex flex-col gap-4">
               {isVisible && (
                 <TypeAnimation
@@ -107,7 +109,7 @@ const WhatIDo = () => {
               </p>
             </div>
           </FramedBox>
-          <FramedBox title="AI Workflow">
+          <FramedBox title="AI Workflow" value="item-4">
              <div className="flex flex-col gap-4">
                 {isVisible && (
                   <TypeAnimation
@@ -128,7 +130,7 @@ const WhatIDo = () => {
                 </p>
             </div>
           </FramedBox>
-        </div>
+        </Accordion>
       </div>
     </section>
   );
