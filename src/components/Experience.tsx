@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 
 const experienceData = [
@@ -62,8 +61,8 @@ const Experience = () => {
             const isReversed = index % 2 !== 0;
             return (
             <div key={index} className="relative animate-enter">
-              <div className={`md:flex items-start ${isReversed ? 'md:flex-row-reverse' : ''}`}>
-                <div className={`md:w-5/12 mb-6 md:mb-0 text-center ${isReversed ? 'md:text-left md:pl-8' : 'md:text-right md:pr-8'}`}>
+              <div className={`md:flex items-start justify-between ${isReversed ? 'md:flex-row-reverse' : ''}`}>
+                <div className={`md:w-5/12 mb-6 md:mb-0 text-center ${isReversed ? 'md:text-left' : 'md:text-right'}`}>
                   <h3 className="text-xl font-bold">{item.role}</h3>
                   <p className="text-primary">{item.company}</p>
                 </div>
@@ -72,7 +71,7 @@ const Experience = () => {
                   <div className="w-3 h-3 rounded-full bg-primary" />
                 </div>
 
-                <div className={`md:w-5/12 mt-6 md:mt-0 text-center ${isReversed ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
+                <div className={`md:w-5/12 mt-6 md:mt-0 text-center ${isReversed ? 'md:text-right' : 'md:text-left'}`}>
                   <p className="font-black text-3xl text-muted-foreground mb-2">{item.year}</p>
                   <p className="text-muted-foreground">{item.description}</p>
                 </div>
