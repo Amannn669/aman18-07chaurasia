@@ -11,19 +11,18 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-2 md:left-4 z-50 hidden md:flex flex-col items-center space-y-4">
+    <div className="flex justify-center items-center space-x-6 py-12">
       {socialMedia.map((social, index) => (
-        <a 
-          key={index} 
-          href={social.href} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="p-1 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+        <a
+          key={index}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
         >
-          <social.icon size={20} />
+          <social.icon size={24} />
         </a>
       ))}
-      <div className="h-24 w-px bg-muted-foreground/50"></div>
     </div>
   );
 };
