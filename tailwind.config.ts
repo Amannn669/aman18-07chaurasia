@@ -143,6 +143,14 @@ export default {
             boxShadow: '0 0 8px hsl(var(--primary)), 0 0 20px hsl(var(--primary))'
           }
         },
+        'text-glow': {
+          '0%, 100%': {
+            textShadow: '0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary))'
+          },
+          '50%': {
+            textShadow: '0 0 15px hsl(var(--primary)), 0 0 25px hsl(var(--primary))'
+          }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.3s ease-out',
@@ -155,6 +163,7 @@ export default {
         'spin-slow': 'spin-slow 10s linear infinite',
         'neon-pulse': 'neon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'fade-in-down': 'fade-in-down 0.5s ease-out',
+        'text-glow': 'text-glow 2.5s ease-in-out infinite',
 			}
 		}
 	},

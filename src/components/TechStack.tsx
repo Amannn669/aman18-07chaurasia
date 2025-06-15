@@ -3,10 +3,10 @@ import React from 'react';
 import TechCard from './TechCard';
 
 const techStack = [
-  { name: 'HTML', symbol: 'H' },
-  { name: 'CSS', symbol: 'C' },
+  { name: 'HTML', symbol: 'H', special: true },
+  { name: 'CSS', symbol: 'C', special: true },
   { name: 'JavaScript', symbol: 'JS' },
-  { name: 'React', symbol: 'R' },
+  { name: 'React', symbol: 'R', special: true },
   { name: 'Node.js', symbol: 'N' },
   { name: 'Three.js', symbol: '3D' },
 ];

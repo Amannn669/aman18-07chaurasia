@@ -5,11 +5,28 @@ interface TechCardProps {
   tech: {
     name: string;
     symbol: string;
+    special?: boolean;
   };
 }
 
 const TechCard = ({ tech }: TechCardProps) => {
   const gridBg = "bg-[linear-gradient(hsl(var(--primary)/0.1)_1px,transparent_1px),linear-gradient(to_right,hsl(var(--primary)/0.1)_1px,hsl(var(--background))_1px)] bg-[size:2rem_2rem]";
+
+  const frontFaceClasses = `
+    z-10 font-black text-primary transition-all duration-500 group-hover:text-primary-foreground
+    ${tech.special
+      ? "text-7xl animate-text-glow"
+      : "text-6xl group-hover:[text-shadow:0_0_15px_hsl(var(--primary))]"
+    }
+  `;
+
+  const backFaceClasses = `
+    z-10 font-bold text-primary transition-all duration-500 group-hover:text-primary-foreground
+    ${tech.special
+      ? "text-2xl animate-text-glow"
+      : "text-xl group-hover:[text-shadow:0_0_10px_hsl(var(--primary))]"
+    }
+  `;
 
   return (
     <div className="group h-48 w-40 [perspective:1000px]">
@@ -23,7 +40,7 @@ const TechCard = ({ tech }: TechCardProps) => {
           <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-primary/50 group-hover:border-primary transition-colors duration-500"></div>
           <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-primary/50 group-hover:border-primary transition-colors duration-500"></div>
           
-          <p className="z-10 text-6xl font-black text-primary transition-all duration-500 group-hover:text-primary-foreground group-hover:[text-shadow:0_0_15px_hsl(var(--primary))]">
+          <p className={frontFaceClasses}>
             {tech.symbol}
           </p>
         </div>
@@ -35,7 +52,7 @@ const TechCard = ({ tech }: TechCardProps) => {
           <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-primary/50 group-hover:border-primary transition-colors duration-500"></div>
           <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-primary/50 group-hover:border-primary transition-colors duration-500"></div>
           
-          <p className="z-10 text-xl font-bold text-primary transition-all duration-500 group-hover:text-primary-foreground group-hover:[text-shadow:0_0_10px_hsl(var(--primary))]">
+          <p className={backFaceClasses}>
             {tech.name}
           </p>
         </div>
