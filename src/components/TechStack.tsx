@@ -8,7 +8,7 @@ const TechStack = () => {
   return (
     <section id="tech-stack">
       <div className="h-[80vh] w-full relative">
-        <Canvas camera={{ position: [0, 0.5, 8], fov: 50 }} shadows>
+        <Canvas className="no-scrollbar" camera={{ position: [0, 0.5, 8], fov: 50 }} shadows>
           <color attach="background" args={['hsl(10, 10%, 3%)']} />
           <ambientLight intensity={0.5} />
           <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={2} castShadow />

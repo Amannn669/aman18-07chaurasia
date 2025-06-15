@@ -96,7 +96,7 @@ function Book() {
 
 export const SpellbookAnimation = () => {
     return (
-        <ScrollControls pages={techStack.length} damping={0.15} className="no-scrollbar">
+        <ScrollControls pages={techStack.length} damping={0.15}>
             <Book />
         </ScrollControls>
     )
