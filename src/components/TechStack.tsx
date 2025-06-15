@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo, useState, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Stars, Line } from '@react-three/drei';
@@ -11,17 +10,14 @@ const skills = [
   "TypeScript", "Next.js", "Tailwind CSS", "Three.js", "R3F", "Git"
 ];
 
-// Generate points on a sphere using Fibonacci lattice
-const getSpherePoints = (count: number, radius: number) => {
+// Generate points randomly in a cube
+const getPointsInCube = (count: number, size: number) => {
     const points = [];
-    const phi = Math.PI * (3 - Math.sqrt(5));
     for (let i = 0; i < count; i++) {
-        const y = 1 - (i / (count - 1)) * 2;
-        const r = Math.sqrt(1 - y * y);
-        const theta = phi * i;
-        const x = Math.cos(theta) * r * radius;
-        const z = Math.sin(theta) * r * radius;
-        points.push(new THREE.Vector3(x, y * radius, z));
+        const x = (Math.random() - 0.5) * size;
+        const y = (Math.random() - 0.5) * size;
+        const z = (Math.random() - 0.5) * size;
+        points.push(new THREE.Vector3(x, y, z));
     }
     return points;
 };
@@ -59,10 +55,10 @@ const Node = ({ position, text }: { position: THREE.Vector3; text: string }) => 
 
 const Constellation = () => {
     const groupRef = useRef<THREE.Group>(null!);
-    const radius = 5;
+    const size = 10;
 
     const nodes = useMemo(() => {
-        const points = getSpherePoints(skills.length, radius);
+        const points = getPointsInCube(skills.length, size);
         return skills.map((skill, i) => ({
             position: points[i],
             text: skill
@@ -96,8 +92,7 @@ const Constellation = () => {
 
     useFrame((_state, delta) => {
         if (groupRef.current) {
-            groupRef.current.rotation.y += delta * 0.1;
-            groupRef.current.rotation.x += delta * 0.05;
+            groupRef.current.rotation.y += delta * 0.2;
         }
     });
 
@@ -124,16 +119,17 @@ const Constellation = () => {
 const TechStack = () => {
   return (
     <section id="tech-stack" className="py-20 text-center">
-      <h2 className="text-4xl font-bold mb-12">
-        <ShuffleText>MY TECH STACK</ShuffleText>
+      <h2 className="text-4xl font-bold mb-12 flex justify-center items-baseline gap-x-2">
+        <span><ShuffleText>MY</ShuffleText></span>
+        <span className="text-primary"><ShuffleText>TECH STACK</ShuffleText></span>
       </h2>
       <div className="h-[500px] w-full">
-        <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
+        <Canvas camera={{ position: [0, 0, 18], fov: 50 }}>
           <color attach="background" args={['hsl(10, 10%, 3%)']} />
           <ambientLight intensity={0.1} />
           <pointLight position={[10, 10, 10]} intensity={0.5} />
           <Suspense fallback={null}>
-            <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={2} />
+            <Stars radius={100} depth={50} count={5000} factor={8} saturation={0} fade speed={1} />
             <Constellation />
           </Suspense>
           {/* <EffectComposer>
@@ -146,4 +142,3 @@ const TechStack = () => {
 };
 
 export default TechStack;
-
