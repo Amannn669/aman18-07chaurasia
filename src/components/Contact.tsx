@@ -15,7 +15,7 @@ const Contact = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16">
                     {/* LEFT ICONS */}
-                    <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:self-start">
+                    <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:self-end">
                         <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
                         <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
                         <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
