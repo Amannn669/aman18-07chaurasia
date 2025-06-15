@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import ShuffleText from './ShuffleText';
 
@@ -24,14 +23,14 @@ const About = () => {
     };
   }, []);
 
-  const maxHorizontalTranslation = 96; // Moves more to the right
+  const maxHorizontalTranslation = 64; // Moves more to the right
   const horizontalTranslationOnScroll = scrollProgress * maxHorizontalTranslation;
   const horizontalTranslationOnHover = isHovered ? maxHorizontalTranslation : 0;
   
   const finalHorizontalTranslation = Math.max(horizontalTranslationOnScroll, horizontalTranslationOnHover);
 
   const imageContainerStyle = {
-    transform: `translateY(${scrollProgress * -120}px) translateX(${finalHorizontalTranslation}px)`,
+    transform: `translateY(${scrollProgress * -80}px) translateX(${finalHorizontalTranslation}px)`,
     transition: 'transform 0.5s ease-out', // Slower and seamless transition
   };
 
