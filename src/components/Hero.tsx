@@ -3,6 +3,7 @@ import React from 'react';
 import AnimatedText from './AnimatedText';
 import AnimatedProfileImage from './AnimatedProfileImage';
 import SocialLinks from './SocialLinks';
+import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -22,6 +23,9 @@ const Hero = () => {
             <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float" />
         </div>
       </div>
+      <a href="#about" aria-label="Scroll to about section" className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <ChevronDown className="w-10 h-10 text-primary animate-bounce" />
+      </a>
     </section>
   );
 };
