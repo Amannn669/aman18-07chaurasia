@@ -34,12 +34,12 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className }) 
 
   const isHashLink = href.startsWith('/#');
 
-  if (isHashLink) {
+  if (isHashLink || href === '/') {
     const handleNav = (e: React.MouseEvent) => {
       // If we are already on the home page, scroll to element
       if (location.pathname === '/') {
         e.preventDefault();
-        const targetId = href.substring(2);
+        const targetId = href === '/' ? 'home' : href.substring(2);
         const element = document.getElementById(targetId);
         if (element) {
           element.scrollIntoView({
@@ -51,7 +51,7 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className }) 
     };
 
     return (
-      <Link to={href} onClick={handleNav} {...commonProps}>
+      <Link to={href === '/' ? '/#home' : href} onClick={handleNav} {...commonProps}>
         {text}
       </Link>
     );
