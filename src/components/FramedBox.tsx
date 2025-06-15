@@ -14,7 +14,7 @@ interface FramedBoxProps {
 
 const FramedBox = ({ title, children, value }: FramedBoxProps) => {
   return (
-    <AccordionItem value={value} className="border-b-0 border border-primary/20 bg-secondary p-6 rounded-lg relative transition-all duration-300 data-[state=open]:border-primary/50 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/10">
+    <AccordionItem value={value} className="border-b-0 border border-muted-foreground/20 p-6 rounded-lg relative transition-all duration-300 data-[state=open]:border-primary/50 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/10">
       <div className="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg"></div>
       <div className="absolute -top-px -right-px w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-lg"></div>
       <div className="absolute -bottom-px -left-px w-8 h-8 border-b-2 border-l-2 border-primary rounded-bl-lg"></div>
