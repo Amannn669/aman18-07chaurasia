@@ -1,7 +1,7 @@
 
 import React from 'react';
 import useShuffle from '@/hooks/useShuffle';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface ShuffleLinkProps {
   href: string;
@@ -11,6 +11,7 @@ interface ShuffleLinkProps {
 
 const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className }) => {
   const { text, shuffle, stopShuffle } = useShuffle(children);
+  const location = useLocation();
 
   const commonProps = {
     onMouseEnter: shuffle,
@@ -31,11 +32,33 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className }) 
     );
   }
 
+  const isHashLink = href.startsWith('/#');
+
+  if (isHashLink) {
+    const handleNav = (e: React.MouseEvent) => {
+      // If we are already on the home page, scroll to element
+      if (location.pathname === '/') {
+        e.preventDefault();
+        const targetId = href.substring(2);
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+          });
+        }
+      }
+      // If we are on another page, the Link component will handle navigation
+    };
+
+    return (
+      <Link to={href} onClick={handleNav} {...commonProps}>
+        {text}
+      </Link>
+    );
+  }
+
   return (
-    <Link
-      to={href}
-      {...commonProps}
-    >
+    <Link to={href} {...commonProps}>
       {text}
     </Link>
   );
