@@ -48,8 +48,8 @@ const About = () => {
              <div className="relative">
                 <div className="absolute -inset-8 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 <img
-                  src="/lovable-uploads/1b181969-6307-4383-906a-255cf48a8049.png"
-                  alt="Moncy Yohannan"
+                  src="/lovable-uploads/643796d8-041f-488a-8b7a-fb6a5f1df235.png"
+                  alt="Aman Chaurasia"
                   className="relative w-full h-full object-cover object-top"
                 />
              </div>
