@@ -16,7 +16,7 @@ const Contact = () => {
                 <h2 className="text-center md:text-left text-4xl md:text-5xl font-bold uppercase tracking-wider mb-12">Contact</h2>
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16">
                     {/* LEFT ICONS */}
-                    <div className="flex flex-row md:flex-col gap-6 justify-center self-center">
+                    <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:justify-between md:self-stretch">
                         <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
                         <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
                         <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
