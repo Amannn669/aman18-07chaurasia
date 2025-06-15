@@ -2,6 +2,7 @@
 import React from 'react';
 import Header from '@/components/Header';
 import ShuffleText from '@/components/ShuffleText';
+import ProjectCard from '@/components/ProjectCard';
 
 const projects = [
   {
@@ -34,16 +35,13 @@ const ProjectsPage = () => {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-                <div key={index} className="bg-secondary/10 border border-border/20 rounded-lg p-6 flex flex-col group hover:border-primary/50 transition-all duration-300">
-                    <div className="aspect-video bg-secondary/20 rounded-md mb-4 overflow-hidden">
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
-                    </div>
-                    <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                    <p className="text-muted-foreground flex-grow mb-4">{project.description}</p>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline self-start">
-                        View Project &rarr;
-                    </a>
-                </div>
+                <ProjectCard
+                    key={index}
+                    title={project.title}
+                    description={project.description}
+                    link={project.link}
+                    image={project.image}
+                />
             ))}
         </div>
       </main>
