@@ -1,5 +1,6 @@
 
 import React from 'react';
+import ShuffleLink from './ShuffleLink';
 
 const Header = () => {
   return (
@@ -7,10 +8,10 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
         <a href="#home" className="text-xl font-bold story-link">AMAN.DEV</a>
         <nav className="flex items-center space-x-6 md:space-x-10 text-sm md:text-base">
-          <a href="#about" className="story-link hover:text-primary transition-colors">ABOUT</a>
-          <a href="#work" className="story-link hover:text-primary transition-colors">WORK</a>
-          <a href="#experience" className="story-link hover:text-primary transition-colors">EXPERIENCE</a>
-          <a href="#contact" className="story-link hover:text-primary transition-colors">CONTACT</a>
+          <ShuffleLink href="#about" className="story-link hover:text-primary transition-colors">ABOUT</ShuffleLink>
+          <ShuffleLink href="#work" className="story-link hover:text-primary transition-colors">WORK</ShuffleLink>
+          <ShuffleLink href="#experience" className="story-link hover:text-primary transition-colors">EXPERIENCE</ShuffleLink>
+          <ShuffleLink href="#contact" className="story-link hover:text-primary transition-colors">CONTACT</ShuffleLink>
         </nav>
       </div>
     </header>
