@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
 import { Accordion } from '@/components/ui/accordion';
+import CoffeeAnimation from './CoffeeAnimation';
 
 const WhatIDo = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,11 +40,9 @@ const WhatIDo = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center md:text-left uppercase tracking-wider">What I Do</h2>
-          <img 
-            src="https://cdn3d.iconscout.com/3d/premium/thumb/man-working-on-laptop-while-sitting-on-chair-7088924-5777478.png"
-            alt="Character working at a desk"
-            className="w-full max-w-md animate-float"
-          />
+          <div className="w-full max-w-md flex justify-center items-center h-full animate-float">
+            <CoffeeAnimation isVisible={isVisible} />
+          </div>
         </div>
         <Accordion type="single" collapsible className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <FramedBox title="Full Stack" value="item-1">
