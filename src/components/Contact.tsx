@@ -13,19 +13,11 @@ const Contact = () => {
     return (
         <footer id="contact" className="py-24">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row gap-8 md:gap-16">
-                    {/* LEFT ICONS */}
-                    <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:self-start">
-                        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
-                        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
-                        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
-                        <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
-                    </div>
-                    
-                    {/* RIGHT CONTENT */}
-                    <div className="flex-grow text-center md:text-left">
+                <div className="flex flex-col gap-16">
+                    {/* CONTENT */}
+                    <div className="flex-grow text-center">
                         <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-wider mb-12">Contact</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-lg">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-lg max-w-5xl mx-auto">
                             <div className="space-y-8">
                                 <div>
                                     <h3 className="text-base text-muted-foreground mb-2">Email</h3>
@@ -39,10 +31,10 @@ const Contact = () => {
                             <div>
                                 <h3 className="text-base text-muted-foreground mb-2">Social</h3>
                                 <ul className="space-y-2">
-                                    <li><a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">Github <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
-                                    <li><a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">LinkedIn <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
-                                    <li><a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">Twitter <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
-                                    <li><a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">Instagram <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
+                                    <li><a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center group">Github <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
+                                    <li><a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center group">LinkedIn <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
+                                    <li><a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center group">Twitter <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
+                                    <li><a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center group">Instagram <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
                                 </ul>
                             </div>
                              <div className="space-y-8">
@@ -53,6 +45,14 @@ const Contact = () => {
                                 <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Aman Chaurasia</p>
                             </div>
                         </div>
+                    </div>
+                    
+                    {/* ICONS */}
+                    <div className="flex flex-row gap-6 justify-center">
+                        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
+                        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
+                        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
+                        <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
                     </div>
                 </div>
             </div>
