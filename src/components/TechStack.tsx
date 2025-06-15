@@ -1,6 +1,5 @@
-
 import React, { useRef, useState, useEffect, Suspense } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, ThreeEvent } from '@react-three/fiber';
 import { Text, Environment } from '@react-three/drei';
 import ShuffleText from './ShuffleText';
 import * as THREE from 'three';
@@ -36,25 +35,25 @@ const Cube = () => {
     }
   });
 
-  const handlePointerDown = (e: React.PointerEvent) => {
+  const handlePointerDown = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setIsDragging(true);
     previousPointer.current = { x: e.clientX, y: e.clientY };
   };
 
-  const handlePointerUp = (e: React.PointerEvent) => {
+  const handlePointerUp = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setIsDragging(false);
   };
 
-  const handlePointerOut = (e: React.PointerEvent) => {
+  const handlePointerOut = (e: ThreeEvent<PointerEvent>) => {
     if (isDragging) {
       e.stopPropagation();
       setIsDragging(false);
     }
   };
 
-  const handlePointerMove = (e: React.PointerEvent) => {
+  const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
     if (!isDragging) return;
     e.stopPropagation();
     const deltaX = e.clientX - previousPointer.current.x;
