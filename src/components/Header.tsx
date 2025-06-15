@@ -18,8 +18,8 @@ const Header = () => {
       <div 
         className="absolute top-full left-0 w-full h-16 backdrop-blur-sm pointer-events-none"
         style={{
-          maskImage: 'linear-gradient(to bottom, black 50%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent)',
+          maskImage: 'linear-gradient(to bottom, black, transparent)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
         }}
       />
     </header>
