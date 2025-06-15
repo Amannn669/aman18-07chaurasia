@@ -1,5 +1,4 @@
 
-```tsx
 import React, { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -35,4 +34,3 @@ const AnimatedText = () => {
 };
 
 export default AnimatedText;
-```
