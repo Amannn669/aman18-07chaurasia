@@ -68,7 +68,7 @@ function Book() {
   });
 
   return (
-    <group position={[0, -0.5, 0]} scale={0.6} rotation={[0.1, 0.3, 0]}>
+    <group position={[0, -0.5, 0]} scale={0.6} rotation={[0, 0, 0]}>
         {/* Left Cover */}
         <mesh position={[-1.75, 0, 0.05]} castShadow receiveShadow>
             <boxGeometry args={[3.5, 5.2, 0.2]} />
