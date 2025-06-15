@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import ShuffleText from './ShuffleText';
 
@@ -11,7 +10,6 @@ const About = () => {
     const handleScroll = () => {
       if (sectionRef.current) {
         const { top, height } = sectionRef.current.getBoundingClientRect();
-        // Calculate progress from 0 to 1 as the section scrolls through the viewport
         const progress = Math.max(0, Math.min(1, (window.innerHeight - top) / (window.innerHeight + height / 2)));
         setScrollProgress(progress);
       }
@@ -39,7 +37,7 @@ const About = () => {
   return (
     <section id="about" className="py-24" ref={sectionRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="flex justify-center items-center h-80 md:h-auto">
+        <div className="flex justify-center items-center h-56 md:h-auto">
            <div 
              className="w-full max-w-xs md:max-w-sm group"
              style={imageContainerStyle}
