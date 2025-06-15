@@ -13,7 +13,7 @@ const AnimatedProfileImage = ({ className }: AnimatedProfileImageProps) => {
         <img
           src="/lovable-uploads/cf70903c-c3f1-4ff3-b60a-5720a4884869.png"
           alt="Aman Chaurasia"
-          className="w-full h-full object-cover rounded-full"
+          className="w-full h-full object-cover rounded-full shadow-[0_0_30px_black]"
         />
       </div>
     </div>
