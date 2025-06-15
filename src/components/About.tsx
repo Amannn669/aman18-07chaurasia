@@ -50,7 +50,7 @@ const About = () => {
                 <img
                   src="/lovable-uploads/087076a8-5514-468b-a1f3-4df00fbfe41a.png"
                   alt="Moncy Yohannan"
-                  className="relative w-full h-full object-contain"
+                  className="relative w-full h-full object-cover object-top"
                 />
              </div>
            </div>
