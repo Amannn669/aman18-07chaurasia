@@ -44,14 +44,26 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
+    cursor: none;
   }
   html {
     scroll-behavior: smooth;
+  }
+  a, button {
+    cursor: none;
   }
 }
 
 @layer components {
   .story-link {
     @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .custom-cursor {
+    @apply w-3 h-3 bg-primary rounded-full fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] transition-transform duration-150 ease-out;
+  }
+
+  .custom-cursor.hovered {
+    @apply scale-[2.5] bg-primary/50;
   }
 }
