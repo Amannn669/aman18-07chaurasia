@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import ShuffleText from './ShuffleText';
+import * as THREE from 'three';
 
 const skills = [
   "React", "Next.js", "TypeScript", "JavaScript", "Node.js", 
@@ -43,7 +44,7 @@ const Cube = () => {
   return (
     <mesh ref={meshRef}>
       <boxGeometry args={[3.5, 3.5, 3.5]} />
-      <meshStandardMaterial wireframe color="hsl(var(--primary))" />
+      <meshStandardMaterial color="hsl(var(--primary))" />
       
       {currentSkills.length > 0 && (
         <>
@@ -79,3 +80,4 @@ const TechStack = () => {
 };
 
 export default TechStack;
+
