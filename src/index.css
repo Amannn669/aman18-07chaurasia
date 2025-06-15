@@ -54,10 +54,10 @@
 }
 
 @layer utilities {
-  .no-scrollbar > div[style*="overflow"]::-webkit-scrollbar {
+  .no-scrollbar div[style*="overflow"]::-webkit-scrollbar {
       display: none;
   }
-  .no-scrollbar > div[style*="overflow"] {
+  .no-scrollbar div[style*="overflow"] {
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
   }
