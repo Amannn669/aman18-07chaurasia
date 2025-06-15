@@ -1,4 +1,5 @@
 
+```tsx
 import React, { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -28,8 +29,10 @@ const AnimatedText = () => {
       speed={50}
       className={isStandout ? standoutClass : defaultClass}
       repeat={Infinity}
+      cursor={true}
     />
   );
 };
 
 export default AnimatedText;
+```
