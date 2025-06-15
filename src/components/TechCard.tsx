@@ -13,7 +13,7 @@ const TechCard = ({ tech }: TechCardProps) => {
   const gridBg = "bg-[linear-gradient(hsl(var(--primary)/0.1)_1px,transparent_1px),linear-gradient(to_right,hsl(var(--primary)/0.1)_1px,hsl(var(--background))_1px)] bg-[size:2rem_2rem]";
 
   const frontFaceClasses = `
-    z-10 text-6xl font-black text-primary transition-all duration-500 group-hover:text-primary-foreground group-hover:[text-shadow:0_0_15px_hsl(var(--primary))]
+    z-10 text-6xl font-black text-slate-300 transition-all duration-500 group-hover:text-primary-foreground group-hover:[text-shadow:0_0_15px_hsl(var(--primary))]
   `;
 
   const backFaceClasses = `
