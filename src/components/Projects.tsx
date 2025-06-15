@@ -1,12 +1,6 @@
 
+```tsx
 import React from 'react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import ProjectCard, { Project } from './ProjectCard';
 import ShuffleText from './ShuffleText';
 
@@ -52,27 +46,16 @@ const Projects = () => {
           Here are some of the projects I've worked on, showcasing my skills and passion for creating cool things.
         </p>
       </div>
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {projects.map((project, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <div className="p-1 h-full">
-                <ProjectCard project={project} />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      <div className="flex overflow-x-auto space-x-8 pb-8 -mx-8 px-8">
+        {projects.map((project, index) => (
+          <div key={index} className="flex-shrink-0 w-[80vw] sm:w-[40vw] lg:w-[28vw]">
+            <ProjectCard project={project} />
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
 
 export default Projects;
+```
