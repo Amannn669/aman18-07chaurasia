@@ -82,7 +82,7 @@ function Book() {
         </mesh>
 
         {/* Spine */}
-        <mesh position={[-0.075, 0, (-techStack.length * 0.01) / 2]} castShadow>
+        <mesh position={[0, 0, (-techStack.length * 0.01) / 2]} castShadow>
             <boxGeometry args={[0.15, 5.2, techStack.length * 0.01 + 0.2]} />
             <meshStandardMaterial color="#3a1c0a" roughness={0.4} metalness={0.4} />
         </mesh>
@@ -94,8 +94,13 @@ function Book() {
                     <boxGeometry args={[3.5, 4.8, 0.02]} />
                     <meshStandardMaterial color="#f3e9d2" side={THREE.DoubleSide} roughness={0.2} />
                 </mesh>
+                {/* Content on the right side of the page (front) */}
                 <group position={[1.75, 0, 0.011]}>
                     <PageContent tech={tech} onHover={(h) => setHovered(h ? i : null)} isHovered={hovered === i} />
+                </group>
+                {/* Content on the left side of the page (back) */}
+                <group position={[1.75, 0, -0.011]} rotation={[0, Math.PI, 0]}>
+                   <PageContent tech={tech} onHover={(h) => setHovered(h ? i : null)} isHovered={hovered === i} />
                 </group>
             </group>
         ))}
