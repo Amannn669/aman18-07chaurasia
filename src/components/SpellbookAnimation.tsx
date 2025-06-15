@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text, useScroll, ScrollControls } from '@react-three/drei';
@@ -89,7 +88,7 @@ function Book() {
         </mesh>
 
         {/* Flipping pages */}
-        {techStack.map((_, i) => (
+        {techStack.map((tech, i) => (
             <group key={i} ref={el => pageRefs.current[i] = el} position={[0, 0, -i * 0.01]}>
                 <mesh position={[1.75, 0, 0]} castShadow receiveShadow>
                     <boxGeometry args={[3.5, 4.8, 0.02]} />
@@ -97,11 +96,11 @@ function Book() {
                 </mesh>
                 {/* Content on the right side of the page (front) */}
                 <group position={[1.75, 0, 0.011]}>
-                    {techStack[i + 1] && <PageContent tech={techStack[i + 1]} onHover={(h) => setHovered(h ? i + 1 : null)} isHovered={hovered === i + 1} />}
+                    <PageContent tech={tech} onHover={(h) => setHovered(h ? i : null)} isHovered={hovered === i} />
                 </group>
                 {/* Content on the left side of the page (back) */}
-                <group position={[-1.75, 0, 0.011]} rotation={[0, Math.PI, 0]}>
-                   <PageContent tech={techStack[i]} onHover={(h) => setHovered(h ? i : null)} isHovered={hovered === i} />
+                <group position={[1.75, 0, -0.011]} rotation={[0, Math.PI, 0]}>
+                   <PageContent tech={tech} onHover={(h) => setHovered(h ? i : null)} isHovered={hovered === i} />
                 </group>
             </group>
         ))}
