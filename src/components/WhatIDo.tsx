@@ -1,133 +1,65 @@
-import React, { useState, useEffect, useRef } from 'react';
+
+import React, { useState, useEffect } from 'react';
+import { Accordion } from "@/components/ui/accordion";
 import FramedBox from './FramedBox';
-import { TypeAnimation } from 'react-type-animation';
-import { Accordion } from '@/components/ui/accordion';
 import ShuffleText from './ShuffleText';
 
+const whatIDoData = [
+  {
+    title: 'Web Development',
+    description: 'I specialize in creating dynamic and responsive websites, focusing on user experience and performance. Using modern technologies like React, I build everything from simple landing pages to complex web applications.'
+  },
+  {
+    title: '3D & Graphics',
+    description: 'With a strong background in 3D modeling and graphics, I bring ideas to life with stunning visuals. I am proficient in tools like Blender and can create assets for games, animations, and interactive web experiences.'
+  },
+  {
+    title: 'UI/UX Design',
+    description: 'I design intuitive and engaging user interfaces. My process involves understanding user needs to create seamless and enjoyable interactions, ensuring the final product is both beautiful and functional.'
+  }
+];
+
 const WhatIDo = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const [accordionValue, setAccordionValue] = useState<string | undefined>();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
+    const handleScroll = () => {
+      const experienceSection = document.getElementById('experience');
+      if (experienceSection) {
+        const { top } = experienceSection.getBoundingClientRect();
+        // When the top of the experience section is well into the viewport, close the accordion
+        if (top < window.innerHeight * 0.7 && accordionValue) {
+          setAccordionValue(undefined);
         }
-      },
-      {
-        rootMargin: '0px',
-        threshold: 0.1,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [accordionValue]);
 
   return (
-    <section id="work" className="py-24" ref={sectionRef}>
-      <div className="flex flex-col items-center gap-12">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-primary">
-          <ShuffleText>WHAT I DO</ShuffleText>
-        </h2>
-        <Accordion type="single" collapsible className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          <FramedBox title="Full Stack" value="item-1">
-            <div className="flex flex-col gap-4">
-              {isVisible && (
-                <TypeAnimation
-                  sequence={[
-                    '// Building from scratch...', 1500,
-                    'const frontend = createReactApp();', 1000,
-                    'const backend = setupNodeServer();', 1000,
-                    'connect(frontend, backend);', 2500,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
-                  repeat={Infinity}
-                />
-              )}
-              <p className="text-muted-foreground">
-                Crafting seamless experiences from database to UI, I build robust and scalable full-stack applications.
-              </p>
-            </div>
-          </FramedBox>
-          <FramedBox title="Generative AI" value="item-2">
-             <div className="flex flex-col gap-4">
-                {isVisible && (
-                  <TypeAnimation
-                    sequence={[
-                      '// Tapping into creative AI...', 1500,
-                      'import { LLM } from "ai-models";', 1000,
-                      'const model = new LLM("gpt-4");', 1000,
-                      'model.generate("new ideas ✨");', 2500,
-                    ]}
-                    wrapper="span"
-                    speed={50}
-                    className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
-                    repeat={Infinity}
-                  />
-                )}
-                <p className="text-muted-foreground">
-                  Developing innovative applications that leverage the power of generative models to create, reason, and assist.
-                </p>
-            </div>
-          </FramedBox>
-          <FramedBox title="Machine Learning" value="item-3">
-            <div className="flex flex-col gap-4">
-              {isVisible && (
-                <TypeAnimation
-                  sequence={[
-                    '// Uncovering data insights...', 1500,
-                    'import { train } from "ml-library";', 1000,
-                    'const model = train(trainingData);', 1000,
-                    'const predictions = model.predict(newData);', 2500,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
-                  repeat={Infinity}
-                />
-              )}
-              <p className="text-muted-foreground">
-                From data analysis to predictive modeling, I build intelligent systems that learn from data and drive decisions.
-              </p>
-            </div>
-          </FramedBox>
-          <FramedBox title="AI Workflow" value="item-4">
-             <div className="flex flex-col gap-4">
-                {isVisible && (
-                  <TypeAnimation
-                    sequence={[
-                      '// Automating with intelligence...', 1500,
-                      'const workflow = createAIAgent();', 1000,
-                      'workflow.integrate(["OpenAI", "Zapier"]);', 1000,
-                      'workflow.run();', 2500,
-                    ]}
-                    wrapper="span"
-                    speed={50}
-                    className="text-muted-foreground font-mono whitespace-pre-wrap h-24"
-                    repeat={Infinity}
-                  />
-                )}
-                <p className="text-muted-foreground">
-                  Expert in integrating cutting-edge AI tools into business workflows to boost productivity and unlock new capabilities.
-                </p>
-            </div>
-          </FramedBox>
+    <section id="what-i-do" className="py-24">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-primary uppercase tracking-wider">
+        <ShuffleText>What I do</ShuffleText>
+      </h2>
+      <div className="max-w-4xl mx-auto">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full space-y-6"
+          value={accordionValue}
+          onValueChange={setAccordionValue}
+        >
+          {whatIDoData.map((item, index) => (
+            <FramedBox key={index} title={item.title} value={`item-${index + 1}`}>
+              {item.description}
+            </FramedBox>
+          ))}
         </Accordion>
       </div>
     </section>
   );
 };
+
 export default WhatIDo;
