@@ -17,17 +17,12 @@ const Contact = () => {
                     {/* CONTENT */}
                     <div className="flex-grow text-center">
                         <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-wider mb-12">Contact</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 text-lg max-w-3xl mx-auto">
-                            <div className="space-y-8">
-                                <div>
-                                    <h3 className="text-base text-muted-foreground mb-2">Email</h3>
-                                    <a href="mailto:connect@aman.dev" className="font-semibold hover:text-primary transition-colors">connect@aman.dev</a>
-                                </div>
-                                <div>
-                                    <h3 className="text-base text-muted-foreground mb-2">Location</h3>
-                                    <p className="font-semibold">India</p>
-                                </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-lg max-w-4xl mx-auto">
+                            <div>
+                                <h3 className="text-base text-muted-foreground mb-2">Email</h3>
+                                <a href="mailto:connect@aman.dev" className="font-semibold hover:text-primary transition-colors">connect@aman.dev</a>
                             </div>
+                            
                             <div>
                                 <h3 className="text-base text-muted-foreground mb-2">Social</h3>
                                 <ul className="space-y-2">
@@ -36,6 +31,11 @@ const Contact = () => {
                                     <li><a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center group">Twitter <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
                                     <li><a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center group">Instagram <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
                                 </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 className="text-base text-muted-foreground mb-2">Location</h3>
+                                <p className="font-semibold">India</p>
                             </div>
                         </div>
                     </div>
