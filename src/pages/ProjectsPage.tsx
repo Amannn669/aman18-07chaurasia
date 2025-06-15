@@ -1,8 +1,8 @@
 
 import React from 'react';
 import Header from '@/components/Header';
+import ShuffleText from '@/components/ShuffleText';
 import ProjectCard from '@/components/ProjectCard';
-import AnimatedTitle from '@/components/AnimatedTitle';
 
 const projects = [
   {
@@ -72,11 +72,9 @@ const ProjectsPage = () => {
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Header />
       <main className="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10 pt-24 pb-12">
-        <AnimatedTitle
-          as="h1"
-          text="PROJECTS"
-          className="text-4xl md:text-5xl font-bold text-primary mb-12 text-center"
-        />
+        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-12 text-center">
+            <ShuffleText>PROJECTS</ShuffleText>
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
                 <ProjectCard
