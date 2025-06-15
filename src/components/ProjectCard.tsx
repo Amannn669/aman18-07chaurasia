@@ -1,44 +1,51 @@
 
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { ArrowUpRight } from 'lucide-react';
 
-interface ProjectCardProps {
+export interface Project {
   title: string;
   description: string;
   imageUrl: string;
   tags: string[];
-  githubUrl?: string;
-  liveUrl?: string;
+  link?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, tags, githubUrl, liveUrl }) => {
+interface ProjectCardProps {
+  project: Project;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="bg-card border border-border rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 flex flex-col">
-      <div className="overflow-hidden h-48">
-        <img src={imageUrl} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-      </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold mb-2 text-primary">{title}</h3>
-        <p className="text-muted-foreground mb-4 flex-grow">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map(tag => (
-            <span key={tag} className="bg-secondary text-secondary-foreground text-xs font-semibold px-2.5 py-1 rounded-full">{tag}</span>
+    <Card className="bg-card/50 backdrop-blur-sm border-border/20 h-full flex flex-col group overflow-hidden">
+      <CardHeader className="p-0">
+        <div className="aspect-video relative overflow-hidden">
+            <img src={project.imageUrl} alt={project.title} className="rounded-t-lg object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+        </div>
+        <div className="p-6">
+          <CardTitle>{project.title}</CardTitle>
+        </div>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p className="text-muted-foreground">{project.description}</p>
+      </CardContent>
+      <CardFooter className="flex-col items-start gap-4">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <Badge key={tag} variant="secondary">{tag}</Badge>
           ))}
         </div>
-        <div className="flex justify-end gap-4 mt-auto">
-          {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Github size={20} />
-            </a>
-          )}
-          {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <ExternalLink size={20} />
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
+        {project.link && (
+          <a href={project.link} target="_blank" rel="noopener noreferrer" className="w-full mt-2">
+            <Button variant="outline" className="w-full">
+              View Project <ArrowUpRight />
+            </Button>
+          </a>
+        )}
+      </CardFooter>
+    </Card>
   );
 };
 
