@@ -57,8 +57,8 @@ const Experience = () => {
       const screenHeight = window.innerHeight;
 
       const scrollPercent = (screenHeight - top) / (screenHeight + height);
-      // Adjust progress calculation to ensure it reaches 100%
-      const newProgress = Math.max(0, Math.min(100, scrollPercent * 150));
+      // Adjust progress calculation to ensure it reaches 100% more smoothly
+      const newProgress = Math.max(0, Math.min(100, scrollPercent * 120));
 
       setProgress(newProgress);
 
@@ -79,7 +79,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-24" ref={sectionRef}>
+    <section id="experience" className="py-32" ref={sectionRef}>
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center">
         My career & experience
       </h2>
