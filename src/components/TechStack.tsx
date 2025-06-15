@@ -1,6 +1,7 @@
+
 import React, { useRef, useState, useEffect, Suspense } from 'react';
 import { Canvas, useFrame, ThreeEvent } from '@react-three/fiber';
-import { Text, Environment } from '@react-three/drei';
+import { Text } from '@react-three/drei';
 import ShuffleText from './ShuffleText';
 import * as THREE from 'three';
 
@@ -121,10 +122,9 @@ const TechStack = () => {
       </h2>
       <div className="h-[400px] w-full cursor-grab active:cursor-grabbing">
         <Canvas camera={{ position: [0, 0, 12], fov: 50 }}>
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={1} />
           <pointLight position={[10, 10, 10]} intensity={1} />
           <Suspense fallback={null}>
-            <Environment preset="city" />
             <Cube />
           </Suspense>
         </Canvas>
