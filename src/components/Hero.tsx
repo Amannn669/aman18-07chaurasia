@@ -7,8 +7,8 @@ import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative pt-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <section id="home" className="min-h-screen flex items-center relative pt-20">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div className="text-center md:text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4">
             Hello! I'm <br />
