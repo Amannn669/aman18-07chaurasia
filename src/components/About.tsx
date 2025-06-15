@@ -56,7 +56,7 @@ const About = () => {
            </div>
         </div>
         <div className="text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary uppercase tracking-wider">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wider">About Me</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             I'm a creative developer & designer with a passion for blending technical expertise with creative edge. Driven by curiosity, I always try to explore and learn new skills.
           </p>
