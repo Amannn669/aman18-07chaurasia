@@ -17,7 +17,7 @@ const Contact = () => {
                     {/* CONTENT */}
                     <div className="flex-grow text-center">
                         <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-wider mb-12">Contact</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-lg max-w-5xl mx-auto">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 text-lg max-w-3xl mx-auto">
                             <div className="space-y-8">
                                 <div>
                                     <h3 className="text-base text-muted-foreground mb-2">Email</h3>
@@ -37,22 +37,21 @@ const Contact = () => {
                                     <li><a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center group">Instagram <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
                                 </ul>
                             </div>
-                             <div className="space-y-8">
-                                <div>
-                                    <h3 className="text-base text-muted-foreground mb-2">Designed and Developed</h3>
-                                    <p className="font-semibold">by Aman Chaurasia</p>
-                                </div>
-                                <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Aman Chaurasia</p>
-                            </div>
                         </div>
                     </div>
                     
-                    {/* ICONS */}
-                    <div className="flex flex-row gap-6 justify-center">
-                        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
-                        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
-                        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
-                        <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
+                    <div className="text-center space-y-8">
+                        <div>
+                             <h3 className="text-base text-muted-foreground mb-2">Designed and Developed</h3>
+                             <p className="font-semibold">by Aman Chaurasia</p>
+                             <p className="text-sm text-muted-foreground mt-2">&copy; {new Date().getFullYear()} Aman Chaurasia</p>
+                        </div>
+                        <div className="flex flex-row gap-6 justify-center">
+                            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
+                            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
+                            <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
+                            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
+                        </div>
                     </div>
                 </div>
             </div>
