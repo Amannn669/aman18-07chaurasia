@@ -1,140 +1,29 @@
-import React, { useRef, useMemo, useState, Suspense } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, Stars, Line } from '@react-three/drei';
-// import { EffectComposer, Bloom } from '@react-three/postprocessing';
-import * as THREE from 'three';
+
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Stars, Sparkles } from '@react-three/drei';
 import ShuffleText from './ShuffleText';
-
-const skills = [
-  "HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB",
-  "TypeScript", "Next.js", "Tailwind CSS", "Three.js", "R3F", "Git"
-];
-
-// Generate points randomly in a cube
-const getPointsInCube = (count: number, size: number) => {
-    const points = [];
-    for (let i = 0; i < count; i++) {
-        const x = (Math.random() - 0.5) * size;
-        const y = (Math.random() - 0.5) * size;
-        const z = (Math.random() - 0.5) * size;
-        points.push(new THREE.Vector3(x, y, z));
-    }
-    return points;
-};
-
-const Node = ({ position, text }: { position: THREE.Vector3; text: string }) => {
-    const [hovered, setHover] = useState(false);
-    
-    return (
-        <group position={position}>
-            <mesh
-                onPointerOver={(e) => { e.stopPropagation(); setHover(true); }}
-                onPointerOut={() => setHover(false)}
-                scale={hovered ? 1.5 : 1}
-            >
-                <sphereGeometry args={[0.2, 32, 32]} />
-                <meshStandardMaterial 
-                    color={hovered ? 'hotpink' : 'hsl(260, 90%, 65%)'}
-                    emissive={hovered ? 'hotpink' : 'hsl(260, 90%, 65%)'}
-                    emissiveIntensity={hovered ? 4 : 1.5}
-                    toneMapped={false}
-                />
-            </mesh>
-            <Text
-                position={[0, 0.45, 0]}
-                fontSize={0.3}
-                color={hovered ? 'hotpink' : 'hsl(210, 40%, 98%)'}
-                anchorX="center"
-                anchorY="middle"
-            >
-                {text}
-            </Text>
-        </group>
-    );
-};
-
-const Constellation = () => {
-    const groupRef = useRef<THREE.Group>(null!);
-    const size = 10;
-
-    const nodes = useMemo(() => {
-        const points = getPointsInCube(skills.length, size);
-        return skills.map((skill, i) => ({
-            position: points[i],
-            text: skill
-        }));
-    }, []);
-
-    const edges = useMemo(() => {
-        const connections = [];
-        const processedPairs = new Set<string>();
-
-        for (let i = 0; i < nodes.length; i++) {
-            const distances = [];
-            for (let j = 0; j < nodes.length; j++) {
-                if (i === j) continue;
-                distances.push({ index: j, dist: nodes[i].position.distanceTo(nodes[j].position) });
-            }
-            distances.sort((a, b) => a.dist - b.dist);
-
-            // Connect to 2 nearest neighbors
-            for(let k = 0; k < 2; k++) {
-              const neighborIndex = distances[k].index;
-              const pairKey = [i, neighborIndex].sort((a, b) => a - b).join('-');
-              if (!processedPairs.has(pairKey)) {
-                connections.push({ start: nodes[i].position, end: nodes[neighborIndex].position });
-                processedPairs.add(pairKey);
-              }
-            }
-        }
-        return connections;
-    }, [nodes]);
-
-    useFrame((_state, delta) => {
-        if (groupRef.current) {
-            groupRef.current.rotation.y += delta * 0.2;
-        }
-    });
-
-    return (
-        <group ref={groupRef}>
-            {nodes.map((node, i) => (
-                <Node key={i} position={node.position} text={node.text} />
-            ))}
-            {edges.map((edge, i) => (
-                <Line
-                    key={i}
-                    points={[edge.start, edge.end]}
-                    color="hsl(260, 90%, 65%)"
-                    lineWidth={1}
-                    transparent
-                    opacity={0.3}
-                />
-            ))}
-        </group>
-    );
-};
-
+import { SpellbookAnimation } from './SpellbookAnimation';
 
 const TechStack = () => {
   return (
     <section id="tech-stack" className="py-20 text-center">
-      <h2 className="text-4xl font-bold mb-12 flex justify-center items-baseline gap-x-2">
+      <h2 className="text-4xl font-bold mb-4 flex justify-center items-baseline gap-x-2">
         <span><ShuffleText>MY</ShuffleText></span>
-        <span className="text-primary"><ShuffleText>TECH STACK</ShuffleText></span>
+        <span className="text-primary"><ShuffleText>SPELLS</ShuffleText></span>
       </h2>
-      <div className="h-[500px] w-full">
-        <Canvas camera={{ position: [0, 0, 18], fov: 50 }}>
+      <p className="mb-8 text-muted-foreground">Scroll to turn the pages.</p>
+      <div className="h-[600px] w-full relative">
+        <Canvas camera={{ position: [0, 0.5, 8], fov: 50 }} shadows>
           <color attach="background" args={['hsl(10, 10%, 3%)']} />
-          <ambientLight intensity={0.1} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
+          <ambientLight intensity={0.5} />
+          <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={2} castShadow />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8a5a3c" />
           <Suspense fallback={null}>
-            <Stars radius={100} depth={50} count={5000} factor={8} saturation={0} fade speed={1} />
-            <Constellation />
+            <Stars radius={100} depth={50} count={5000} factor={6} saturation={0} fade speed={1} />
+            <Sparkles count={100} scale={10} size={20} speed={0.4} color="gold" />
+            <SpellbookAnimation />
           </Suspense>
-          {/* <EffectComposer>
-            <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} intensity={0.8} />
-          </EffectComposer> */}
         </Canvas>
       </div>
     </section>
