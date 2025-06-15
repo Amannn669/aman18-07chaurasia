@@ -6,8 +6,8 @@ import { SpellbookAnimation } from './SpellbookAnimation';
 const TechStack = () => {
   return (
     <section id="tech-stack" className="h-[80vh] w-full flex flex-col justify-center py-10">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
-        My Tech Stack
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-foreground mb-8">
+        MY <span className="text-primary">TECH STACK</span>
       </h2>
       <div className="w-full flex-1 relative">
         <Canvas className="no-scrollbar" camera={{ position: [0, 0.5, 8], fov: 50 }} shadows>
