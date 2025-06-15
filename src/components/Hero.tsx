@@ -4,6 +4,7 @@ import AnimatedText from './AnimatedText';
 import { Download } from 'lucide-react';
 import AnimatedProfileImage from './AnimatedProfileImage';
 import SocialLinks from './SocialLinks';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   return (
@@ -23,11 +24,12 @@ const Hero = () => {
             <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float" />
         </div>
       </div>
-      <div className="absolute bottom-10 right-4 md:right-8 z-50 hidden md:flex items-center space-x-2">
-        <a href="#resume" className="font-bold tracking-widest text-sm hover:text-primary transition-colors">
-          RESUME
-        </a>
-        <Download size={16} className="text-primary"/>
+      <div className="absolute bottom-10 right-4 md:right-8 z-50 hidden md:flex">
+        <Button asChild variant="outline">
+          <a href="#experience">
+            Resume <Download className="ml-2 h-4 w-4" />
+          </a>
+        </Button>
       </div>
     </section>
   );
