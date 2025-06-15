@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { Github, Linkedin, Twitter, Instagram, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Youtube, Instagram, ArrowUpRight } from 'lucide-react';
 
 const socialLinks = {
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
-  twitter: "https://twitter.com",
-  instagram: "https://instagram.com",
+  github: "https://github.com/aman18Chaurasia",
+  linkedin: "https://www.linkedin.com/in/aman-chaurasia-",
+  youtube: "https://youtube.com/@forreal..18?feature=shared",
+  instagram: "https://www.instagram.com/a_mannn._/",
 };
 
 const Contact = () => {
@@ -19,7 +19,7 @@ const Contact = () => {
                     <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:justify-between md:self-stretch">
                         <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
                         <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
-                        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
+                        <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Youtube size={24} /></a>
                         <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
                     </div>
                     
@@ -41,7 +41,7 @@ const Contact = () => {
                                 <ul className="space-y-2">
                                     <li><a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">Github <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
                                     <li><a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">LinkedIn <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
-                                    <li><a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">Twitter <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
+                                    <li><a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">YouTube <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
                                     <li><a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors flex items-center justify-center md:justify-start group">Instagram <ArrowUpRight size={18} className="ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /></a></li>
                                 </ul>
                             </div>
