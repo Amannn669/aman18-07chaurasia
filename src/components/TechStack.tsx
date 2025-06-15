@@ -1,10 +1,9 @@
-
 import React, { useRef, useState, useEffect, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import ShuffleText from './ShuffleText';
 import * as THREE from 'three';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
+// import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
 const skills = [
   "HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB",
@@ -99,9 +98,9 @@ const TechStack = () => {
           <Suspense fallback={null}>
             <Cube />
           </Suspense>
-          <EffectComposer>
+          {/* <EffectComposer>
             <Bloom luminanceThreshold={0.3} luminanceSmoothing={0.9} height={300} intensity={1.5} />
-          </EffectComposer>
+          </EffectComposer> */}
         </Canvas>
       </div>
     </section>
