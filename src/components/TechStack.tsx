@@ -1,8 +1,7 @@
-
 import React, { useRef, useMemo, useState, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Stars, Line } from '@react-three/drei';
-// import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import ShuffleText from './ShuffleText';
 
@@ -133,12 +132,12 @@ const TechStack = () => {
           <ambientLight intensity={0.1} />
           <pointLight position={[10, 10, 10]} intensity={0.5} />
           <Suspense fallback={null}>
-            <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+            <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={2} />
             <Constellation />
           </Suspense>
-          {/* <EffectComposer>
-            <Bloom luminanceThreshold={0.2} luminanceSmoothing={0.9} intensity={1.5} />
-          </EffectComposer> */}
+          <EffectComposer>
+            <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} intensity={0.8} />
+          </EffectComposer>
         </Canvas>
       </div>
     </section>
@@ -146,4 +145,3 @@ const TechStack = () => {
 };
 
 export default TechStack;
-
