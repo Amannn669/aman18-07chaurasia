@@ -16,10 +16,16 @@ const experienceData = [
     description: 'Acquired comprehensive skills in full-stack web development through self-directed learning.',
   },
   {
-    role: 'ML & Leadership',
+    role: 'Machine Learning Explorer',
     company: 'IIIT Raichur',
     year: '2024',
-    description: 'Explored machine learning and took on the role of Cultural Secretary, honing leadership skills.',
+    description: 'Explored the fundamentals and applications of machine learning.',
+  },
+  {
+    role: 'Cultural Secretary',
+    company: 'IIIT Raichur Student Council',
+    year: '2024',
+    description: 'Led and organized campus-wide cultural events, honing leadership and team management skills.',
   },
   {
     role: 'Generative AI Explorer',
@@ -36,7 +42,7 @@ const experienceData = [
 ];
 
 // Progress percentages for when each milestone becomes active
-const milestoneThresholds = [5, 25, 45, 65, 85];
+const milestoneThresholds = [5, 20, 38, 55, 72, 90];
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,7 +57,8 @@ const Experience = () => {
       const screenHeight = window.innerHeight;
 
       const scrollPercent = (screenHeight - top) / (screenHeight + height);
-      const newProgress = Math.max(0, Math.min(100, scrollPercent * 100));
+      // Adjust progress calculation to ensure it reaches 100%
+      const newProgress = Math.max(0, Math.min(100, scrollPercent * 150));
 
       setProgress(newProgress);
 
@@ -132,4 +139,3 @@ const Experience = () => {
 };
 
 export default Experience;
-
