@@ -129,6 +129,7 @@ const TechStack = () => {
       </h2>
       <div className="h-[500px] w-full">
         <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
+          <color attach="background" args={['hsl(10, 10%, 3%)']} />
           <ambientLight intensity={0.1} />
           <pointLight position={[10, 10, 10]} intensity={0.5} />
           <Suspense fallback={null}>
@@ -145,3 +146,4 @@ const TechStack = () => {
 };
 
 export default TechStack;
+
