@@ -136,7 +136,7 @@ const TechStack = () => {
             <Constellation />
           </Suspense>
           <EffectComposer>
-            <Bloom luminanceThreshold={0.2} luminanceSmoothing={0.9} height={400} intensity={1.5} />
+            <Bloom luminanceThreshold={0.2} luminanceSmoothing={0.9} intensity={1.5} />
           </EffectComposer>
         </Canvas>
       </div>
