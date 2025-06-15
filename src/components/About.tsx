@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import ShuffleText from './ShuffleText';
 
@@ -53,7 +52,6 @@ const About = () => {
                   className="relative w-full h-full object-cover object-top"
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-[5%] bg-gradient-to-t from-background to-transparent"></div>
-                <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background to-transparent"></div>
              </div>
            </div>
         </div>
