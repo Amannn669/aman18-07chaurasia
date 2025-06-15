@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text, useScroll, ScrollControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -12,45 +12,33 @@ const techStack = [
   { name: 'Three.js', symbol: '3D' },
 ];
 
-const PageContent = ({ tech, onHover, isHovered }: { tech: { name: string, symbol: string }, onHover: (hovered: boolean) => void, isHovered: boolean }) => {
+const PageContent = ({ tech }: { tech: { name: string, symbol: string } }) => {
     return (
-        <mesh
-            onPointerOver={(e) => { e.stopPropagation(); onHover(true); }}
-            onPointerOut={() => onHover(false)}
-        >
-            <planeGeometry args={[3.5, 4.8]} />
-            <meshBasicMaterial transparent opacity={0} />
-
+        <group>
              <Text
                 position={[0, 1, 0.001]}
-                fontSize={isHovered ? 1.7 : 1.5}
-                color={isHovered ? '#ffd700' : '#4a2c1a'}
+                fontSize={1.5}
+                color={'#4a2c1a'}
                 anchorX="center"
                 anchorY="middle"
              >
                 {tech.symbol}
             </Text>
-            {isHovered && (
-                 <>
-                    <Text
-                        position={[0, -0.5, 0.001]}
-                        fontSize={0.4}
-                        color={'#4a2c1a'}
-                        anchorX="center"
-                        anchorY="middle"
-                    >
-                        {tech.name}
-                    </Text>
-                    <pointLight position={[0, 0.5, 0.5]} intensity={2.5} color="#ffd700" distance={4} />
-                 </>
-            )}
-        </mesh>
+            <Text
+                position={[0, -0.5, 0.001]}
+                fontSize={0.4}
+                color={'#4a2c1a'}
+                anchorX="center"
+                anchorY="middle"
+            >
+                {tech.name}
+            </Text>
+        </group>
     )
 }
 
 function Book() {
   const scroll = useScroll();
-  const [hovered, setHovered] = useState<number | null>(null);
   const pageRefs = useRef<(THREE.Group | null)[]>([]);
   
   useFrame(() => {
@@ -99,11 +87,11 @@ function Book() {
                 </mesh>
                 {/* Content on the right side of the page (front) */}
                 <group position={[1.75, 0, 0.011]}>
-                    <PageContent tech={tech} onHover={(h) => setHovered(h ? i : null)} isHovered={hovered === i} />
+                    <PageContent tech={tech} />
                 </group>
                 {/* Content on the left side of the page (back) */}
                 <group position={[1.75, 0, -0.011]} rotation={[0, Math.PI, 0]}>
-                   <PageContent tech={tech} onHover={(h) => setHovered(h ? i : null)} isHovered={hovered === i} />
+                   <PageContent tech={tech} />
                 </group>
             </group>
         ))}
