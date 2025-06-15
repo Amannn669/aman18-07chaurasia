@@ -1,7 +1,6 @@
 
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Stars, Sparkles } from '@react-three/drei';
 import { SpellbookAnimation } from './SpellbookAnimation';
 
 const TechStack = () => {
@@ -14,8 +13,6 @@ const TechStack = () => {
           <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={2} castShadow />
           <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8a5a3c" />
           <Suspense fallback={null}>
-            <Stars radius={100} depth={50} count={5000} factor={6} saturation={0} fade speed={1} />
-            <Sparkles count={100} scale={10} size={20} speed={0.4} color="gold" />
             <SpellbookAnimation />
           </Suspense>
         </Canvas>
