@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Coffee, Code } from 'lucide-react';
+import { Coffee } from 'lucide-react';
 
 interface CoffeeAnimationProps {
   isVisible: boolean;
@@ -34,9 +33,6 @@ const CoffeeAnimation = ({ isVisible }: CoffeeAnimationProps) => {
           }`}
         ></div>
       </div>
-
-      {/* The code logo on the cup */}
-      <Code className="absolute w-16 h-16 text-foreground/70 opacity-80" strokeWidth={1.5} />
     </div>
   );
 };
