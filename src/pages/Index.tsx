@@ -6,7 +6,6 @@ import WhatIDo from '@/components/WhatIDo';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import FixedResumeLink from '@/components/FixedResumeLink';
-import Projects from '@/components/Projects';
 
 const Index = () => {
   return (
@@ -19,7 +18,6 @@ const Index = () => {
         <Hero />
         <About />
         <WhatIDo />
-        <Projects />
         <Experience />
         <Contact />
       </main>
