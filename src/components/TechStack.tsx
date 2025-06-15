@@ -1,24 +1,26 @@
 
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { SpellbookAnimation } from './SpellbookAnimation';
+import React from 'react';
+import TechCard from './TechCard';
+
+const techStack = [
+  { name: 'HTML', symbol: 'H' },
+  { name: 'CSS', symbol: 'C' },
+  { name: 'JavaScript', symbol: 'JS' },
+  { name: 'React', symbol: 'R' },
+  { name: 'Node.js', symbol: 'N' },
+  { name: 'Three.js', symbol: '3D' },
+];
 
 const TechStack = () => {
   return (
-    <section id="tech-stack" className="h-[80vh] w-full flex flex-col justify-center py-10">
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-foreground mb-8">
+    <section id="tech-stack" className="w-full flex flex-col items-center justify-center py-20">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-foreground mb-12">
         MY <span className="text-primary">TECH STACK</span>
       </h2>
-      <div className="w-full flex-1 relative">
-        <Canvas className="no-scrollbar" camera={{ position: [0, 0.5, 8], fov: 50 }} shadows>
-          <color attach="background" args={['hsl(10, 10%, 3%)']} />
-          <ambientLight intensity={0.5} />
-          <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={2} castShadow />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8a5a3c" />
-          <Suspense fallback={null}>
-            <SpellbookAnimation />
-          </Suspense>
-        </Canvas>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        {techStack.map((tech) => (
+          <TechCard key={tech.name} tech={tech} />
+        ))}
       </div>
     </section>
   );
