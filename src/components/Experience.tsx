@@ -4,27 +4,39 @@ import { cn } from '@/lib/utils';
 
 const experienceData = [
   {
-    role: 'Senior web developer',
-    company: 'Blue Cube Digital',
-    year: '2017',
-    description: 'Developed and managed web projects, including frontend/backend, CMS dashboards, and responsive, accessible web pages with PHP, MySQL, and JavaScript.',
+    role: 'B.Tech Student',
+    company: 'IIIT Raichur',
+    year: '2022',
+    description: 'Embarked on my computer science journey at the Indian Institute of Information Technology, Raichur.',
   },
   {
-    role: 'Associate Solution Leader',
-    company: 'Brane Enterprises',
-    year: '2020',
-    description: 'Built web features, product prototypes, and reusable components/microservices, implemented UI improvements and 3D UI interface compatible with Typescript.',
+    role: 'Full Stack Developer',
+    company: 'Self-Taught',
+    year: '2023',
+    description: 'Acquired comprehensive skills in full-stack web development through self-directed learning.',
   },
   {
-    role: 'Freelance & Upskilling',
-    company: 'Freelance',
+    role: 'ML & Leadership',
+    company: 'IIIT Raichur',
+    year: '2024',
+    description: 'Explored machine learning and took on the role of Cultural Secretary, honing leadership skills.',
+  },
+  {
+    role: 'Generative AI Explorer',
+    company: 'Self-Taught',
+    year: '2025',
+    description: 'Focused on the burgeoning field of Generative AI, building projects and understanding its core.',
+  },
+  {
+    role: 'AI/ML Practitioner',
+    company: 'Industry Projects',
     year: 'NOW',
-    description: 'During this period, I worked as a freelancer for various clients, providing 3D and web services, while actively upskilling also in multiple areas increasing my Techstack.',
+    description: 'Applying my AI/ML knowledge to real-world industry projects, creating impactful solutions.',
   },
 ];
 
 // Progress percentages for when each milestone becomes active
-const milestoneThresholds = [5, 40, 75];
+const milestoneThresholds = [5, 25, 45, 65, 85];
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -120,3 +132,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
