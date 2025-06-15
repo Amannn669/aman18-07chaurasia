@@ -12,9 +12,9 @@ interface FramedBoxProps {
   value: string;
 }
 
-const FramedBox = ({ title, children, value }: FramedBoxProps) => {
+const FramedBox = React.forwardRef<HTMLDivElement, FramedBoxProps>(({ title, children, value }, ref) => {
   return (
-    <AccordionItem value={value} className="border-b-0 border border-muted-foreground/20 p-6 rounded-lg relative">
+    <AccordionItem ref={ref} value={value} className="border-b-0 border border-muted-foreground/20 p-6 rounded-lg relative">
       <div className="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg"></div>
       <div className="absolute -top-px -right-px w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-lg"></div>
       <div className="absolute -bottom-px -left-px w-8 h-8 border-b-2 border-l-2 border-primary rounded-bl-lg"></div>
@@ -27,6 +27,8 @@ const FramedBox = ({ title, children, value }: FramedBoxProps) => {
       </AccordionContent>
     </AccordionItem>
   );
-};
+});
+
+FramedBox.displayName = "FramedBox";
 
 export default FramedBox;

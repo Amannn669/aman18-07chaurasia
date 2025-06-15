@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
@@ -7,6 +6,20 @@ import { Accordion } from '@/components/ui/accordion';
 const WhatIDo = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [openItem, setOpenItem] = useState<string | undefined>();
+  const [translateY, setTranslateY] = useState(0);
+
+  const item1Ref = useRef<HTMLDivElement>(null);
+  const item2Ref = useRef<HTMLDivElement>(null);
+  const item3Ref = useRef<HTMLDivElement>(null);
+  const item4Ref = useRef<HTMLDivElement>(null);
+
+  const itemRefs = {
+    'item-1': item1Ref,
+    'item-2': item2Ref,
+    'item-3': item3Ref,
+    'item-4': item4Ref,
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,16 +41,39 @@ const WhatIDo = () => {
 
     return () => {
       if (sectionRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
 
+  useEffect(() => {
+    const calculateOffset = () => {
+      if (openItem) {
+        const ref = itemRefs[openItem as keyof typeof itemRefs];
+        if (ref.current) {
+          const yOffset = ref.current.offsetTop;
+          setTranslateY(yOffset);
+        }
+      } else {
+        setTranslateY(0);
+      }
+    };
+
+    calculateOffset();
+
+    window.addEventListener('resize', calculateOffset);
+    return () => {
+      window.removeEventListener('resize', calculateOffset);
+    };
+  }, [openItem]);
+
   return (
     <section id="work" className="py-24" ref={sectionRef}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="flex flex-col items-center md:items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div 
+          className="flex flex-col items-center md:items-start transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateY(${translateY}px)` }}
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center md:text-left uppercase tracking-wider">What I Do</h2>
           <img 
             src="https://cdn3d.iconscout.com/3d/premium/thumb/man-working-on-laptop-while-sitting-on-chair-7088924-5777478.png"
@@ -45,8 +81,13 @@ const WhatIDo = () => {
             className="w-full max-w-md animate-float"
           />
         </div>
-        <Accordion type="single" collapsible className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          <FramedBox title="Full Stack" value="item-1">
+        <Accordion 
+          type="single" 
+          collapsible 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
+          onValueChange={setOpenItem}
+        >
+          <FramedBox ref={item1Ref} title="Full Stack" value="item-1">
             <div className="flex flex-col gap-4">
               {isVisible && (
                 <TypeAnimation
@@ -67,7 +108,7 @@ const WhatIDo = () => {
               </p>
             </div>
           </FramedBox>
-          <FramedBox title="Generative AI" value="item-2">
+          <FramedBox ref={item2Ref} title="Generative AI" value="item-2">
              <div className="flex flex-col gap-4">
                 {isVisible && (
                   <TypeAnimation
@@ -88,7 +129,7 @@ const WhatIDo = () => {
                 </p>
             </div>
           </FramedBox>
-          <FramedBox title="Machine Learning" value="item-3">
+          <FramedBox ref={item3Ref} title="Machine Learning" value="item-3">
             <div className="flex flex-col gap-4">
               {isVisible && (
                 <TypeAnimation
@@ -109,7 +150,7 @@ const WhatIDo = () => {
               </p>
             </div>
           </FramedBox>
-          <FramedBox title="AI Workflow" value="item-4">
+          <FramedBox ref={item4Ref} title="AI Workflow" value="item-4">
              <div className="flex flex-col gap-4">
                 {isVisible && (
                   <TypeAnimation
