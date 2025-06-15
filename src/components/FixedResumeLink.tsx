@@ -1,15 +1,17 @@
 
 import React from 'react';
-import { Download } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 const FixedResumeLink = () => {
   return (
     <a
-      href="#experience"
+      href="https://bento.me/your-resume"
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed bottom-10 right-4 md:right-8 z-50 hidden md:flex items-center space-x-2 font-bold tracking-widest text-sm text-muted-foreground hover:text-primary transition-colors"
     >
       <span>RESUME</span>
-      <Download size={16} />
+      <FileText size={16} />
     </a>
   );
 };
