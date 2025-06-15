@@ -6,20 +6,62 @@ import ProjectCard from '@/components/ProjectCard';
 
 const projects = [
   {
-    title: 'Project One',
-    description: 'A brief description of the first project. It showcases my skills in X, Y, and Z.',
+    title: 'Project Neonoir',
+    description: 'A detective RPG set in a rain-drenched, neon-lit metropolis of 2077, built with advanced storytelling AI.',
     link: '#',
     image: '/placeholder.svg'
   },
   {
-    title: 'Project Two',
-    description: 'A brief description of the second project. It highlights my ability to do A, B, and C.',
+    title: 'CypherDeck OS',
+    description: 'A custom terminal-based OS for netrunners, focusing on security and network infiltration simulations.',
     link: '#',
     image: '/placeholder.svg'
   },
   {
-    title: 'Project Three',
-    description: 'A brief description of the third project. This was a challenging but rewarding experience.',
+    title: 'Synthwave Rider',
+    description: 'An endless runner game with a retro-futuristic aesthetic, featuring a high-speed light cycle on a digital highway.',
+    link: '#',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Chrome Augmentations',
+    description: 'An interactive WebGL showcase of fictional cybernetic enhancements and body modifications.',
+    link: '#',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Data Haven',
+    description: 'A decentralized, encrypted file storage system using blockchain to resist corporate surveillance.',
+    link: '#',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Glitchscape',
+    description: 'A generative art project that creates dynamic, cyberpunk cityscapes from random data streams.',
+    link: '#',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Holo-Communicator',
+    description: 'A proof-of-concept AR app that projects holographic video calls into the user\'s environment.',
+    link: '#',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Replicant Dreams',
+    description: 'An AI-powered storytelling engine that generates unique narratives about androids questioning their existence.',
+    link: '#',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Zero-G Smuggler',
+    description: 'A physics-based space trading game where you navigate asteroid fields to deliver illicit cargo.',
+    link: '#',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Aetherium Grid',
+    description: 'A data visualization tool mapping the flow of information across a fictional global network.',
     link: '#',
     image: '/placeholder.svg'
   },
