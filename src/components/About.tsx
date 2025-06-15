@@ -52,7 +52,7 @@ const About = () => {
                   alt="Aman Chaurasia"
                   className="relative w-full h-full object-cover object-top"
                 />
-                <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-background to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-background to-transparent"></div>
              </div>
            </div>
         </div>
