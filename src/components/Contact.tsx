@@ -1,5 +1,4 @@
 
-```tsx
 import React from 'react';
 import { Github, Linkedin, Twitter, Instagram, ArrowUpRight } from 'lucide-react';
 
@@ -62,4 +61,3 @@ const Contact = () => {
 };
 
 export default Contact;
-```
