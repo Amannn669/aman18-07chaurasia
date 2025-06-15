@@ -1,6 +1,8 @@
 
-import React from 'react';
-import ShuffleText from './ShuffleText';
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Preload } from '@react-three/drei';
+import TechBall from './TechBall';
 
 const skills = [
   "React", "Next.js", "TypeScript", "JavaScript", "Node.js", 
@@ -8,23 +10,41 @@ const skills = [
   "Supabase", "MongoDB", "Three.js", "R3F"
 ];
 
+function getFibonacciSpherePositions(samples: number, radius: number): [number, number, number][] {
+    const points: [number, number, number][] = [];
+    const phi = Math.PI * (3 - Math.sqrt(5));
+
+    for (let i = 0; i < samples; i++) {
+        const y = 1 - (i / (samples - 1)) * 2;
+        const R = Math.sqrt(1 - y * y);
+        const theta = phi * i;
+        const x = Math.cos(theta) * R * radius;
+        const z = Math.sin(theta) * R * radius;
+        points.push([x, y * radius, z]);
+    }
+    return points;
+}
+
 const TechStack = () => {
+  const ballPositions = getFibonacciSpherePositions(skills.length, 4.5);
+
   return (
-    <section id="tech-stack" className="py-20 text-center">
-      <h2 className="text-4xl font-bold mb-12">
-        <ShuffleText>MY TECH STACK</ShuffleText>
-      </h2>
-      <div className="flex flex-wrap justify-center items-center gap-4 max-w-4xl mx-auto">
-        {skills.map((skill) => (
-          <div
-            key={skill}
-            className="bg-secondary p-4 rounded-lg border border-border"
-          >
-            <ShuffleText as="p" className="text-lg font-mono text-primary-foreground">
-              {skill}
-            </ShuffleText>
-          </div>
-        ))}
+    <section id="tech-stack" className="py-20 text-center min-h-screen flex flex-col justify-center">
+      <h2 className="text-4xl font-bold mb-12">MY TECH STACK</h2>
+      <div className="w-full h-[600px]">
+        <Canvas camera={{ position: [0, 0, 12], fov: 45 }}>
+          <Suspense fallback={null}>
+            <ambientLight intensity={0.8} />
+            <pointLight position={[10, 10, 10]} intensity={1} />
+            
+            {skills.map((skill, i) => (
+              <TechBall key={skill} text={skill} initialPosition={ballPositions[i]} />
+            ))}
+
+            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+          </Suspense>
+          <Preload all />
+        </Canvas>
       </div>
     </section>
   );
