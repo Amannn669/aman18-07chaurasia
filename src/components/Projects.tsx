@@ -1,5 +1,4 @@
 
-```tsx
 import React from 'react';
 import ProjectCard, { Project } from './ProjectCard';
 import ShuffleText from './ShuffleText';
@@ -58,4 +57,3 @@ const Projects = () => {
 };
 
 export default Projects;
-```
