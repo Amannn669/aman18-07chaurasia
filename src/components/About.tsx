@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import ShuffleText from './ShuffleText';
 
@@ -52,7 +51,7 @@ const About = () => {
                   alt="Aman Chaurasia"
                   className="relative w-full h-full object-cover object-top"
                 />
-                <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-background to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-[5%] bg-gradient-to-t from-background to-transparent"></div>
              </div>
            </div>
         </div>
