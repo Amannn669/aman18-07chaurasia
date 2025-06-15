@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ShuffleText from './ShuffleText';
@@ -44,7 +44,31 @@ const Projects = () => {
     offset: ["start start", "end end"]
   });
 
-  const x = useTransform(scrollYProgress, [0.1, 0.9], ["0%", "-65%"]);
+  const scrollableContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollRange, setScrollRange] = useState(0);
+
+  useEffect(() => {
+    const scrollable = scrollableContainerRef.current;
+    const container = scrollable?.parentElement;
+
+    if (scrollable && container) {
+      const updateScrollRange = () => {
+        // Calculate the total distance the container needs to scroll.
+        const range = scrollable.scrollWidth - container.clientWidth;
+        setScrollRange(range);
+      };
+
+      updateScrollRange();
+
+      const resizeObserver = new ResizeObserver(updateScrollRange);
+      resizeObserver.observe(scrollable);
+      resizeObserver.observe(container);
+
+      return () => resizeObserver.disconnect();
+    }
+  }, []);
+
+  const x = useTransform(scrollYProgress, [0.1, 0.9], [0, -scrollRange]);
 
   return (
     <section ref={targetRef} id="work" className="relative h-[300vh] bg-background">
@@ -60,7 +84,7 @@ const Projects = () => {
           </p>
         </div>
         
-        <motion.div style={{ x }} className="flex gap-8 pl-[5vw] pr-[5vw]">
+        <motion.div ref={scrollableContainerRef} style={{ x }} className="flex gap-8 pl-[5vw] pr-[5vw]">
           {projectsData.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
