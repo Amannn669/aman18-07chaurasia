@@ -1,4 +1,5 @@
 
+```tsx
 import React from 'react';
 import ShuffleLink from './ShuffleLink';
 
@@ -15,8 +16,16 @@ const Header = () => {
           <ShuffleLink href="/#contact" className="story-link">CONTACT</ShuffleLink>
         </nav>
       </div>
+      <div 
+        className="absolute top-full left-0 w-full h-10 backdrop-blur-sm pointer-events-none"
+        style={{
+          maskImage: 'linear-gradient(to bottom, black, transparent)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+        }}
+      />
     </header>
   );
 };
 
 export default Header;
+```
