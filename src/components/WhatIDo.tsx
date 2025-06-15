@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
 import { Accordion } from '@/components/ui/accordion';
-import CoffeeAnimation from './CoffeeAnimation';
 
 const WhatIDo = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,14 +36,9 @@ const WhatIDo = () => {
 
   return (
     <section id="work" className="py-24" ref={sectionRef}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center md:text-left uppercase tracking-wider">What I Do</h2>
-          <div className="w-full max-w-md flex justify-center items-center h-full animate-float">
-            <CoffeeAnimation isVisible={isVisible} />
-          </div>
-        </div>
-        <Accordion type="single" collapsible className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      <div className="flex flex-col items-center gap-12">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider">What I Do</h2>
+        <Accordion type="single" collapsible className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <FramedBox title="Full Stack" value="item-1">
             <div className="flex flex-col gap-4">
               {isVisible && (
