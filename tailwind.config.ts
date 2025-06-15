@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -113,6 +114,16 @@ export default {
             transform: 'translateY(0)'
           }
         },
+        'fade-in-down': {
+          'from': {
+            opacity: '0',
+            transform: 'translateY(-10px)'
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        },
         'scale-in': {
           '0%': {
             transform: 'scale(0.95)',
@@ -143,6 +154,7 @@ export default {
         'enter': 'fade-in 0.3s ease-out, scale-in 0.2s ease-out',
         'spin-slow': 'spin-slow 10s linear infinite',
         'neon-pulse': 'neon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-in-down': 'fade-in-down 0.5s ease-out',
 			}
 		}
 	},
