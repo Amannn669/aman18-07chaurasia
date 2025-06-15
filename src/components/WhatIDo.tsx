@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
@@ -59,7 +58,7 @@ const WhatIDo = () => {
                 />
               )}
               <p className="text-muted-foreground">
-                Crafting seamless experiences from database to UI, I build robust and scalable full-stack applications.
+                I build robust and scalable full-stack applications, from database to UI. Using modern technologies, I craft seamless, efficient, and cohesive digital experiences.
               </p>
             </div>
           </FramedBox>
@@ -80,7 +79,7 @@ const WhatIDo = () => {
                   />
                 )}
                 <p className="text-muted-foreground">
-                  Developing innovative applications that leverage the power of generative models to create, reason, and assist.
+                  I develop innovative applications by harnessing the power of generative models. I specialize in integrating LLMs to build intelligent chatbots, content generators, and creative AI-powered tools.
                 </p>
             </div>
           </FramedBox>
@@ -101,7 +100,7 @@ const WhatIDo = () => {
                 />
               )}
               <p className="text-muted-foreground">
-                From data analysis to predictive modeling, I build intelligent systems that learn from data and drive decisions.
+                From data analysis to predictive modeling, I build intelligent systems that learn from data. I apply various ML algorithms to uncover crucial insights and solve complex real-world problems.
               </p>
             </div>
           </FramedBox>
@@ -122,7 +121,7 @@ const WhatIDo = () => {
                   />
                 )}
                 <p className="text-muted-foreground">
-                  Expert in integrating cutting-edge AI tools into business workflows to boost productivity and unlock new capabilities.
+                  I integrate cutting-edge AI tools into business workflows to boost productivity. I design and implement automated pipelines that streamline operations and unlock powerful new capabilities.
                 </p>
             </div>
           </FramedBox>
