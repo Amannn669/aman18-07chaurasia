@@ -9,10 +9,10 @@ const Contact = () => {
         Have a project in mind or just want to say hi? My inbox is always open. I'd love to hear from you.
       </p>
       <a 
-        href="mailto:connect@moncy.dev"
+        href="mailto:connect@aman.dev"
         className="text-2xl font-bold text-foreground hover:text-primary hover:underline transition-colors"
       >
-        connect@moncy.dev
+        connect@aman.dev
       </a>
     </section>
   );
