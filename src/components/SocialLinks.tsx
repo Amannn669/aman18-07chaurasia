@@ -11,7 +11,7 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center space-x-6 py-12">
+    <div className="flex justify-center md:justify-start items-center space-x-6 py-8">
       {socialMedia.map((social, index) => (
         <a
           key={index}

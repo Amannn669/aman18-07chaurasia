@@ -1,7 +1,9 @@
+
 import React from 'react';
 import AnimatedText from './AnimatedText';
 import { Download } from 'lucide-react';
 import AnimatedProfileImage from './AnimatedProfileImage';
+import SocialLinks from './SocialLinks';
 
 const Hero = () => {
   return (
@@ -13,6 +15,7 @@ const Hero = () => {
             <span className="font-black text-5xl md:text-6xl lg:text-7xl">MONCY YOHANNAN</span>
           </h1>
           <AnimatedText />
+          <SocialLinks />
         </div>
         <div className="flex justify-center items-center">
             <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float" />
