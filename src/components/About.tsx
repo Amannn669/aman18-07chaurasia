@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import ShuffleText from './ShuffleText';
 
@@ -47,7 +48,7 @@ const About = () => {
              <div className="relative">
                 <div className="absolute -inset-8 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 <img
-                  src="/lovable-uploads/087076a8-5514-468b-a1f3-4df00fbfe41a.png"
+                  src="/lovable-uploads/1b181969-6307-4383-906a-255cf48a8049.png"
                   alt="Moncy Yohannan"
                   className="relative w-full h-full object-cover object-top"
                 />
