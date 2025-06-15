@@ -1,3 +1,4 @@
+
 import React, { useRef, useMemo, useState, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Stars, Line } from '@react-three/drei';
@@ -37,8 +38,8 @@ const Node = ({ position, text }: { position: THREE.Vector3; text: string }) => 
             >
                 <sphereGeometry args={[0.2, 32, 32]} />
                 <meshStandardMaterial 
-                    color={hovered ? 'hotpink' : 'hsl(var(--primary))'}
-                    emissive={hovered ? 'hotpink' : 'hsl(var(--primary))'}
+                    color={hovered ? 'hotpink' : 'hsl(260, 90%, 65%)'}
+                    emissive={hovered ? 'hotpink' : 'hsl(260, 90%, 65%)'}
                     emissiveIntensity={hovered ? 4 : 1.5}
                     toneMapped={false}
                 />
@@ -46,7 +47,7 @@ const Node = ({ position, text }: { position: THREE.Vector3; text: string }) => 
             <Text
                 position={[0, 0.45, 0]}
                 fontSize={0.3}
-                color={hovered ? 'hotpink' : 'hsl(var(--foreground))'}
+                color={hovered ? 'hotpink' : 'hsl(210, 40%, 98%)'}
                 anchorX="center"
                 anchorY="middle"
             >
@@ -109,7 +110,7 @@ const Constellation = () => {
                 <Line
                     key={i}
                     points={[edge.start, edge.end]}
-                    color="hsl(var(--primary))"
+                    color="hsl(260, 90%, 65%)"
                     lineWidth={1}
                     transparent
                     opacity={0.3}
@@ -145,3 +146,4 @@ const TechStack = () => {
 };
 
 export default TechStack;
+
