@@ -127,6 +127,11 @@ export default {
           'from': { transform: 'rotate(0deg)' },
           'to': { transform: 'rotate(360deg)' },
         },
+        'neon-pulse': {
+          '50%': {
+            boxShadow: '0 0 8px hsl(var(--primary)), 0 0 20px hsl(var(--primary))'
+          }
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.3s ease-out',
@@ -137,6 +142,7 @@ export default {
         'scale-in': 'scale-in 0.2s ease-out',
         'enter': 'fade-in 0.3s ease-out, scale-in 0.2s ease-out',
         'spin-slow': 'spin-slow 10s linear infinite',
+        'neon-pulse': 'neon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 			}
 		}
 	},
