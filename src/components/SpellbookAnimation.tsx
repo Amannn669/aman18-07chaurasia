@@ -20,7 +20,7 @@ const PageContent = ({ tech, onHover, isHovered }: { tech: { name: string, symbo
             onPointerOut={() => onHover(false)}
         >
              <Text
-                position={[0, 1, 0.01]}
+                position={[0, 1, 0.001]}
                 fontSize={1.5}
                 color={isHovered ? '#ffd700' : '#4a2c1a'}
                 anchorX="center"
@@ -30,7 +30,7 @@ const PageContent = ({ tech, onHover, isHovered }: { tech: { name: string, symbo
             </Text>
             {isHovered && (
                  <Text
-                    position={[0, -0.5, 0.01]}
+                    position={[0, -0.5, 0.001]}
                     fontSize={0.4}
                     color={'#4a2c1a'}
                     anchorX="center"
