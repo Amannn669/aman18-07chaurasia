@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -81,7 +80,7 @@ const Experience = () => {
   return (
     <section id="experience" className="py-32" ref={sectionRef}>
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center">
-        My career & experience
+        My <span className="text-primary">career</span> & <span className="text-primary">experience</span>
       </h2>
       <div className="max-w-4xl mx-auto px-4 relative">
         <div className="absolute w-px h-full bg-primary/20 top-0 left-1/2 -translate-x-1/2 hidden md:block">
