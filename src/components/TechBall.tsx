@@ -24,13 +24,13 @@ const TechBall = ({ text, initialPosition }: TechBallProps) => {
     
     targetPosition.copy(initialVec);
 
-    if (dist < 3.5) {
+    if (dist < 2.5) {
       const direction = ref.current.position.clone().sub(worldMouse).normalize();
-      const pushDistance = (3.5 - dist) * 1.5;
+      const pushDistance = (2.5 - dist) * 1.0;
       targetPosition.add(direction.multiplyScalar(pushDistance));
     }
 
-    ref.current.position.lerp(targetPosition, 0.05);
+    ref.current.position.lerp(targetPosition, 0.1);
     ref.current.lookAt(state.camera.position);
     ref.current.rotation.z += delta * 0.05;
   });

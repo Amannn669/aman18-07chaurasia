@@ -24,7 +24,7 @@ function getFibonacciSpherePositions(samples: number, radius: number): [number, 
 }
 
 const TechStack = () => {
-    const ballPositions = getFibonacciSpherePositions(skills.length, 4.5);
+    const ballPositions = getFibonacciSpherePositions(skills.length, 3.5);
     
     return (
         <section id="tech-stack" className="py-20 text-center min-h-screen flex flex-col justify-center">
