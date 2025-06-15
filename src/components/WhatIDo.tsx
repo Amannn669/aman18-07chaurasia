@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
 import { Accordion } from '@/components/ui/accordion';
+import ShuffleText from './ShuffleText';
 
 const WhatIDo = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,7 +37,9 @@ const WhatIDo = () => {
   return (
     <section id="work" className="py-24" ref={sectionRef}>
       <div className="flex flex-col items-center gap-12">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-primary">What I Do</h2>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-primary">
+          <ShuffleText>WHAT I DO</ShuffleText>
+        </h2>
         <Accordion type="single" collapsible className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <FramedBox title="Full Stack" value="item-1">
             <div className="flex flex-col gap-4">

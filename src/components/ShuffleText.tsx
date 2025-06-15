@@ -2,25 +2,24 @@
 import React from 'react';
 import useShuffle from '@/hooks/useShuffle';
 
-interface ShuffleLinkProps {
-  href: string;
+interface ShuffleTextProps {
   children: string;
+  as?: React.ElementType;
   className?: string;
 }
 
-const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className }) => {
+const ShuffleText: React.FC<ShuffleTextProps> = ({ children, as: Component = 'span', className }) => {
   const { text, shuffle, stopShuffle } = useShuffle(children);
 
   return (
-    <a
-      href={href}
+    <Component
       onMouseEnter={shuffle}
       onMouseLeave={stopShuffle}
-      className={`font-mono ${className}`}
+      className={className}
     >
       {text}
-    </a>
+    </Component>
   );
 };
 
-export default ShuffleLink;
+export default ShuffleText;
