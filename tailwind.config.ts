@@ -145,10 +145,10 @@ export default {
         },
         'text-glow': {
           '0%, 100%': {
-            textShadow: '0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary))'
+            textShadow: '0 0 5px #FBBF24, 0 0 10px #FBBF24'
           },
           '50%': {
-            textShadow: '0 0 15px hsl(var(--primary)), 0 0 25px hsl(var(--primary))'
+            textShadow: '0 0 15px #FBBF24, 0 0 25px #FBBF24'
           }
         }
 			},

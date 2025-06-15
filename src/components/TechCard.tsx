@@ -17,10 +17,10 @@ const TechCard = ({ tech }: TechCardProps) => {
   `;
 
   const backFaceClasses = `
-    z-10 font-bold text-primary transition-all duration-500 group-hover:text-primary-foreground text-center
+    z-10 font-bold text-yellow-400 transition-all duration-500 group-hover:text-yellow-100 text-center
     ${tech.special
       ? "text-4xl animate-text-glow"
-      : "text-xl group-hover:[text-shadow:0_0_10px_hsl(var(--primary))]"
+      : "text-xl group-hover:[text-shadow:0_0_10px_theme(colors.yellow.400)]"
     }
   `;
 
