@@ -1,10 +1,8 @@
 
 import React from 'react';
 import AnimatedText from './AnimatedText';
-import { Download } from 'lucide-react';
 import AnimatedProfileImage from './AnimatedProfileImage';
 import SocialLinks from './SocialLinks';
-import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   return (
@@ -23,13 +21,6 @@ const Hero = () => {
         <div className="flex justify-center items-center">
             <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float" />
         </div>
-      </div>
-      <div className="absolute bottom-10 right-4 md:right-8 z-50 hidden md:flex">
-        <Button asChild variant="outline">
-          <a href="#experience">
-            Resume <Download className="ml-2 h-4 w-4" />
-          </a>
-        </Button>
       </div>
     </section>
   );

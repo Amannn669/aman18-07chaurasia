@@ -1,9 +1,11 @@
+
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import WhatIDo from '@/components/WhatIDo';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
+import FixedResumeLink from '@/components/FixedResumeLink';
 
 const Index = () => {
   return (
@@ -19,6 +21,7 @@ const Index = () => {
         <Experience />
         <Contact />
       </main>
+      <FixedResumeLink />
     </div>
   );
 };
