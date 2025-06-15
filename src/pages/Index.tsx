@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import WhatIDo from '@/components/WhatIDo';
 import Experience from '@/components/Experience';
+import TechStack from '@/components/TechStack';
 import Contact from '@/components/Contact';
 import FixedResumeLink from '@/components/FixedResumeLink';
 
@@ -19,6 +20,7 @@ const Index = () => {
         <About />
         <WhatIDo />
         <Experience />
+        <TechStack />
         <Contact />
       </main>
       <FixedResumeLink />
