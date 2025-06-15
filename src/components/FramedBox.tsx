@@ -14,12 +14,12 @@ interface FramedBoxProps {
 
 const FramedBox = ({ title, children, value }: FramedBoxProps) => {
   return (
-    <AccordionItem value={value} className="border-b-0 border border-muted-foreground/20 p-6 rounded-lg relative">
+    <AccordionItem value={value} className="border-b-0 border border-muted-foreground/20 p-6 rounded-lg relative transition-all duration-300 data-[state=open]:border-primary/50 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/10">
       <div className="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg"></div>
       <div className="absolute -top-px -right-px w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-lg"></div>
       <div className="absolute -bottom-px -left-px w-8 h-8 border-b-2 border-l-2 border-primary rounded-bl-lg"></div>
       <div className="absolute -bottom-px -right-px w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-lg"></div>
-      <AccordionTrigger className="p-0 text-left w-full justify-start text-2xl font-semibold hover:no-underline uppercase tracking-wider [&>svg]:hidden active:scale-95 transition-transform duration-150">
+      <AccordionTrigger className="p-0 text-left w-full justify-start text-2xl font-semibold hover:no-underline uppercase tracking-wider [&>svg]:hidden active:scale-95 transition-transform duration-150 transition-colors data-[state=open]:text-primary">
         {title}
       </AccordionTrigger>
       <AccordionContent className="text-muted-foreground pt-4">
@@ -30,3 +30,4 @@ const FramedBox = ({ title, children, value }: FramedBoxProps) => {
 };
 
 export default FramedBox;
+
