@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import FramedBox from './FramedBox';
 import { TypeAnimation } from 'react-type-animation';
@@ -38,7 +37,7 @@ const WhatIDo = () => {
   return (
     <section id="work" className="py-24" ref={sectionRef}>
       <div className="flex flex-col items-center gap-12">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-primary">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-foreground">
           WHAT I DO
         </h2>
         <Accordion type="single" collapsible className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -132,4 +131,3 @@ const WhatIDo = () => {
   );
 };
 export default WhatIDo;
-
