@@ -14,10 +14,13 @@ const techStack = [
 
 const PageContent = ({ tech, onHover, isHovered }: { tech: { name: string, symbol: string }, onHover: (hovered: boolean) => void, isHovered: boolean }) => {
     return (
-        <group
+        <mesh
             onPointerOver={(e) => { e.stopPropagation(); onHover(true); }}
             onPointerOut={() => onHover(false)}
         >
+            <planeGeometry args={[3.5, 4.8]} />
+            <meshBasicMaterial transparent opacity={0} />
+
              <Text
                 position={[0, 1, 0.001]}
                 fontSize={isHovered ? 1.7 : 1.5}
@@ -41,7 +44,7 @@ const PageContent = ({ tech, onHover, isHovered }: { tech: { name: string, symbo
                     <pointLight position={[0, 0.5, 0.5]} intensity={2.5} color="#ffd700" distance={4} />
                  </>
             )}
-        </group>
+        </mesh>
     )
 }
 
