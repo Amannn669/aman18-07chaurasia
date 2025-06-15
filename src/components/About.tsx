@@ -46,7 +46,7 @@ const About = () => {
              onMouseLeave={() => setIsHovered(false)}
            >
              <div className="relative">
-                <div className="absolute -inset-8 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                <div className="absolute -top-16 -left-8 -right-8 bottom-0 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 <img
                   src="/lovable-uploads/643796d8-041f-488a-8b7a-fb6a5f1df235.png"
                   alt="Aman Chaurasia"
