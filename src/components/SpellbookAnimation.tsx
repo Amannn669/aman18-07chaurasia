@@ -24,7 +24,7 @@ const PageContent = ({ tech, onHover, isHovered }: { tech: { name: string, symbo
                 fontSize={1.5}
                 color={isHovered ? '#ffd700' : '#4a2c1a'}
                 anchorX="center"
-                anchorY="center"
+                anchorY="middle"
              >
                 {tech.symbol}
             </Text>
@@ -34,6 +34,7 @@ const PageContent = ({ tech, onHover, isHovered }: { tech: { name: string, symbo
                     fontSize={0.4}
                     color={'#4a2c1a'}
                     anchorX="center"
+                    anchorY="middle"
                 >
                     {tech.name}
                 </Text>
@@ -95,9 +96,8 @@ function Book() {
 
 export const SpellbookAnimation = () => {
     return (
-        <ScrollControls pages={techStack.length} damping={0.15}>
+        <ScrollControls pages={techStack.length} damping={0.15} className="no-scrollbar">
             <Book />
         </ScrollControls>
     )
 }
-

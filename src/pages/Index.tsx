@@ -19,7 +19,9 @@ const Index = () => {
         <Hero />
         <About />
         <WhatIDo />
-        <TechStack />
+      </main>
+      <TechStack />
+      <main className="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
         <Experience />
         <Contact />
       </main>
