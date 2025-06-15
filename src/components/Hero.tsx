@@ -1,4 +1,5 @@
 
+```tsx
 import React from 'react';
 import AnimatedText from './AnimatedText';
 import AnimatedProfileImage from './AnimatedProfileImage';
@@ -20,7 +21,7 @@ const Hero = () => {
           <SocialLinks />
         </div>
         <div className="flex justify-center items-center">
-            <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm animate-float" />
+            <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm" />
         </div>
       </div>
       <a href="#about" aria-label="Scroll to about section" className="absolute bottom-10 left-1/2 -translate-x-1/2">
@@ -31,3 +32,4 @@ const Hero = () => {
 };
 
 export default Hero;
+```
