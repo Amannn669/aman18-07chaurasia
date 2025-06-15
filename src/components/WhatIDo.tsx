@@ -34,6 +34,15 @@ const WhatIDo = () => {
     };
   }, []);
 
+  const handleAccordionChange = (value: string) => {
+    if (value) {
+      // A small delay to allow accordion to open before scrolling
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 250);
+    }
+  };
+
   return (
     <section id="work" className="py-24" ref={sectionRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -45,7 +54,12 @@ const WhatIDo = () => {
             className="w-full max-w-md animate-float"
           />
         </div>
-        <Accordion type="single" collapsible className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <Accordion 
+          type="single" 
+          collapsible 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
+          onValueChange={handleAccordionChange}
+        >
           <FramedBox title="Full Stack" value="item-1">
             <div className="flex flex-col gap-4">
               {isVisible && (
