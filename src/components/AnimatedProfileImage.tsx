@@ -1,5 +1,4 @@
 
-```tsx
 import React from 'react';
 
 interface AnimatedProfileImageProps {
@@ -22,4 +21,3 @@ const AnimatedProfileImage = ({ className }: AnimatedProfileImageProps) => {
 };
 
 export default AnimatedProfileImage;
-```

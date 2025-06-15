@@ -1,5 +1,4 @@
 
-```tsx
 import React from 'react';
 import AnimatedText from './AnimatedText';
 import AnimatedProfileImage from './AnimatedProfileImage';
@@ -32,4 +31,3 @@ const Hero = () => {
 };
 
 export default Hero;
-```

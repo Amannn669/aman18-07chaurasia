@@ -1,5 +1,4 @@
 
-```tsx
 import React from 'react';
 import ShuffleLink from './ShuffleLink';
 
@@ -22,4 +21,3 @@ const Header = () => {
 };
 
 export default Header;
-```
