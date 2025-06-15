@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ShuffleText from './ShuffleText';
+import TechCard from './TechCard';
 
 const skills = [
   "React", "Next.js", "TypeScript", "JavaScript", "Node.js", 
@@ -16,14 +17,7 @@ const TechStack = () => {
       </h2>
       <div className="flex flex-wrap justify-center items-center gap-4 max-w-4xl mx-auto">
         {skills.map((skill) => (
-          <div
-            key={skill}
-            className="bg-secondary p-4 rounded-lg border border-border"
-          >
-            <ShuffleText as="p" className="text-lg font-mono text-primary-foreground">
-              {skill}
-            </ShuffleText>
-          </div>
+          <TechCard key={skill} skill={skill} />
         ))}
       </div>
     </section>
