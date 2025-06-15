@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+
+import React from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const experienceData = [
   {
@@ -22,62 +24,35 @@ const experienceData = [
 ];
 
 const Experience = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const { top, height } = sectionRef.current.getBoundingClientRect();
-      const screenHeight = window.innerHeight;
-
-      const scrollPercent = (screenHeight - top) / (screenHeight + height);
-      const newProgress = Math.max(0, Math.min(100, scrollPercent * 100));
-
-      setProgress(newProgress);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Set initial state
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section id="experience" className="py-24" ref={sectionRef}>
+    <section id="experience" className="py-24">
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center">
         My career & experience
       </h2>
-      <div className="max-w-4xl mx-auto px-4 relative">
-        <div className="absolute w-px h-full bg-primary/20 top-0 left-1/2 -translate-x-1/2 hidden md:block">
-           <div
-            className="w-full bg-primary transition-all duration-100 ease-linear shadow-[0_0_8px_theme(colors.primary)]"
-            style={{ height: `${progress}%` }}
-          />
-        </div>
-        <div className="space-y-16">
-          {experienceData.map((item, index) => {
-            const isReversed = index % 2 !== 0;
-            return (
-            <div key={index} className="relative animate-enter">
-              <div className={`md:flex items-start justify-between ${isReversed ? 'md:flex-row-reverse' : ''}`}>
-                <div className={`md:w-5/12 mb-6 md:mb-0 text-center ${isReversed ? 'md:text-left' : 'md:text-right'}`}>
-                  <h3 className="text-xl font-bold">{item.role}</h3>
-                  <p className="text-primary">{item.company}</p>
-                </div>
-                
-                <div className="w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center mx-auto md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 shrink-0 z-10">
-                  <div className="w-3 h-3 rounded-full bg-primary" />
-                </div>
-
-                <div className={`md:w-5/12 mt-6 md:mt-0 text-center ${isReversed ? 'md:text-right' : 'md:text-left'}`}>
-                  <p className="font-black text-3xl text-muted-foreground mb-2">{item.year}</p>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
+      <div className="max-w-3xl mx-auto px-4 relative">
+        <div className="absolute left-4 md:left-6 top-2 bottom-2 w-0.5 bg-primary/20" />
+        <div className="space-y-12">
+          {experienceData.map((item, index) => (
+            <div key={index} className="relative pl-12 md:pl-16 animate-enter">
+              <div className="absolute w-5 h-5 rounded-full bg-background border-2 border-primary flex items-center justify-center top-1 left-4 md:left-6 -translate-x-1/2">
+                <div className="w-2 h-2 rounded-full bg-primary" />
               </div>
+              <Card className="border-primary/20 hover:border-primary/60 transition-colors duration-300 shadow-lg shadow-primary/5 bg-background/50 backdrop-blur-sm">
+                <CardHeader>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex-grow">
+                      <CardTitle className="text-xl text-primary-foreground">{item.role}</CardTitle>
+                      <CardDescription className="text-primary pt-1 font-semibold">{item.company}</CardDescription>
+                    </div>
+                    <div className="text-lg font-bold text-muted-foreground whitespace-nowrap">{item.year}</div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </CardContent>
+              </Card>
             </div>
-          )})}
+          ))}
         </div>
       </div>
     </section>
