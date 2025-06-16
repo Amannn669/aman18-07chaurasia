@@ -6,14 +6,14 @@ import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import FixedResumeLink from '@/components/FixedResumeLink';
 import TechStack from '@/components/TechStack';
-import CoffeeLoader from '@/components/CoffeeLoader';
+import CodeLoader from '@/components/CodeLoader';
 import { usePageLoader } from '@/hooks/usePageLoader';
 
 const Index = () => {
   const isLoading = usePageLoader(4000);
 
   if (isLoading) {
-    return <CoffeeLoader />;
+    return <CodeLoader />;
   }
 
   return (
