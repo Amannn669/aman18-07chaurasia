@@ -40,7 +40,7 @@ const CoffeeLoader = () => {
             height="40"
             fill="#4A2C2A"
             clipPath="url(#cupClip)"
-            className="animate-coffee-fill"
+            className="coffee-fill"
           />
           
           {/* Coffee Surface Ripples */}
@@ -51,7 +51,7 @@ const CoffeeLoader = () => {
             ry="3"
             fill="#3A1F1D"
             opacity="0.6"
-            className="animate-ripple-1"
+            className="ripple-1"
           />
           <ellipse
             cx="55"
@@ -60,7 +60,7 @@ const CoffeeLoader = () => {
             ry="2"
             fill="#2A1210"
             opacity="0.4"
-            className="animate-ripple-2"
+            className="ripple-2"
           />
           
           {/* Cup Handle */}
@@ -94,101 +94,103 @@ const CoffeeLoader = () => {
         </div>
       </div>
       
-      <style jsx>{`
-        .steam-particle {
-          position: absolute;
-          width: 4px;
-          height: 12px;
-          background: linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0));
-          border-radius: 2px;
-          opacity: 0;
-        }
-        
-        .steam-1 {
-          left: -8px;
-          animation: steam-rise 2s ease-in-out infinite;
-        }
-        
-        .steam-2 {
-          left: -2px;
-          animation: steam-rise 2s ease-in-out infinite 0.3s;
-        }
-        
-        .steam-3 {
-          left: 4px;
-          animation: steam-rise 2s ease-in-out infinite 0.6s;
-        }
-        
-        .steam-4 {
-          left: 10px;
-          animation: steam-rise 2s ease-in-out infinite 0.9s;
-        }
-        
-        @keyframes steam-rise {
-          0% {
-            transform: translateY(0px) translateX(0px) scale(1);
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .steam-particle {
+            position: absolute;
+            width: 4px;
+            height: 12px;
+            background: linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0));
+            border-radius: 2px;
             opacity: 0;
           }
-          25% {
-            opacity: 0.8;
+          
+          .steam-1 {
+            left: -8px;
+            animation: steam-rise 2s ease-in-out infinite;
           }
-          50% {
-            transform: translateY(-20px) translateX(2px) scale(0.8);
-            opacity: 0.6;
+          
+          .steam-2 {
+            left: -2px;
+            animation: steam-rise 2s ease-in-out infinite 0.3s;
           }
-          75% {
-            transform: translateY(-35px) translateX(-1px) scale(0.6);
-            opacity: 0.3;
+          
+          .steam-3 {
+            left: 4px;
+            animation: steam-rise 2s ease-in-out infinite 0.6s;
           }
-          100% {
-            transform: translateY(-50px) translateX(3px) scale(0.4);
-            opacity: 0;
+          
+          .steam-4 {
+            left: 10px;
+            animation: steam-rise 2s ease-in-out infinite 0.9s;
           }
-        }
-        
-        @keyframes coffee-fill {
-          0% {
-            transform: translateY(100%);
+          
+          @keyframes steam-rise {
+            0% {
+              transform: translateY(0px) translateX(0px) scale(1);
+              opacity: 0;
+            }
+            25% {
+              opacity: 0.8;
+            }
+            50% {
+              transform: translateY(-20px) translateX(2px) scale(0.8);
+              opacity: 0.6;
+            }
+            75% {
+              transform: translateY(-35px) translateX(-1px) scale(0.6);
+              opacity: 0.3;
+            }
+            100% {
+              transform: translateY(-50px) translateX(3px) scale(0.4);
+              opacity: 0;
+            }
           }
-          100% {
-            transform: translateY(0%);
+          
+          @keyframes coffee-fill {
+            0% {
+              transform: translateY(100%);
+            }
+            100% {
+              transform: translateY(0%);
+            }
           }
-        }
-        
-        @keyframes ripple-1 {
-          0%, 100% {
-            transform: scale(1);
-            opacity: 0.6;
+          
+          @keyframes ripple-1 {
+            0%, 100% {
+              transform: scale(1);
+              opacity: 0.6;
+            }
+            50% {
+              transform: scale(1.1);
+              opacity: 0.3;
+            }
           }
-          50% {
-            transform: scale(1.1);
-            opacity: 0.3;
+          
+          @keyframes ripple-2 {
+            0%, 100% {
+              transform: scale(1);
+              opacity: 0.4;
+            }
+            50% {
+              transform: scale(0.9);
+              opacity: 0.2;
+            }
           }
-        }
-        
-        @keyframes ripple-2 {
-          0%, 100% {
-            transform: scale(1);
-            opacity: 0.4;
+          
+          .coffee-fill {
+            animation: coffee-fill 3s ease-out infinite;
           }
-          50% {
-            transform: scale(0.9);
-            opacity: 0.2;
+          
+          .ripple-1 {
+            animation: ripple-1 2s ease-in-out infinite;
           }
-        }
-        
-        .animate-coffee-fill {
-          animation: coffee-fill 3s ease-out infinite;
-        }
-        
-        .animate-ripple-1 {
-          animation: ripple-1 2s ease-in-out infinite;
-        }
-        
-        .animate-ripple-2 {
-          animation: ripple-2 2.5s ease-in-out infinite 0.5s;
-        }
-      `}</style>
+          
+          .ripple-2 {
+            animation: ripple-2 2.5s ease-in-out infinite 0.5s;
+          }
+        `
+      }} />
     </div>
   );
 };
