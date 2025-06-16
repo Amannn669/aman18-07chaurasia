@@ -15,13 +15,13 @@ const Index = () => {
       <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-secondary rounded-full filter blur-3xl opacity-10 animate-float [animation-delay:-2s]" />
 
       <Header />
-      <main className="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 relative z-10">
         <Hero />
         <About />
         <WhatIDo />
       </main>
       <TechStack />
-      <main className="container mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 relative z-10">
         <Experience />
         <Contact />
       </main>

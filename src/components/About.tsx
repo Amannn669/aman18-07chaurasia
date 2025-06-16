@@ -24,28 +24,33 @@ const About = () => {
     };
   }, []);
 
-  const maxHorizontalTranslation = 96; // Moves more to the right
+  // Disable animations on mobile for better performance and layout
+  const isMobile = window.innerWidth < 768;
+  
+  const maxHorizontalTranslation = isMobile ? 0 : 96;
   const horizontalTranslationOnScroll = scrollProgress * maxHorizontalTranslation;
-  const horizontalTranslationOnHover = isHovered ? maxHorizontalTranslation : 0;
+  const horizontalTranslationOnHover = isHovered && !isMobile ? maxHorizontalTranslation : 0;
   
   const finalHorizontalTranslation = Math.max(horizontalTranslationOnScroll, horizontalTranslationOnHover);
 
   const imageContainerStyle = {
-    transform: `translateY(${scrollProgress * -120}px) translateX(${finalHorizontalTranslation}px)`,
-    transition: 'transform 0.5s ease-out', // Slower and seamless transition
+    transform: isMobile 
+      ? 'translateY(0px) translateX(0px)' 
+      : `translateY(${scrollProgress * -120}px) translateX(${finalHorizontalTranslation}px)`,
+    transition: 'transform 0.5s ease-out',
   };
 
   return (
-    <section id="about" className="py-24" ref={sectionRef}>
+    <section id="about" className="py-16 sm:py-24" ref={sectionRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div className="flex justify-center items-center h-56 md:h-auto">
+        <div className="flex justify-center items-center h-64 md:h-auto order-2 md:order-1">
            <div 
-             className="w-full max-w-xs md:max-w-sm group"
+             className="w-full max-w-xs md:max-w-sm group relative"
              style={imageContainerStyle}
-             onMouseEnter={() => setIsHovered(true)}
-             onMouseLeave={() => setIsHovered(false)}
+             onMouseEnter={() => !isMobile && setIsHovered(true)}
+             onMouseLeave={() => !isMobile && setIsHovered(false)}
            >
-             <div className="relative">
+             <div className="relative z-10">
                 <div className="absolute -top-16 -left-8 -right-8 bottom-0 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 <img
                   src="/lovable-uploads/643796d8-041f-488a-8b7a-fb6a5f1df235.png"
@@ -56,7 +61,7 @@ const About = () => {
              </div>
            </div>
         </div>
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left order-1 md:order-2">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary uppercase tracking-wider">
             <ShuffleText>ABOUT ME</ShuffleText>
           </h2>

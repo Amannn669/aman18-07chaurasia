@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -78,12 +79,12 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-32" ref={sectionRef}>
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center">
+    <section id="experience" className="py-16 sm:py-24 lg:py-32" ref={sectionRef}>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-12 sm:mb-16 text-center px-4">
         My <span className="text-primary">career</span> & <span className="text-primary">experience</span>
       </h2>
       <div className="max-w-4xl mx-auto px-4 relative">
-        <div className="absolute w-px h-full bg-primary/20 top-0 left-1/2 -translate-x-1/2 hidden md:block">
+        <div className="absolute w-px h-full bg-primary/20 top-0 left-4 sm:left-1/2 sm:-translate-x-1/2">
            <div
             className="w-full bg-primary shadow-[0_0_8px_theme(colors.primary)]"
             style={{ height: `${progress}%`, transition: 'height 0.1s linear' }}
@@ -99,7 +100,7 @@ const Experience = () => {
              }}
            />
         </div>
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
           {experienceData.map((item, index) => {
             const isReversed = index % 2 !== 0;
             const isActive = index <= activeMilestone;
@@ -108,14 +109,14 @@ const Experience = () => {
               "relative transition-all duration-500 ease-out",
               isActive ? "opacity-100 scale-100" : "opacity-40 scale-95"
             )}>
-              <div className={`md:flex items-start justify-between ${isReversed ? 'md:flex-row-reverse' : ''}`}>
-                <div className={`md:w-5/12 mb-6 md:mb-0 text-center ${isReversed ? 'md:text-left' : 'md:text-right'}`}>
+              <div className={`sm:flex items-start justify-between ${isReversed ? 'sm:flex-row-reverse' : ''}`}>
+                <div className={`sm:w-5/12 mb-6 sm:mb-0 text-left sm:text-center ${isReversed ? 'sm:text-left' : 'sm:text-right'} pl-12 sm:pl-0`}>
                   <h3 className="text-xl font-bold">{item.role}</h3>
                   <p className="text-primary">{item.company}</p>
                 </div>
                 
                 <div className={cn(
-                  "w-8 h-8 rounded-full bg-background border-2 flex items-center justify-center mx-auto md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 shrink-0 z-10 transition-all duration-500",
+                  "w-8 h-8 rounded-full bg-background border-2 flex items-center justify-center absolute left-0 top-0 sm:left-1/2 sm:-translate-x-1/2 shrink-0 z-10 transition-all duration-500",
                   isActive ? "border-primary scale-110 shadow-[0_0_12px_theme(colors.primary)]" : "border-muted-foreground/30"
                 )}>
                   <div className={cn(
@@ -124,9 +125,9 @@ const Experience = () => {
                   )} />
                 </div>
 
-                <div className={`md:w-5/12 mt-6 md:mt-0 text-center ${isReversed ? 'md:text-right' : 'md:text-left'}`}>
-                  <p className="font-black text-3xl text-muted-foreground mb-2">{item.year}</p>
-                  <p className="text-muted-foreground">{item.description}</p>
+                <div className={`sm:w-5/12 mt-6 sm:mt-0 text-left sm:text-center ${isReversed ? 'sm:text-right' : 'sm:text-left'} pl-12 sm:pl-0`}>
+                  <p className="font-black text-2xl sm:text-3xl text-muted-foreground mb-2">{item.year}</p>
+                  <p className="text-muted-foreground text-sm sm:text-base">{item.description}</p>
                 </div>
               </div>
             </div>
