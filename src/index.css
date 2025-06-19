@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -70,14 +71,18 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
     cursor: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-  html {
-    scroll-behavior: smooth;
-  }
+  
   a, button {
     cursor: none;
   }
