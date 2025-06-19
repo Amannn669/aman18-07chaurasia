@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Github, Linkedin, Youtube, Instagram, ArrowUpRight } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const socialLinks = {
   github: "https://github.com/aman18Chaurasia",
@@ -11,9 +11,13 @@ const socialLinks = {
 
 const Contact = () => {
     return (
-        <footer id="contact" className="py-24">
+        <footer id="contact" className="py-24 relative">
             <div className="container mx-auto px-4">
-                <h2 className="text-center md:text-left text-4xl md:text-5xl font-bold uppercase tracking-wider mb-12">Contact</h2>
+                <div className="flex justify-between items-start mb-12">
+                    <h2 className="text-center md:text-left text-4xl md:text-5xl font-bold uppercase tracking-wider">Contact</h2>
+                    <ThemeToggle />
+                </div>
+                
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16">
                     {/* LEFT ICONS */}
                     <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:justify-between md:self-stretch">
