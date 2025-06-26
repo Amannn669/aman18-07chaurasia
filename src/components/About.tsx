@@ -53,7 +53,7 @@ const About = () => {
              <div className="relative z-10">
                 <div className="absolute -top-16 -left-8 -right-8 bottom-0 bg-gradient-to-b from-primary/20 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
                 <img
-                  src="/lovable-uploads/60691428-0224-4453-9008-443e11680826.png"
+                  src="/lovable-uploads/fdd309a3-ee66-492d-b11d-f4c35c019710.png"
                   alt="Aman Chaurasia"
                   className="relative w-full h-full object-cover object-top"
                 />
