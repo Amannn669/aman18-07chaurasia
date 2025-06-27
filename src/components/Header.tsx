@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 import ShuffleLink from './ShuffleLink';
 import ThemeToggle from './ThemeToggle';
 
@@ -33,10 +33,12 @@ const Header = () => {
           <ThemeToggle />
           <button
             onClick={toggleMobileMenu}
-            className="p-2 rounded-md text-foreground hover:bg-muted transition-colors"
+            className="p-2 rounded-md text-foreground hover:bg-muted transition-all duration-300"
             aria-label="Toggle mobile menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <div className={`transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45' : 'rotate-0'}`}>
+              <Plus size={24} />
+            </div>
           </button>
         </div>
       </div>
