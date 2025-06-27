@@ -7,15 +7,17 @@ interface ShuffleLinkProps {
   href: string;
   children: string;
   className?: string;
+  onClick?: () => void;
 }
 
-const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className }) => {
+const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className, onClick }) => {
   const { text, shuffle, stopShuffle } = useShuffle(children);
   const location = useLocation();
 
   const commonProps = {
     onMouseEnter: shuffle,
     onMouseLeave: stopShuffle,
+    onClick: onClick,
     className: `font-mono ${className}`
   };
 
@@ -47,7 +49,10 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className }) 
           });
         }
       }
-      // If we are on another page, the Link component will handle navigation
+      // Call the onClick handler if provided (for mobile menu closing)
+      if (onClick) {
+        onClick();
+      }
     };
 
     return (
