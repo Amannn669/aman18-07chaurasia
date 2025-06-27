@@ -17,7 +17,6 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className, on
   const commonProps = {
     onMouseEnter: shuffle,
     onMouseLeave: stopShuffle,
-    onClick: onClick,
     className: `font-mono ${className}`
   };
 
@@ -27,6 +26,7 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className, on
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={onClick}
         {...commonProps}
       >
         {text}
@@ -38,20 +38,25 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className, on
 
   if (isHashLink || href === '/') {
     const handleNav = (e: React.MouseEvent) => {
+      // Close mobile menu first if onClick is provided
+      if (onClick) {
+        onClick();
+      }
+      
       // If we are already on the home page, scroll to element
       if (location.pathname === '/') {
         e.preventDefault();
         const targetId = href === '/' ? 'home' : href.substring(2);
         const element = document.getElementById(targetId);
         if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-          });
+          // Add a small delay to allow mobile menu to close first
+          setTimeout(() => {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 100);
         }
-      }
-      // Call the onClick handler if provided (for mobile menu closing)
-      if (onClick) {
-        onClick();
       }
     };
 
@@ -63,7 +68,7 @@ const ShuffleLink: React.FC<ShuffleLinkProps> = ({ href, children, className, on
   }
 
   return (
-    <Link to={href} {...commonProps}>
+    <Link to={href} onClick={onClick} {...commonProps}>
       {text}
     </Link>
   );

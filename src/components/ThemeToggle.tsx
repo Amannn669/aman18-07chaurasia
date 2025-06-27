@@ -9,7 +9,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-3 rounded-full bg-muted hover:bg-muted/80 transition-all duration-300 hover:scale-110 group"
+      className="relative p-2 transition-all duration-300 hover:scale-110"
       aria-label="Toggle theme"
     >
       <div className="relative w-6 h-6">
@@ -30,13 +30,6 @@ const ThemeToggle = () => {
           size={24}
         />
       </div>
-      
-      {/* Animated background glow */}
-      <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
-        theme === 'light' 
-          ? 'bg-yellow-400/20 group-hover:bg-yellow-400/30' 
-          : 'bg-blue-400/20 group-hover:bg-blue-400/30'
-      } opacity-0 group-hover:opacity-100`} />
     </button>
   );
 };
