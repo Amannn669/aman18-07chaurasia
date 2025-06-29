@@ -12,13 +12,19 @@ const CodeLoader = () => {
     "Every algorithm tells a story; I choose which stories to tell.",
     "In the symphony of data, I conduct the meaningful melodies.",
     "I don't just debug code — I debug the future.",
-    "Where others see complexity, I architect simplicity."
+    "Where others see complexity, I architect simplicity.",
+    "My models learn patterns, but I teach them wisdom.",
+    "Between compilation and execution, magic happens.",
+    "I write code that writes the future.",
+    "Data flows through my algorithms like thoughts through consciousness.",
+    "Every bug I fix makes the digital world a little more human."
   ];
 
-  const [currentQuote] = useState(() => {
-    return quotes[Math.floor(Math.random() * quotes.length)];
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(() => {
+    return Math.floor(Math.random() * quotes.length);
   });
-
+  
+  const [fadeClass, setFadeClass] = useState('opacity-100');
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -32,47 +38,58 @@ const CodeLoader = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const quoteInterval = setInterval(() => {
+      setFadeClass('opacity-0');
+      
+      setTimeout(() => {
+        setCurrentQuoteIndex(prev => (prev + 1) % quotes.length);
+        setFadeClass('opacity-100');
+      }, 300);
+    }, 3000);
+
+    return () => clearInterval(quoteInterval);
+  }, [quotes.length]);
+
   return (
     <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
-      <div className="relative max-w-2xl mx-auto px-8">
-        {/* Main Loading Container */}
-        <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-xl">
-          {/* Progress Bar */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-foreground font-mono text-sm font-medium">LOADING</span>
-              <span className="text-muted-foreground font-mono text-sm">
-                {Math.min(Math.round(progress), 100)}%
-              </span>
-            </div>
-            <div className="w-full h-1 bg-secondary/30 rounded-full overflow-hidden">
+      <div className="relative max-w-4xl mx-auto px-8 text-center">
+        {/* Progress Bar */}
+        <div className="mb-12">
+          <div className="flex items-center justify-center mb-6">
+            <div className="w-32 h-1 bg-muted/30 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-300 ease-out"
+                className="h-full bg-gradient-to-r from-primary via-accent to-primary rounded-full transition-all duration-300 ease-out animate-pulse"
                 style={{ width: `${Math.min(progress, 100)}%` }}
               />
             </div>
           </div>
-          
-          {/* Quote */}
-          <div className="text-center">
-            <p className="text-foreground/90 text-lg leading-relaxed font-light italic">
-              "{currentQuote}"
-            </p>
+          <div className="text-muted-foreground font-mono text-sm font-medium">
+            {Math.min(Math.round(progress), 100)}%
           </div>
         </div>
         
+        {/* Animated Quote */}
+        <div className="relative min-h-[120px] flex items-center justify-center">
+          <p 
+            className={`text-foreground text-2xl md:text-3xl leading-relaxed font-light italic max-w-3xl transition-opacity duration-300 ${fadeClass}`}
+          >
+            "{quotes[currentQuoteIndex]}"
+          </p>
+        </div>
+        
         {/* Floating Elements */}
-        <div className="absolute -top-4 -left-4">
-          <div className="w-2 h-2 bg-primary/60 rounded-full animate-float"></div>
+        <div className="absolute top-1/4 left-1/4">
+          <div className="w-2 h-2 bg-primary/40 rounded-full animate-float"></div>
         </div>
-        <div className="absolute -top-2 -right-6">
-          <div className="w-1.5 h-1.5 bg-accent/50 rounded-full animate-float [animation-delay:1s]"></div>
+        <div className="absolute top-1/3 right-1/4">
+          <div className="w-1.5 h-1.5 bg-accent/30 rounded-full animate-float [animation-delay:1s]"></div>
         </div>
-        <div className="absolute -bottom-6 -left-8">
-          <div className="w-1 h-1 bg-secondary/70 rounded-full animate-float [animation-delay:2s]"></div>
+        <div className="absolute bottom-1/4 left-1/3">
+          <div className="w-1 h-1 bg-muted-foreground/40 rounded-full animate-float [animation-delay:2s]"></div>
         </div>
-        <div className="absolute -bottom-4 -right-4">
-          <div className="w-2.5 h-2.5 bg-primary/40 rounded-full animate-float [animation-delay:1.5s]"></div>
+        <div className="absolute bottom-1/3 right-1/3">
+          <div className="w-2.5 h-2.5 bg-primary/20 rounded-full animate-float [animation-delay:1.5s]"></div>
         </div>
       </div>
       
@@ -84,7 +101,7 @@ const CodeLoader = () => {
               opacity: 0.4;
             }
             50% {
-              transform: translateY(-15px) scale(1.1);
+              transform: translateY(-20px) scale(1.2);
               opacity: 0.8;
             }
           }
