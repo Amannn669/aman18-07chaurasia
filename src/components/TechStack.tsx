@@ -3,12 +3,14 @@ import React from 'react';
 import TechCard from './TechCard';
 
 const techStack = [
-  { name: 'HTML', symbol: 'H', special: true },
-  { name: 'CSS', symbol: 'C', special: true },
-  { name: 'JavaScript', symbol: 'JS' },
-  { name: 'React', symbol: 'R', special: true },
-  { name: 'Node.js', symbol: 'N' },
-  { name: 'Three.js', symbol: '3D' },
+  { name: 'Python', symbol: 'PY', special: true },
+  { name: 'LangChain', symbol: 'LC', special: true },
+  { name: 'HuggingFace', symbol: 'HF' },
+  { name: 'AWS', symbol: 'AWS', special: true },
+  { name: 'MLflow', symbol: 'ML' },
+  { name: 'Docker', symbol: 'DK' },
+  { name: 'Airflow', symbol: 'AF' },
+  { name: 'DVC', symbol: 'DVC' },
 ];
 
 const TechStack = () => {
@@ -17,7 +19,7 @@ const TechStack = () => {
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center uppercase tracking-wider text-foreground mb-12 animate-fade-in-down">
         MY <span className="text-primary">TECH STACK</span>
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
         {techStack.map((tech, index) => (
           <div
             key={tech.name}
