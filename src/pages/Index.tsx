@@ -10,7 +10,7 @@ import CodeLoader from '@/components/CodeLoader';
 import { usePageLoader } from '@/hooks/usePageLoader';
 
 const Index = () => {
-  const isLoading = usePageLoader(4000);
+  const isLoading = usePageLoader(5000);
 
   if (isLoading) {
     return <CodeLoader />;
