@@ -23,7 +23,7 @@ const TechStack = () => {
         {techStack.map((tech, index) => (
           <div
             key={tech.name}
-            className="animate-fade-in"
+            className="animate-fade-in transition-all duration-300 hover:scale-110 hover:z-50 relative"
             style={{ animationDelay: `${150 * index}ms`, animationFillMode: 'backwards' }}
           >
             <TechCard tech={tech} />
