@@ -20,12 +20,9 @@ const ProjectCard = ({ title, description, link, image }: ProjectCardProps) => {
     >
       <div className={`project-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${isHovered ? 'rotate-y-180' : ''}`}>
         {/* Front of card */}
-        <div className="project-card-face project-card-front absolute inset-0 bg-secondary/10 border border-border/20 rounded-lg p-6 flex flex-col backface-hidden">
-          <div className="aspect-video bg-secondary/20 rounded-md mb-4 overflow-hidden">
-            <img src={image} alt={title} className="w-full h-full object-cover" />
-          </div>
-          <h2 className="text-2xl font-bold mb-2">{title}</h2>
-          <p className="text-muted-foreground flex-grow">{description}</p>
+        <div className="project-card-face project-card-front absolute inset-0 bg-secondary/10 border border-border/20 rounded-lg p-6 flex flex-col justify-center backface-hidden">
+          <h2 className="text-2xl font-bold mb-4">{title}</h2>
+          <p className="text-muted-foreground">{description}</p>
         </div>
 
         {/* Back of card */}
