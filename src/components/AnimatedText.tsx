@@ -12,7 +12,6 @@ const AnimatedText = () => {
     <span className="inline-flex items-center">
       <TypeAnimation
         sequence={[
-          () => { setIsStandout(false); },
           'DESIGNER',
           1500,
           'DEVELOPER',
@@ -21,9 +20,6 @@ const AnimatedText = () => {
           1500,
           'AI/ML ENTHUSIAST',
           1500,
-          () => { setIsStandout(true); },
-          'A PROUD CITIZEN',
-          2500,
         ]}
         wrapper="span"
         speed={50}
