@@ -6,31 +6,31 @@ import ProjectCard from '@/components/ProjectCard';
 
 const projects = [
   {
-    title: 'End-to-End Student Performance Prediction',
+    title: '🎯 Smart Academic Risk Predictor',
     description: 'Developed a full-stack ML pipeline to predict academic risk with 92% model accuracy. Automated training and deployment with Python-based workflows and Dockerized services on AWS.',
     link: 'https://github.com/aman18Chaurasia/mlproject',
     image: '/placeholder.svg'
   },
   {
-    title: 'Automated NASA APOD Pipeline',
+    title: '🚀 NASA Data Pipeline Automator',
     description: 'Designed a lightweight data pipeline using Apache Airflow, reducing job runtime by 80%. Configured GitHub Actions for automated ETL deployment with 99.9% operational uptime.',
     link: 'https://github.com/aman18Chaurasia/airflow-nasa-etl-pipeline',
     image: '/placeholder.svg'
   },
   {
-    title: 'Mobile Price Prediction with AWS SageMaker',
+    title: '💰 AI-Powered Price Predictor',
     description: 'Developed an end-to-end ML model to predict mobile phone prices with 95% accuracy. Used AWS SageMaker for training and deployment; leveraged S3 for scalable data storage.',
     link: '#',
     image: '/placeholder.svg'
   },
   {
-    title: 'Personal Portfolio Website',
+    title: '✨ Lightning-Fast Portfolio',
     description: 'Created a high-performance portfolio using React and TypeScript, achieving 97+ Lighthouse scores. Modern design with responsive layouts and smooth animations.',
     link: 'https://github.com/aman18Chaurasia/Portfolio',
     image: '/placeholder.svg'
   },
   {
-    title: 'Origin Story Generator',
+    title: '📚 Epic Story Generator',
     description: 'AI-powered story generation application that creates unique origin stories based on text and images. Multiple story variations with creative narrative generation capabilities.',
     link: 'https://github.com/aman18Chaurasia/origi-story-generation',
     image: '/placeholder.svg'

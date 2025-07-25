@@ -31,10 +31,9 @@ const ProjectCard = ({ title, description, link, image }: ProjectCardProps) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center gap-4 text-primary hover:text-primary/80 transition-colors group"
+            className="text-primary hover:text-primary/80 transition-colors group"
           >
             <Github size={64} className="group-hover:scale-110 transition-transform" />
-            <span className="text-lg font-semibold">View Repository</span>
           </a>
         </div>
       </div>
