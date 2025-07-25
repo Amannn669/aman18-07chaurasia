@@ -1,5 +1,6 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import { Github } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
@@ -9,53 +10,37 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, description, link, image }: ProjectCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<React.CSSProperties>({
-    transform: 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)',
-    transition: 'transform 0.5s ease-in-out',
-    transformStyle: 'preserve-3d',
-  });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - left;
-    const y = e.clientY - top;
-
-    const rotateX = (y / height - 0.5) * -15;
-    const rotateY = (x / width - 0.5) * 15;
-
-    setStyle({
-      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
-      transition: 'transform 0.1s ease-out',
-      transformStyle: 'preserve-3d',
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setStyle({
-      transform: 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)',
-      transition: 'transform 0.5s ease-in-out',
-      transformStyle: 'preserve-3d',
-    });
-  };
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={style}
-      className="bg-secondary/10 border border-border/20 rounded-lg p-6 flex flex-col group will-change-transform"
+      className="project-card-container relative h-80 perspective-1000"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="aspect-video bg-secondary/20 rounded-md mb-4 overflow-hidden" style={{ transform: 'translateZ(40px)' }}>
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+      <div className={`project-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${isHovered ? 'rotate-y-180' : ''}`}>
+        {/* Front of card */}
+        <div className="project-card-face project-card-front absolute inset-0 bg-secondary/10 border border-border/20 rounded-lg p-6 flex flex-col backface-hidden">
+          <div className="aspect-video bg-secondary/20 rounded-md mb-4 overflow-hidden">
+            <img src={image} alt={title} className="w-full h-full object-cover" />
+          </div>
+          <h2 className="text-2xl font-bold mb-2">{title}</h2>
+          <p className="text-muted-foreground flex-grow">{description}</p>
+        </div>
+
+        {/* Back of card */}
+        <div className="project-card-face project-card-back absolute inset-0 bg-secondary/10 border border-border/20 rounded-lg p-6 flex flex-col items-center justify-center backface-hidden rotate-y-180">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center gap-4 text-primary hover:text-primary/80 transition-colors group"
+          >
+            <Github size={64} className="group-hover:scale-110 transition-transform" />
+            <span className="text-lg font-semibold">View Repository</span>
+          </a>
+        </div>
       </div>
-      <h2 className="text-2xl font-bold mb-2" style={{ transform: 'translateZ(30px)' }}>{title}</h2>
-      <p className="text-muted-foreground flex-grow mb-4" style={{ transform: 'translateZ(20px)' }}>{description}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline self-start" style={{ transform: 'translateZ(10px)' }}>
-        View Project &rarr;
-      </a>
     </div>
   );
 };
