@@ -6,63 +6,33 @@ import ProjectCard from '@/components/ProjectCard';
 
 const projects = [
   {
-    title: 'Project Neonoir',
-    description: 'A detective RPG set in a rain-drenched, neon-lit metropolis of 2077, built with advanced storytelling AI.',
+    title: 'End-to-End Student Performance Prediction',
+    description: 'Developed a full-stack ML pipeline to predict academic risk with 92% model accuracy. Automated training and deployment with Python-based workflows and Dockerized services on AWS.',
+    link: 'https://github.com/aman18Chaurasia/mlproject',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Automated NASA APOD Pipeline',
+    description: 'Designed a lightweight data pipeline using Apache Airflow, reducing job runtime by 80%. Configured GitHub Actions for automated ETL deployment with 99.9% operational uptime.',
+    link: 'https://github.com/aman18Chaurasia/airflow-nasa-etl-pipeline',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Mobile Price Prediction with AWS SageMaker',
+    description: 'Developed an end-to-end ML model to predict mobile phone prices with 95% accuracy. Used AWS SageMaker for training and deployment; leveraged S3 for scalable data storage.',
     link: '#',
     image: '/placeholder.svg'
   },
   {
-    title: 'CypherDeck OS',
-    description: 'A custom terminal-based OS for netrunners, focusing on security and network infiltration simulations.',
-    link: '#',
+    title: 'Personal Portfolio Website',
+    description: 'Created a high-performance portfolio using React and TypeScript, achieving 97+ Lighthouse scores. Modern design with responsive layouts and smooth animations.',
+    link: 'https://github.com/aman18Chaurasia/Portfolio',
     image: '/placeholder.svg'
   },
   {
-    title: 'Synthwave Rider',
-    description: 'An endless runner game with a retro-futuristic aesthetic, featuring a high-speed light cycle on a digital highway.',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Chrome Augmentations',
-    description: 'An interactive WebGL showcase of fictional cybernetic enhancements and body modifications.',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Data Haven',
-    description: 'A decentralized, encrypted file storage system using blockchain to resist corporate surveillance.',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Glitchscape',
-    description: 'A generative art project that creates dynamic, cyberpunk cityscapes from random data streams.',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Holo-Communicator',
-    description: 'A proof-of-concept AR app that projects holographic video calls into the user\'s environment.',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Replicant Dreams',
-    description: 'An AI-powered storytelling engine that generates unique narratives about androids questioning their existence.',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Zero-G Smuggler',
-    description: 'A physics-based space trading game where you navigate asteroid fields to deliver illicit cargo.',
-    link: '#',
-    image: '/placeholder.svg'
-  },
-  {
-    title: 'Aetherium Grid',
-    description: 'A data visualization tool mapping the flow of information across a fictional global network.',
-    link: '#',
+    title: 'Origin Story Generator',
+    description: 'AI-powered story generation application that creates unique origin stories based on text and images. Multiple story variations with creative narrative generation capabilities.',
+    link: 'https://github.com/aman18Chaurasia/origi-story-generation',
     image: '/placeholder.svg'
   },
 ];
