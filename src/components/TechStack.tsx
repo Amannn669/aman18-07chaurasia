@@ -75,33 +75,62 @@ const TechStack = () => {
                   {category.techs.map((tech, techIndex) => (
                     <div
                       key={tech}
-                      className="relative group/skill animate-fade-in"
+                      className="relative group/skill animate-fade-in overflow-hidden"
                       style={{ animationDelay: `${200 * categoryIndex + 80 * techIndex}ms`, animationFillMode: 'backwards' }}
                     >
-                      {/* Skill chip background layers */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/15 to-secondary/15 opacity-40 group-hover/skill:opacity-80 transition-opacity duration-300" />
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm" />
+                      {/* Liquid glass base layer */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-background/70 via-background/50 to-background/30 backdrop-blur-xl border border-primary/20" />
                       
-                      {/* Glow effect on hover */}
-                      <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-md opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 -z-10 scale-110" />
+                      {/* Liquid wave effect */}
+                      <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover/skill:opacity-100 transition-opacity duration-500">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-secondary/40 to-primary/30 opacity-60
+                                      animate-[liquid-wave_2s_ease-in-out_infinite] group-hover/skill:animate-[liquid-wave_1.5s_ease-in-out_infinite]" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent 
+                                      animate-[liquid-ripple_3s_ease-in-out_infinite] delay-500" />
+                      </div>
+                      
+                      {/* Glass reflection layers */}
+                      <div className="absolute inset-0 rounded-2xl">
+                        {/* Top reflection */}
+                        <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/20 to-transparent rounded-t-2xl 
+                                      opacity-0 group-hover/skill:opacity-100 transition-opacity duration-500" />
+                        {/* Side reflection */}
+                        <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-white/10 to-transparent rounded-l-2xl 
+                                      opacity-0 group-hover/skill:opacity-100 transition-opacity duration-700 delay-200" />
+                        {/* Liquid distortion overlay */}
+                        <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-secondary/10 
+                                      opacity-0 group-hover/skill:opacity-100 transition-opacity duration-500 
+                                      animate-[liquid-distort_4s_ease-in-out_infinite]" />
+                      </div>
+                      
+                      {/* Outer glow effect */}
+                      <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-lg opacity-0 group-hover/skill:opacity-80 
+                                    transition-all duration-500 -z-10 scale-125 group-hover/skill:animate-[liquid-glow_2s_ease-in-out_infinite]" />
                       
                       {/* Main skill chip */}
                       <span className="relative block px-4 py-2.5 text-sm font-bold text-foreground/90 group-hover/skill:text-primary 
                                      rounded-2xl border border-primary/30 group-hover/skill:border-primary/60
-                                     transition-all duration-300 cursor-pointer 
-                                     group-hover/skill:scale-110 group-hover/skill:-translate-y-1 group-hover/skill:shadow-[0_0_25px_hsl(var(--primary)/0.4)]
-                                     backdrop-blur-sm">
+                                     transition-all duration-500 cursor-pointer z-10
+                                     group-hover/skill:scale-110 group-hover/skill:-translate-y-1 
+                                     group-hover/skill:shadow-[0_0_30px_hsl(var(--primary)/0.5),_inset_0_0_20px_hsl(var(--primary)/0.1)]
+                                     backdrop-blur-sm bg-gradient-to-br from-background/60 to-background/20">
                         {tech}
                       </span>
                       
-                      {/* Shimmer effect */}
+                      {/* Liquid shimmer waves */}
                       <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent 
-                                      translate-x-[-100%] group-hover/skill:translate-x-[100%] transition-transform duration-700 ease-out" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent 
+                                      translate-x-[-200%] group-hover/skill:translate-x-[200%] transition-transform duration-1000 ease-out
+                                      animate-[liquid-shimmer_2s_ease-in-out_infinite]" />
+                        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-primary/20 to-transparent 
+                                      translate-x-[200%] group-hover/skill:translate-x-[-200%] transition-transform duration-1200 ease-out delay-300" />
                       </div>
                       
-                      {/* Particle effect */}
-                      <div className="absolute top-1 right-1 w-1 h-1 rounded-full bg-primary/60 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 animate-pulse" />
+                      {/* Floating particles */}
+                      <div className="absolute top-1 right-2 w-1 h-1 rounded-full bg-primary/80 opacity-0 group-hover/skill:opacity-100 
+                                    transition-opacity duration-500 animate-[float_3s_ease-in-out_infinite]" />
+                      <div className="absolute bottom-2 left-1 w-0.5 h-0.5 rounded-full bg-secondary/60 opacity-0 group-hover/skill:opacity-100 
+                                    transition-opacity duration-700 animate-[float_4s_ease-in-out_infinite] delay-1000" />
                     </div>
                   ))}
                 </div>
