@@ -128,4 +128,14 @@
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
+
+  /* Shimmer animation for tech tags */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
 }

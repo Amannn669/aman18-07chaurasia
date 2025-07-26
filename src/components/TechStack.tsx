@@ -51,15 +51,29 @@ const TechStack = () => {
             </h3>
             
             {/* Tech tags */}
-            <div className="flex flex-wrap gap-2 relative z-10">
+            <div className="flex flex-wrap gap-3 relative z-10">
               {category.techs.map((tech, techIndex) => (
-                <span
+                <div
                   key={tech}
-                  className="px-3 py-1.5 text-sm font-medium bg-secondary/20 text-secondary-foreground rounded-full border border-secondary/30 hover:bg-secondary/40 hover:border-secondary/60 transition-all duration-300 cursor-pointer hover:scale-105 animate-fade-in"
+                  className="relative group/tag overflow-hidden animate-fade-in"
                   style={{ animationDelay: `${300 * categoryIndex + 50 * techIndex}ms`, animationFillMode: 'backwards' }}
                 >
-                  {tech}
-                </span>
+                  {/* Animated background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-full opacity-0 group-hover/tag:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full animate-pulse opacity-50" />
+                  
+                  {/* Main tag */}
+                  <span className="relative block px-4 py-2 text-sm font-semibold bg-gradient-to-r from-background/80 to-background/60 backdrop-blur-sm text-foreground rounded-full border border-primary/30 
+                                 hover:border-primary/60 hover:text-primary hover:shadow-[0_0_15px_hsl(var(--primary)/0.4)] 
+                                 transition-all duration-300 cursor-pointer hover:scale-110 hover:-translate-y-1
+                                 group-hover/tag:bg-gradient-to-r group-hover/tag:from-primary/10 group-hover/tag:to-secondary/10">
+                    {tech}
+                  </span>
+                  
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                                opacity-0 group-hover/tag:opacity-100 group-hover/tag:animate-[shimmer_0.6s_ease-out] pointer-events-none" />
+                </div>
               ))}
             </div>
             
