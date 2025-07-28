@@ -34,7 +34,6 @@ const TechStack = () => {
       {/* Background with animated gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_hsl(var(--primary)/0.1)_0%,_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,_transparent_0deg,_hsl(var(--primary)/0.05)_180deg,_transparent_360deg)] animate-[spin_20s_linear_infinite]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* Section header */}
