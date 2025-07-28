@@ -139,8 +139,11 @@ export default {
           'to': { transform: 'rotate(360deg)' },
         },
         'neon-pulse': {
+          '0%, 100%': {
+            boxShadow: '0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary)), 0 0 15px hsl(var(--primary)), 0 0 20px hsl(var(--primary))'
+          },
           '50%': {
-            boxShadow: '0 0 8px hsl(var(--primary)), 0 0 20px hsl(var(--primary))'
+            boxShadow: '0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--primary)), 0 0 40px hsl(var(--primary))'
           }
         },
         'text-glow': {
