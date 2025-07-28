@@ -7,8 +7,8 @@ import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center relative pt-20 pb-20">
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8 md:mt-16">
+    <section id="home" className="min-h-screen flex items-start justify-center relative pt-20 pb-20">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-8 md:mt-16">
         <div className="text-center md:text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4">
             Hello! I'm <br />
@@ -19,7 +19,7 @@ const Hero = () => {
           </div>
           <SocialLinks />
         </div>
-        <div className="flex justify-center items-start -mt-8">
+        <div className="flex justify-center items-start pt-4">
             <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm" />
         </div>
       </div>
