@@ -17,7 +17,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden relative">
+    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden relative scale-125 origin-top-left" style={{width: '80%', height: '80%'}}>
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary rounded-full filter blur-3xl opacity-10 animate-float" />
       <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-secondary rounded-full filter blur-3xl opacity-10 animate-float [animation-delay:-2s]" />
 
