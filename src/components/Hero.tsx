@@ -19,7 +19,7 @@ const Hero = () => {
           </div>
           <SocialLinks />
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-start mt-4">
             <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm" />
         </div>
       </div>
