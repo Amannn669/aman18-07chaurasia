@@ -39,7 +39,7 @@ const TechStack = () => {
         {/* Section header */}
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider mb-4 animate-fade-in">
-            <span className="text-white">TECH</span> <span className="text-primary drop-shadow-[0_0_20px_hsl(var(--primary)/0.8)]">ARSENAL</span>
+            <span className="text-foreground">TECH</span> <span className="text-primary drop-shadow-[0_0_20px_hsl(var(--primary)/0.8)]">ARSENAL</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto opacity-60" />
         </div>
