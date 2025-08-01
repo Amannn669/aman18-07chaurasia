@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import professionalPortrait from '@/assets/professional-portrait.jpg';
 
 interface AnimatedProfileImageProps {
   className?: string;
@@ -27,7 +28,7 @@ const AnimatedProfileImage = ({ className }: AnimatedProfileImageProps) => {
         
         {/* Hover image (original one) - circular */}
         <img
-          src="/src/assets/cinematographic-professional.jpg"
+          src={professionalPortrait}
           alt="Aman Chaurasia"
           className={`absolute top-0 left-0 w-full h-full object-cover rounded-full shadow-[0_0_40px_hsl(var(--primary))] transition-all duration-500 ${
             isHovered ? 'opacity-100 scale-105' : 'opacity-0'
