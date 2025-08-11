@@ -24,7 +24,7 @@ const Header = () => {
             <ShuffleLink href="/projects" className="story-link">PROJECTS</ShuffleLink>
             <ShuffleLink href="/#experience" className="story-link">EXPERIENCE</ShuffleLink>
             <ShuffleLink href="/#contact" className="story-link">CONTACT</ShuffleLink>
-            <ShuffleLink href="https://shorturl.at/DmHDH" className="story-link">RESUME</ShuffleLink>
+            <ShuffleLink href="https://drive.google.com/file/d/1rep7eLTp2aTVPkIRuUxZfQpda0cBhMx8/view?usp=drive_link" className="story-link">RESUME</ShuffleLink>
           </nav>
           <ThemeToggle />
         </div>
@@ -84,7 +84,7 @@ const Header = () => {
               CONTACT
             </ShuffleLink>
             <ShuffleLink 
-              href="https://shorturl.at/DmHDH" 
+              href="https://drive.google.com/file/d/1rep7eLTp2aTVPkIRuUxZfQpda0cBhMx8/view?usp=drive_link" 
               className="story-link py-2 px-4 w-full text-center hover:bg-muted/50 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
