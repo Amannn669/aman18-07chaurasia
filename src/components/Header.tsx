@@ -24,6 +24,7 @@ const Header = () => {
             <ShuffleLink href="/projects" className="story-link">PROJECTS</ShuffleLink>
             <ShuffleLink href="/#experience" className="story-link">EXPERIENCE</ShuffleLink>
             <ShuffleLink href="/#contact" className="story-link">CONTACT</ShuffleLink>
+            <ShuffleLink href="https://shorturl.at/DmHDH" className="story-link">RESUME</ShuffleLink>
           </nav>
           <ThemeToggle />
         </div>
@@ -81,6 +82,13 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               CONTACT
+            </ShuffleLink>
+            <ShuffleLink 
+              href="https://shorturl.at/DmHDH" 
+              className="story-link py-2 px-4 w-full text-center hover:bg-muted/50 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              RESUME
             </ShuffleLink>
           </nav>
         </div>
