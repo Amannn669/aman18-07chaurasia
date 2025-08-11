@@ -4,7 +4,7 @@ import { Instagram, Linkedin, Mail, Youtube } from 'lucide-react';
 
 const SocialLinks = () => {
   const socialMedia = [
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/aman-chaurasia-' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/aman-chaurasia-91443b263/' },
     { name: 'Email', icon: Mail, href: 'mailto:aman007chaurasia@gmail.com' },
     { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/a_mannn._/' },
     { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/@forreal..18?feature=shared' },

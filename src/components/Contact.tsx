@@ -4,7 +4,7 @@ import { Github, Linkedin, Youtube, Instagram, ArrowUpRight } from 'lucide-react
 
 const socialLinks = {
   github: "https://github.com/aman18Chaurasia",
-  linkedin: "https://www.linkedin.com/in/aman-chaurasia-",
+  linkedin: "https://www.linkedin.com/in/aman-chaurasia-91443b263/",
   youtube: "https://youtube.com/@forreal..18?feature=shared",
   instagram: "https://www.instagram.com/a_mannn._/",
 };
