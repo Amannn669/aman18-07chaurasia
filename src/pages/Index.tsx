@@ -7,6 +7,7 @@ import Contact from '@/components/Contact';
 
 import TechStack from '@/components/TechStack';
 import CodeLoader from '@/components/CodeLoader';
+import BackToTop from '@/components/BackToTop';
 import { usePageLoader } from '@/hooks/usePageLoader';
 
 const Index = () => {
@@ -32,6 +33,7 @@ const Index = () => {
         <Experience />
         <Contact />
       </main>
+      <BackToTop />
       
     </div>
   );
