@@ -4,6 +4,7 @@ import About from '@/components/About';
 import WhatIDo from '@/components/WhatIDo';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
+import BackToTop from '@/components/BackToTop';
 
 import TechStack from '@/components/TechStack';
 import CodeLoader from '@/components/CodeLoader';
@@ -32,7 +33,7 @@ const Index = () => {
         <Experience />
         <Contact />
       </main>
-      
+      <BackToTop />
     </div>
   );
 };

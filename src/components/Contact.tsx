@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Github, Linkedin, Youtube, Instagram, ArrowUpRight } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 const socialLinks = {
   github: "https://github.com/aman18Chaurasia",
@@ -15,6 +16,11 @@ const Contact = () => {
             <div className="container mx-auto px-4">
                 <h2 className="text-center md:text-left text-4xl md:text-5xl font-bold uppercase tracking-wider mb-12">Contact</h2>
                 
+                {/* Contact Form Section */}
+                <div className="mb-16">
+                    <ContactForm />
+                </div>
+
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16">
                     {/* LEFT ICONS */}
                     <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:justify-between md:self-stretch">
@@ -30,7 +36,7 @@ const Contact = () => {
                             <div className="space-y-8">
                                 <div>
                                     <h3 className="text-base text-muted-foreground mb-2">Email</h3>
-                                    <a href="mailto:aman007chaurasia@gmail.com" className="font-semibold hover:text-primary transition-colors">connect@aman.dev</a>
+                                    <a href="mailto:aman007chaurasia@gmail.com" className="font-semibold hover:text-primary transition-colors">aman007chaurasia@gmail.com</a>
                                 </div>
                                 <div>
                                     <h3 className="text-base text-muted-foreground mb-2">Location</h3>
