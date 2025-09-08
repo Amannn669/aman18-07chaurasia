@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import WhatIDo from '@/components/WhatIDo';
 import Experience from '@/components/Experience';
+import Blog from '@/components/Blog';
 import Contact from '@/components/Contact';
 
 import TechStack from '@/components/TechStack';
@@ -31,6 +32,7 @@ const Index = () => {
       <TechStack />
       <main className="container mx-auto px-2 sm:px-4 lg:px-8 xl:px-16 relative z-10">
         <Experience />
+        <Blog />
         <Contact />
       </main>
       <BackToTop />
