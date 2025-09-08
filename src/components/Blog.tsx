@@ -90,58 +90,64 @@ const Blog = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {blogPosts.map((post, index) => (
-          <Card 
+          <a
             key={post.id}
-            className={`group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 border-muted-foreground/20 ${
+            href={`/blog/${post.id}`}
+            className={`block group cursor-pointer transition-all duration-300 hover:scale-105 ${
               post.featured ? 'md:col-span-2' : ''
             } ${
               isVisible ? 'animate-fade-in' : 'opacity-0'
             }`}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <CardHeader className="pb-4">
-              <div className="flex items-center justify-between mb-3">
-                <Badge variant="outline" className="text-primary border-primary/50">
-                  {post.category}
-                </Badge>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <Calendar size={14} />
-                    {new Date(post.date).toLocaleDateString('en-US', { 
-                      month: 'short', 
-                      day: 'numeric' 
-                    })}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock size={14} />
-                    {post.readTime}
+            <Card className="h-full hover:shadow-xl hover:shadow-primary/20 border-muted-foreground/20">
+              <CardHeader className="pb-4">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge variant="outline" className="text-primary border-primary/50">
+                    {post.category}
+                  </Badge>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Calendar size={14} />
+                      {new Date(post.date).toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric' 
+                      })}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock size={14} />
+                      {post.readTime}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                <ShuffleText>{post.title}</ShuffleText>
-              </h3>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-4 line-clamp-3">
-                {post.excerpt}
-              </p>
-              <div className="flex items-center text-primary font-medium group-hover:gap-3 transition-all duration-300">
-                Read More
-                <ArrowRight 
-                  size={16} 
-                  className="ml-2 group-hover:translate-x-1 transition-transform duration-300" 
-                />
-              </div>
-            </CardContent>
-          </Card>
+                <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                  <ShuffleText>{post.title}</ShuffleText>
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center text-primary font-medium group-hover:gap-3 transition-all duration-300">
+                  Read More
+                  <ArrowRight 
+                    size={16} 
+                    className="ml-2 group-hover:translate-x-1 transition-transform duration-300" 
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </a>
         ))}
       </div>
 
       <div className="text-center mt-12">
-        <button className="px-8 py-4 bg-primary/10 border border-primary/30 rounded-lg text-primary font-medium hover:bg-primary/20 transition-all duration-300 hover:scale-105">
+        <a 
+          href="/blog"
+          className="inline-block px-8 py-4 bg-primary/10 border border-primary/30 rounded-lg text-primary font-medium hover:bg-primary/20 transition-all duration-300 hover:scale-105"
+        >
           View All Posts
-        </button>
+        </a>
       </div>
     </section>
   );
