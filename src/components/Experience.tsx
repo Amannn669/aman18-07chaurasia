@@ -16,39 +16,27 @@ const experienceData = [
     description: 'Acquired comprehensive skills in full-stack web development through self-directed learning.',
   },
   {
-    role: 'Machine Learning Explorer',
-    company: 'IIIT Raichur',
-    year: '2024',
-    description: 'Explored the fundamentals and applications of machine learning.',
-  },
-  {
     role: 'Cultural Secretary',
     company: 'IIIT Raichur Student Council',
     year: '2024',
     description: 'Led and organized campus-wide cultural events, honing leadership and team management skills.',
   },
   {
-    role: 'Generative AI Explorer',
-    company: 'Self-Taught',
+    role: 'AI/ML Practitioner',
+    company: 'Industry Projects',
     year: '2025',
-    description: 'Focused on the burgeoning field of Generative AI, building projects and understanding its core.',
+    description: 'Applying AI/ML knowledge to real-world industry projects, creating impactful solutions.',
   },
   {
     role: 'AI Intern',
     company: 'Darwix AI',
-    year: '2025',
-    description: 'Working as an AI intern, applying machine learning and artificial intelligence solutions to real-world problems.',
-  },
-  {
-    role: 'AI/ML Practitioner',
-    company: 'Industry Projects',
     year: 'NOW',
-    description: 'Applying my AI/ML knowledge to real-world industry projects, creating impactful solutions.',
+    description: 'Working as an AI intern, applying machine learning and artificial intelligence solutions to real-world problems.',
   },
 ];
 
 // Progress percentages for when each milestone becomes active
-const milestoneThresholds = [5, 18, 32, 46, 60, 74, 90];
+const milestoneThresholds = [5, 25, 45, 70, 90];
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
