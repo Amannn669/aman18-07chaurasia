@@ -18,7 +18,7 @@ const AnimatedProfileImage = ({ className }: AnimatedProfileImageProps) => {
       <div className="relative aspect-square w-full">
         {/* Default image (new one) - circular */}
         <img
-          src="/lovable-uploads/30f0f008-c7b0-4537-9c72-8a7fcc2fc7bb.png"
+          src="/lovable-uploads/c81a614d-ba03-435f-96c2-6ceb98a5c519.png"
           alt="Aman Chaurasia"
           className={`w-full h-full object-cover rounded-full shadow-[0_0_30px_black] transition-all duration-500 ${
             isHovered ? 'opacity-0 scale-105' : 'opacity-100'
