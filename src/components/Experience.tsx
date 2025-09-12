@@ -34,6 +34,12 @@ const experienceData = [
     description: 'Focused on the burgeoning field of Generative AI, building projects and understanding its core.',
   },
   {
+    role: 'AI Intern',
+    company: 'Darwix AI',
+    year: '2025',
+    description: 'Working as an AI intern, applying machine learning and artificial intelligence solutions to real-world problems.',
+  },
+  {
     role: 'AI/ML Practitioner',
     company: 'Industry Projects',
     year: 'NOW',
@@ -42,7 +48,7 @@ const experienceData = [
 ];
 
 // Progress percentages for when each milestone becomes active
-const milestoneThresholds = [5, 20, 38, 55, 72, 90];
+const milestoneThresholds = [5, 18, 32, 46, 60, 74, 90];
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
