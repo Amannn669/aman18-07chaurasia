@@ -27,7 +27,7 @@ const AnimatedProfileImage = ({ className }: AnimatedProfileImageProps) => {
         
         {/* Hover image (original one) - circular */}
         <img
-          src="/lovable-uploads/cf70903c-c3f1-4ff3-b60a-5720a4884869.png"
+          src="/lovable-uploads/2013581d-5abc-433e-bc1f-6b8b083732a8.png"
           alt="Aman Chaurasia"
           className={`absolute top-0 left-0 w-full h-full object-cover rounded-full shadow-[0_0_40px_hsl(var(--primary))] transition-all duration-500 ${
             isHovered ? 'opacity-100 scale-105' : 'opacity-0'
