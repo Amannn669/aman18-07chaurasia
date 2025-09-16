@@ -112,7 +112,7 @@ const Experience = () => {
                       <img 
                         src="/lovable-uploads/darwix-ai-logo.png" 
                         alt="Darwix AI Logo" 
-                        className="h-8 w-auto object-contain"
+                        className="h-6 w-auto object-contain"
                       />
                     </div>
                   )}
