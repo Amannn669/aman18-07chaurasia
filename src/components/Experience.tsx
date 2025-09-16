@@ -107,6 +107,15 @@ const Experience = () => {
                 <div className={`sm:w-5/12 mb-6 sm:mb-0 text-left sm:text-center ${isReversed ? 'sm:text-left' : 'sm:text-right'} pl-12 sm:pl-0`}>
                   <h3 className="text-xl font-bold">{item.role}</h3>
                   <p className="text-primary">{item.company}</p>
+                  {item.company === 'Darwix AI' && (
+                    <div className="mt-3 flex justify-center">
+                      <img 
+                        src="/lovable-uploads/darwix-ai-logo.png" 
+                        alt="Darwix AI Logo" 
+                        className="h-8 w-auto object-contain"
+                      />
+                    </div>
+                  )}
                 </div>
                 
                 <div className={cn(
