@@ -28,6 +28,12 @@ const experienceData = [
     description: 'Applying AI/ML knowledge to real-world industry projects, creating impactful solutions.',
   },
   {
+    role: 'Data Science Intern',
+    company: 'Krutanic',
+    year: 'Jul - Sept',
+    description: 'Worked as a data science intern, applying data analysis and machine learning techniques to solve business problems.',
+  },
+  {
     role: 'AI Intern',
     company: 'Darwix AI',
     year: 'NOW',
@@ -36,7 +42,7 @@ const experienceData = [
 ];
 
 // Progress percentages for when each milestone becomes active
-const milestoneThresholds = [5, 25, 45, 70, 90];
+const milestoneThresholds = [5, 20, 35, 55, 75, 95];
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
