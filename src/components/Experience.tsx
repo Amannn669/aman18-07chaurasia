@@ -30,7 +30,7 @@ const experienceData = [
   {
     role: 'Data Science Intern',
     company: 'Krutanic',
-    year: 'Jul - Sept',
+    year: '2025',
     description: 'Worked as a data science intern, applying data analysis and machine learning techniques to solve business problems.',
   },
   {
