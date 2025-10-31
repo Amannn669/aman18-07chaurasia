@@ -32,23 +32,29 @@ const AIChat = () => {
   const streamChat = async (userMessages: Message[]) => {
     const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/portfolio-chat`;
     
+    console.log('Calling AI chat at:', CHAT_URL);
+    
     const resp = await fetch(CHAT_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
       },
       body: JSON.stringify({ messages: userMessages }),
     });
 
+    console.log('Response status:', resp.status);
+
     if (!resp.ok) {
+      const errorText = await resp.text();
+      console.error('Error response:', errorText);
+      
       if (resp.status === 429) {
         throw new Error("Rate limit exceeded. Please try again in a moment.");
       }
       if (resp.status === 402) {
         throw new Error("Service temporarily unavailable.");
       }
-      throw new Error("Failed to connect to AI assistant");
+      throw new Error(`Failed to connect to AI assistant (${resp.status})`);
     }
 
     if (!resp.body) throw new Error("No response body");
