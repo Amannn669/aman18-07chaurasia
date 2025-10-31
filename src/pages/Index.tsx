@@ -9,6 +9,7 @@ import Contact from '@/components/Contact';
 import TechStack from '@/components/TechStack';
 import CodeLoader from '@/components/CodeLoader';
 import BackToTop from '@/components/BackToTop';
+import AIChat from '@/components/AIChat';
 import { usePageLoader } from '@/hooks/usePageLoader';
 
 const Index = () => {
@@ -36,7 +37,7 @@ const Index = () => {
         <Contact />
       </main>
       <BackToTop />
-      
+      <AIChat />
     </div>
   );
 };
