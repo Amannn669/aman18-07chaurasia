@@ -15,7 +15,7 @@ const AIChat = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hi! I'm Aman's AI assistant. Ask me anything about his skills, experience, or projects! 👋"
+      content: "👋 Meet me faster — no scrolling, no searching! I'm Aman's AI assistant and I know everything about his skills, experience, and projects. Ask me anything!"
     }
   ]);
   const [input, setInput] = useState('');
@@ -172,14 +172,19 @@ const AIChat = () => {
 
   if (!isOpen) {
     return (
-      <Button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 group"
-        aria-label="Open AI chat"
-      >
-        <MessageCircle className="h-6 w-6" />
-        <Sparkles className="h-4 w-4 absolute -top-1 -right-1 text-yellow-400 animate-pulse" />
-      </Button>
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg animate-bounce">
+          <p className="text-sm font-medium whitespace-nowrap">Meet me faster — ask my AI! 💬</p>
+        </div>
+        <Button
+          onClick={() => setIsOpen(true)}
+          className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 group"
+          aria-label="Open AI chat"
+        >
+          <MessageCircle className="h-6 w-6" />
+          <Sparkles className="h-4 w-4 absolute -top-1 -right-1 text-yellow-400 animate-pulse" />
+        </Button>
+      </div>
     );
   }
 
