@@ -12,6 +12,7 @@ interface Message {
 
 const AIChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
@@ -22,6 +23,13 @@ const AIChat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPrompt(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -173,16 +181,17 @@ const AIChat = () => {
   if (!isOpen) {
     return (
       <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-        <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg animate-bounce">
-          <p className="text-sm font-medium whitespace-nowrap">Meet me faster — ask my AI! 💬</p>
-        </div>
+        {showPrompt && (
+          <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg animate-fade-in">
+            <p className="text-sm font-medium whitespace-nowrap">Meet me faster — ask my AI! 💬</p>
+          </div>
+        )}
         <Button
           onClick={() => setIsOpen(true)}
-          className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 group"
+          className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 hover:scale-110 transition-transform"
           aria-label="Open AI chat"
         >
           <MessageCircle className="h-6 w-6" />
-          <Sparkles className="h-4 w-4 absolute -top-1 -right-1 text-yellow-400 animate-pulse" />
         </Button>
       </div>
     );
