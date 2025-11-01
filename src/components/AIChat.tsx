@@ -25,13 +25,6 @@ const AIChat = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPrompt(false);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
@@ -187,7 +180,10 @@ const AIChat = () => {
           </div>
         )}
         <Button
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            setIsOpen(true);
+            setShowPrompt(false);
+          }}
           className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 hover:scale-110 transition-transform"
           aria-label="Open AI chat"
         >
