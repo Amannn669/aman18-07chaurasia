@@ -38,6 +38,8 @@ const AIChat = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
       },
       body: JSON.stringify({ messages: userMessages }),
     });
@@ -79,7 +81,7 @@ const AIChat = () => {
         textBuffer = textBuffer.slice(newlineIndex + 1);
 
         if (line.endsWith("\r")) line = line.slice(0, -1);
-        if (line.startsWith(":") || line.trim() === "") continue;
+        if (line.startsWith(":" ) || line.trim() === "") continue;
         if (!line.startsWith("data: ")) continue;
 
         const jsonStr = line.slice(6).trim();
@@ -106,6 +108,33 @@ const AIChat = () => {
           textBuffer = line + "\n" + textBuffer;
           break;
         }
+      }
+    }
+
+    // Final flush for any remaining buffered lines
+    if (textBuffer.trim()) {
+      for (let raw of textBuffer.split("\n")) {
+        if (!raw) continue;
+        if (raw.endsWith("\r")) raw = raw.slice(0, -1);
+        if (raw.startsWith(":" ) || raw.trim() === "") continue;
+        if (!raw.startsWith("data: ")) continue;
+        const jsonStr = raw.slice(6).trim();
+        if (jsonStr === "[DONE]") continue;
+        try {
+          const parsed = JSON.parse(jsonStr);
+          const content = parsed.choices?.[0]?.delta?.content as string | undefined;
+          if (content) {
+            assistantContent += content;
+            setMessages(prev => {
+              const newMessages = [...prev];
+              newMessages[newMessages.length - 1] = {
+                role: 'assistant',
+                content: assistantContent
+              };
+              return newMessages;
+            });
+          }
+        } catch { /* ignore */ }
       }
     }
   };
