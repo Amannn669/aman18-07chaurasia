@@ -153,6 +153,24 @@ export default {
           '50%': {
             textShadow: '0 0 15px #FBBF24, 0 0 25px #FBBF24'
           }
+        },
+        'ripple': {
+          '0%': {
+            transform: 'translate(-50%, -50%) scale(0)',
+            opacity: '1'
+          },
+          '100%': {
+            transform: 'translate(-50%, -50%) scale(4)',
+            opacity: '0'
+          }
+        },
+        'shimmer': {
+          '0%': {
+            backgroundPosition: '-1000px 0'
+          },
+          '100%': {
+            backgroundPosition: '1000px 0'
+          }
         }
 			},
 			animation: {
@@ -167,6 +185,8 @@ export default {
         'neon-pulse': 'neon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'fade-in-down': 'fade-in-down 0.5s ease-out',
         'text-glow': 'text-glow 2.5s ease-in-out infinite',
+        'ripple': 'ripple 0.6s ease-out',
+        'shimmer': 'shimmer 2s infinite',
 			}
 		}
 	},
