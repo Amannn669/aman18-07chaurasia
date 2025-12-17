@@ -5,6 +5,7 @@ import WhatIDo from '@/components/WhatIDo';
 import Experience from '@/components/Experience';
 import Blog from '@/components/Blog';
 import Contact from '@/components/Contact';
+import AnimatedGem from '@/components/AnimatedGem';
 
 import TechStack from '@/components/TechStack';
 import CodeLoader from '@/components/CodeLoader';
@@ -29,6 +30,9 @@ const Index = () => {
         <main className="container mx-auto px-2 sm:px-4 lg:px-8 xl:px-16 relative z-10">
           <Hero />
           <About />
+          <div className="flex justify-center py-8">
+            <AnimatedGem />
+          </div>
           <WhatIDo />
         </main>
         <TechStack />
