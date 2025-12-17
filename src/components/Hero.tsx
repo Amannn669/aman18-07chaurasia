@@ -3,11 +3,17 @@ import React from 'react';
 import AnimatedText from './AnimatedText';
 import AnimatedProfileImage from './AnimatedProfileImage';
 import SocialLinks from './SocialLinks';
+import AnimatedGem from './AnimatedGem';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-start justify-center relative pt-20 pb-20">
+      {/* Floating animated gem - decorative */}
+      <div className="absolute top-32 right-10 opacity-60 hidden lg:block">
+        <AnimatedGem />
+      </div>
+      
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-8 md:mt-16">
         <div className="text-center md:text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4">
