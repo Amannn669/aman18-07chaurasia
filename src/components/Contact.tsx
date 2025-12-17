@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Github, Linkedin, Youtube, Instagram, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import IsometricSocialCard from './IsometricSocialCard';
 
 const socialLinks = {
   github: "https://github.com/aman18Chaurasia",
@@ -16,12 +17,9 @@ const Contact = () => {
                 <h2 className="text-center md:text-left text-4xl md:text-5xl font-bold uppercase tracking-wider mb-12">Contact</h2>
                 
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16">
-                    {/* LEFT ICONS */}
-                    <div className="flex flex-row md:flex-col gap-6 justify-center self-center md:justify-between md:self-stretch">
-                        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github size={24} /></a>
-                        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
-                        <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Youtube size={24} /></a>
-                        <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
+                    {/* LEFT - Isometric Social Card */}
+                    <div className="flex justify-center md:justify-start">
+                        <IsometricSocialCard direction="vertical" />
                     </div>
                     
                     {/* RIGHT CONTENT */}

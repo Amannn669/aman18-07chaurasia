@@ -2,7 +2,7 @@
 import React from 'react';
 import AnimatedText from './AnimatedText';
 import AnimatedProfileImage from './AnimatedProfileImage';
-import SocialLinks from './SocialLinks';
+import IsometricSocialCard from './IsometricSocialCard';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
@@ -18,7 +18,9 @@ const Hero = () => {
           <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 h-16 md:h-20 flex items-center justify-center md:justify-start">
             <AnimatedText />
           </div>
-          <SocialLinks />
+          <div className="flex justify-center md:justify-start">
+            <IsometricSocialCard direction="horizontal" />
+          </div>
         </div>
         <div className="flex justify-center items-start pt-4">
             <AnimatedProfileImage className="w-full max-w-xs md:max-w-sm" />
