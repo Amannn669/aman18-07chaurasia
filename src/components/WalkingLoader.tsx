@@ -114,10 +114,10 @@ const StyledWrapper = styled.div`
 
   .loader .logo {
     position: absolute;
-    inset: 0;
+    inset: 40%;
     display: grid;
     place-content: center;
-    padding: 30%;
+    padding: 15%;
     z-index: 100;
   }
 
