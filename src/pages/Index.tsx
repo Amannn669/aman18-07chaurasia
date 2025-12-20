@@ -8,7 +8,7 @@ import Contact from '@/components/Contact';
 import AnimatedGem from '@/components/AnimatedGem';
 
 import TechStack from '@/components/TechStack';
-import CodeLoader from '@/components/CodeLoader';
+import WalkingLoader from '@/components/WalkingLoader';
 import BackToTop from '@/components/BackToTop';
 import AIChat from '@/components/AIChat';
 import { usePageLoader } from '@/hooks/usePageLoader';
@@ -17,7 +17,7 @@ const Index = () => {
   const isLoading = usePageLoader(5000);
 
   if (isLoading) {
-    return <CodeLoader />;
+    return <WalkingLoader />;
   }
 
   return (
