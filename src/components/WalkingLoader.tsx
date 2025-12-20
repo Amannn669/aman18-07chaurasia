@@ -50,7 +50,7 @@ const StyledWrapper = styled.div`
   }
 
   .loader {
-    --size: 250px;
+    --size: min(250px, 60vw, 60vh);
     --duration: 2s;
     --logo-color: hsl(var(--primary));
     --background: linear-gradient(
@@ -59,7 +59,7 @@ const StyledWrapper = styled.div`
       hsl(var(--muted-foreground) / 0.2) 100%
     );
     height: var(--size);
-    aspect-ratio: 1;
+    width: var(--size);
     position: relative;
     transition: transform 0.8s ease-out;
   }
