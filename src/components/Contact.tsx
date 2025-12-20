@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import IsometricSocialCard from './IsometricSocialCard';
+import TruckLoader from './TruckLoader';
 
 const socialLinks = {
   github: "https://github.com/aman18Chaurasia",
@@ -55,6 +56,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+            <TruckLoader />
         </footer>
     );
 };
