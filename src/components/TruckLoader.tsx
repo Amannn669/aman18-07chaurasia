@@ -144,7 +144,7 @@ const TruckLoader = () => {
             xmlns="http://www.w3.org/2000/svg"
             id="Capa_1"
             version="1.1"
-            fill="hsl(var(--primary))"
+            fill="hsl(var(--foreground))"
             className="lampPost"
           >
             <path d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
@@ -166,9 +166,11 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  overflow: hidden;
 
   .loader {
-    width: fit-content;
+    width: 100%;
+    max-width: 600px;
     height: fit-content;
     display: flex;
     align-items: center;
@@ -176,7 +178,7 @@ const StyledWrapper = styled.div`
   }
 
   .truckWrapper {
-    width: 200px;
+    width: 100%;
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -221,8 +223,8 @@ const StyledWrapper = styled.div`
   }
 
   .road {
-    width: 100%;
-    height: 1.5px;
+    width: 120%;
+    height: 2px;
     background-color: hsl(var(--muted-foreground) / 0.3);
     position: relative;
     bottom: 0;
