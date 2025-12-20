@@ -185,7 +185,7 @@ const StyledWrapper = styled.div`
     position: relative;
     align-items: center;
     justify-content: flex-end;
-    overflow-x: hidden;
+    overflow: visible;
   }
 
   .truckBody {
@@ -259,9 +259,9 @@ const StyledWrapper = styled.div`
   .lampPost {
     position: absolute;
     bottom: 0;
-    right: -90%;
-    height: 90px;
-    animation: roadAnimation 1.4s linear infinite;
+    right: -20px;
+    height: 70px;
+    animation: lampAnimation 2.5s linear infinite;
   }
 
   @keyframes roadAnimation {
@@ -270,6 +270,23 @@ const StyledWrapper = styled.div`
     }
     100% {
       transform: translateX(-350px);
+    }
+  }
+
+  @keyframes lampAnimation {
+    0% {
+      transform: translateX(300px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-300px);
+      opacity: 0;
     }
   }
 `;
