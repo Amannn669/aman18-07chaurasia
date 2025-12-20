@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const WalkingLoader = () => {
+interface WalkingLoaderProps {
+  isTransitioning?: boolean;
+}
+
+const WalkingLoader = ({ isTransitioning = false }: WalkingLoaderProps) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper className={isTransitioning ? 'transitioning' : ''}>
       <div className="loader">
         <div className="logo">
           <svg
@@ -38,6 +42,12 @@ const StyledWrapper = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 50;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.transitioning {
+    opacity: 0;
+    transform: scale(1.5);
+  }
 
   .loader {
     --size: 250px;
@@ -51,6 +61,11 @@ const StyledWrapper = styled.div`
     height: var(--size);
     aspect-ratio: 1;
     position: relative;
+    transition: transform 0.8s ease-out;
+  }
+
+  &.transitioning .loader {
+    transform: scale(0.8);
   }
 
   .loader .box {
