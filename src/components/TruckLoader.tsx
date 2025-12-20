@@ -137,24 +137,26 @@ const TruckLoader = () => {
             </svg>
           </div>
           <div className="road" />
-          <svg
-            xmlSpace="preserve"
-            viewBox="0 0 453.459 453.459"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            xmlns="http://www.w3.org/2000/svg"
-            id="Capa_1"
-            version="1.1"
-            fill="hsl(var(--foreground))"
-            className="lampPost"
-          >
-            <path d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
-              c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514
-              c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16
-              c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v56.879
-              h-23.698v15.073h10.472v103.398h-10.472v15.074h10.472v47.299H237.69v19.085h28.476v-19.085h-5.452v-47.299h10.472v-15.074h-10.472
-              V268.593h10.472v-15.073h-23.699v-56.879c0-43.142,14.604-54.055,30.108-64.584c15.748-10.697,33.6-22.827,33.6-77.737
-              C311.195,24.368,286.828,0,252.882,0z" />
-          </svg>
+          <div className="lampPost">
+            <div className="lampGlow" />
+            <svg
+              xmlSpace="preserve"
+              viewBox="0 0 453.459 453.459"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              xmlns="http://www.w3.org/2000/svg"
+              id="Capa_1"
+              version="1.1"
+              fill="hsl(var(--foreground))"
+            >
+              <path d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
+                c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514
+                c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16
+                c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v56.879
+                h-23.698v15.073h10.472v103.398h-10.472v15.074h10.472v47.299H237.69v19.085h28.476v-19.085h-5.452v-47.299h10.472v-15.074h-10.472
+                V268.593h10.472v-15.073h-23.699v-56.879c0-43.142,14.604-54.055,30.108-64.584c15.748-10.697,33.6-22.827,33.6-77.737
+                C311.195,24.368,286.828,0,252.882,0z" />
+            </svg>
+          </div>
         </div>
       </div>
     </StyledWrapper>
@@ -262,6 +264,35 @@ const StyledWrapper = styled.div`
     right: -20px;
     height: 70px;
     animation: lampAnimation 2.5s linear infinite;
+  }
+
+  .lampPost svg {
+    height: 100%;
+    width: auto;
+  }
+
+  .lampGlow {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.6) 30%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 1.5s ease-in-out infinite;
+    filter: blur(3px);
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: 0.8;
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1.3);
+    }
   }
 
   @keyframes roadAnimation {
