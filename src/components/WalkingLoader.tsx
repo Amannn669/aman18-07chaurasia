@@ -5,95 +5,26 @@ const WalkingLoader = () => {
   return (
     <StyledWrapper>
       <div className="loader">
-        <svg viewBox="0 0 200 200" className="head">
-          <g id="head">
-            <circle fill="hsl(var(--foreground))" cx="83" cy="72" r="35" />
-            <circle fill="hsl(var(--foreground))" cx="69" cy="72" r="3" />
-            <circle fill="hsl(var(--foreground))" cx="84" cy="58" r="3" />
-          </g>
-        </svg>
-        <svg viewBox="0 0 200 200" className="bod">
-          <g id="body">
-            <circle fill="hsl(var(--foreground))" cx="83" cy="72" r="35" />
-            <circle fill="hsl(var(--foreground))" cx="69" cy="72" r="3" />
-            <circle fill="hsl(var(--foreground))" cx="84" cy="58" r="3" />
-          </g>
-        </svg>
-        <svg viewBox="0 0 200 200" className="legl">
-          <g id="legl">
-            <ellipse
-              fill="hsl(var(--foreground))"
-              rx="8"
-              ry="25"
-              cx="17"
-              cy="27"
-              transform="rotate(10)"
+        <div className="logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
-          </g>
-        </svg>
-        <svg viewBox="0 0 200 200" className="legr">
-          <g id="legr">
-            <ellipse
-              fill="hsl(var(--foreground))"
-              rx="8"
-              ry="25"
-              cx="17"
-              cy="27"
-              transform="rotate(10)"
-            />
-            <ellipse
-              fill="hsl(var(--foreground))"
-              rx="7"
-              ry="4"
-              cx="20"
-              cy="53"
-              transform="rotate(10)"
-            />
-            <ellipse
-              fill="hsl(var(--foreground))"
-              rx="3"
-              ry="2"
-              cx="30"
-              cy="54"
-              transform="rotate(10)"
-            />
-            <ellipse
-              fill="hsl(var(--foreground))"
-              rx="8"
-              ry="25"
-              cx="17"
-              cy="27"
-              transform="rotate(10)"
-            />
-            <ellipse
-              fill="hsl(var(--foreground))"
-              rx="7"
-              ry="4"
-              cx="20"
-              cy="53"
-              transform="rotate(10)"
-            />
-            <ellipse
-              fill="hsl(var(--foreground))"
-              rx="3"
-              ry="2"
-              cx="30"
-              cy="54"
-              transform="rotate(10)"
-            />
-          </g>
-        </svg>
-        <svg viewBox="0 0 500 500" id="gnd">
-          <g id="gnd">
-            <ellipse fill="hsl(var(--foreground))" rx="160" ry="10" cx="250" cy="390" />
-            <ellipse fill="hsl(var(--foreground))" rx="100" ry="7" cx="100" cy="420" />
-            <ellipse fill="hsl(var(--foreground))" rx="120" ry="5" cx="400" cy="410" />
-            <ellipse fill="hsl(var(--foreground))" rx="180" ry="10" cx="270" cy="450" />
-            <ellipse fill="hsl(var(--foreground))" rx="50" ry="5" cx="80" cy="470" />
-            <ellipse fill="hsl(var(--foreground))" rx="80" ry="8" cx="450" cy="460" />
-            <ellipse fill="hsl(var(--foreground))" rx="200" ry="10" cx="300" cy="500" />
-          </g>
-        </svg>
+          </svg>
+        </div>
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
       </div>
     </StyledWrapper>
   );
@@ -109,118 +40,102 @@ const StyledWrapper = styled.div`
   z-index: 50;
 
   .loader {
-    scale: 0.75;
+    --size: 250px;
+    --duration: 2s;
+    --logo-color: hsl(var(--primary));
+    --background: linear-gradient(
+      0deg,
+      hsl(var(--muted) / 0.2) 0%,
+      hsl(var(--muted-foreground) / 0.2) 100%
+    );
+    height: var(--size);
+    aspect-ratio: 1;
     position: relative;
-    width: 200px;
-    height: 200px;
-    translate: 10px -20px;
   }
 
-  .loader svg {
+  .loader .box {
     position: absolute;
-    top: 0;
-    left: 0;
+    background: hsl(var(--muted) / 0.15);
+    background: var(--background);
+    border-radius: 50%;
+    border-top: 1px solid hsl(var(--muted-foreground));
+    box-shadow: hsl(var(--foreground) / 0.3) 0px 10px 10px -0px;
+    backdrop-filter: blur(5px);
+    animation: ripple var(--duration) infinite ease-in-out;
   }
 
-  .head {
-    translate: 27px -30px;
-    z-index: 3;
-    animation: bob 1s infinite ease-in;
+  .loader .box:nth-child(2) {
+    inset: 40%;
+    z-index: 99;
   }
 
-  .bod {
-    translate: 0px 30px;
-    z-index: 3;
-    animation: bob 1s infinite ease-in-out;
+  .loader .box:nth-child(3) {
+    inset: 30%;
+    z-index: 98;
+    border-color: hsl(var(--muted-foreground) / 0.8);
+    animation-delay: 0.2s;
   }
 
-  .legr {
-    translate: 75px 135px;
-    z-index: 0;
-    animation: rstep 1s infinite ease-in;
-    animation-delay: 0.45s;
+  .loader .box:nth-child(4) {
+    inset: 20%;
+    z-index: 97;
+    border-color: hsl(var(--muted-foreground) / 0.6);
+    animation-delay: 0.4s;
   }
 
-  .legl {
-    translate: 30px 155px;
-    z-index: 3;
-    animation: lstep 1s infinite ease-in;
+  .loader .box:nth-child(5) {
+    inset: 10%;
+    z-index: 96;
+    border-color: hsl(var(--muted-foreground) / 0.4);
+    animation-delay: 0.6s;
   }
 
-  @keyframes bob {
+  .loader .box:nth-child(6) {
+    inset: 0%;
+    z-index: 95;
+    border-color: hsl(var(--muted-foreground) / 0.2);
+    animation-delay: 0.8s;
+  }
+
+  .loader .logo {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    padding: 30%;
+    z-index: 100;
+  }
+
+  .loader .logo svg {
+    color: var(--logo-color);
+    width: 100%;
+    animation: color-change var(--duration) infinite ease-in-out;
+  }
+
+  @keyframes ripple {
     0% {
-      transform: translateY(0) rotate(3deg);
-    }
-    5% {
-      transform: translateY(0) rotate(3deg);
-    }
-    25% {
-      transform: translateY(5px) rotate(0deg);
+      transform: scale(1);
+      box-shadow: hsl(var(--foreground) / 0.3) 0px 10px 10px -0px;
     }
     50% {
-      transform: translateY(0px) rotate(-3deg);
-    }
-    70% {
-      transform: translateY(5px) rotate(0deg);
+      transform: scale(1.3);
+      box-shadow: hsl(var(--foreground) / 0.3) 0px 30px 20px -0px;
     }
     100% {
-      transform: translateY(0) rotate(3deg);
+      transform: scale(1);
+      box-shadow: hsl(var(--foreground) / 0.3) 0px 10px 10px -0px;
     }
   }
 
-  @keyframes lstep {
+  @keyframes color-change {
     0% {
-      transform: translateY(0) rotate(-5deg);
+      color: var(--logo-color);
     }
-    33% {
-      transform: translateY(-15px) translate(32px) rotate(35deg);
-    }
-    66% {
-      transform: translateY(0) translate(25px) rotate(-25deg);
+    50% {
+      color: hsl(var(--foreground));
     }
     100% {
-      transform: translateY(0) rotate(-5deg);
-    }
-  }
-
-  @keyframes rstep {
-    0% {
-      transform: translateY(0) translate(0px) rotate(-5deg);
-    }
-    33% {
-      transform: translateY(-10px) translate(30px) rotate(35deg);
-    }
-    66% {
-      transform: translateY(0) translate(20px) rotate(-25deg);
-    }
-    100% {
-      transform: translateY(0) translate(0px) rotate(-5deg);
-    }
-  }
-
-  #gnd {
-    translate: -140px 0;
-    rotate: 10deg;
-    z-index: -1;
-    filter: blur(0.5px) drop-shadow(1px 3px 5px hsl(var(--foreground) / 0.5));
-    opacity: 0.25;
-    animation: scroll 5s infinite linear;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateY(25px) translate(50px);
-      opacity: 0;
-    }
-    33% {
-      opacity: 0.25;
-    }
-    66% {
-      opacity: 0.25;
-    }
-    to {
-      transform: translateY(-50px) translate(-100px);
-      opacity: 0;
+      color: var(--logo-color);
     }
   }
 `;
