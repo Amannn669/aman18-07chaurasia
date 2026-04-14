@@ -99,10 +99,16 @@ const Experience = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const hoverRef = useRef<HTMLDivElement>(null);
 
-  const closeHover = useCallback(() => setHoveredIndex(null), []);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (hoveredIndex === null) return;
+    const onScroll = () => setHoveredIndex(null);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [hoveredIndex]);
+
   return (
     <section id="experience" className="py-16 sm:py-24 lg:py-32" ref={sectionRef}>
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-12 sm:mb-16 text-center px-4">
