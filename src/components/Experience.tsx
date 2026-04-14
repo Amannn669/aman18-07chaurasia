@@ -204,34 +204,6 @@ const Experience = () => {
         </div>
       </div>
 
-      {/* Detailed work dialog for Darwix AI */}
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl flex items-center gap-2">
-              {darwixEntry.role}
-              <span className="text-sm font-normal text-primary bg-primary/10 px-2 py-0.5 rounded-full">Current</span>
-            </DialogTitle>
-            <DialogDescription className="flex flex-col gap-1">
-              <span className="text-base font-semibold text-foreground">{darwixEntry.company}</span>
-              <span className="flex items-center gap-1 text-muted-foreground">
-                <MapPin size={14} /> {darwixEntry.location} • {darwixEntry.period}
-              </span>
-            </DialogDescription>
-          </DialogHeader>
-          <div className="mt-4 space-y-3">
-            <h4 className="text-sm font-semibold text-primary uppercase tracking-wider">Key Achievements</h4>
-            <ul className="space-y-3">
-              {darwixEntry.achievements?.map((achievement, i) => (
-                <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                  <span className="text-primary mt-1 shrink-0">▹</span>
-                  <span>{achievement}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };
