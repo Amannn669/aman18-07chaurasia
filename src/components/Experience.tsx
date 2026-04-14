@@ -1,8 +1,20 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { MapPin, ExternalLink } from 'lucide-react';
 
-const experienceData = [
+interface ExperienceItem {
+  role: string;
+  company: string;
+  year: string;
+  description: string;
+  location?: string;
+  period?: string;
+  achievements?: string[];
+}
+
+const experienceData: ExperienceItem[] = [
   {
     role: 'B.Tech Student',
     company: 'IIIT Raichur',
@@ -34,20 +46,32 @@ const experienceData = [
     description: 'Worked as a data science intern, applying data analysis and machine learning techniques to solve business problems.',
   },
   {
-    role: 'AI Intern',
+    role: 'Software Development Engineer',
     company: 'Darwix AI',
     year: 'NOW',
-    description: 'Working as an AI intern, applying machine learning and artificial intelligence solutions to real-world problems.',
+    description: 'Building production-grade AI systems — real-time call intelligence, RAG platforms, and multi-tenant ML pipelines.',
+    location: 'Gurugram, India',
+    period: 'September 2025 – Present',
+    achievements: [
+      'Architected and deployed a real-time AI call intelligence pipeline covering audio ingestion, speech-to-text transcription, NLP, and live agent nudge generation using Python, FastAPI, and WebSockets, achieving 99%+ system uptime.',
+      'Engineered a hybrid Objection Detection Engine combining NLP, semantic similarity search, and LLM validation, achieving 95–98% detection accuracy and reducing false positives by 30–40% across 200+ concurrent users.',
+      'Architected a production-grade multi-tenant RAG platform using a two-service microservices architecture behind an Nginx API gateway, containerized with Docker Compose and deployed on AWS ECS and AWS EKS.',
+      'Built a hybrid retrieval engine combining dense vector search using FAISS and ChromaDB with BM25 keyword search at a 60/40 weighted fusion, achieving sub-500ms P95 query latency across all tenants.',
+      'Implemented multi-tenant data isolation across all system layers including JWT-based company identification, per-company vector namespace separation, and metadata-filtered retrieval, ensuring zero cross-tenant data leakage.',
+      'Designed a real-time call-memory system using Redis for session state management, running conversation summaries, and recent transcript windowing with MongoDB as a fallback store.',
+      'Optimized real-time pipeline performance through asynchronous processing, request buffering, in-memory caching, Redis pipeline batching, and deduplication, reducing end-to-end response latency by 200–500ms.',
+      'Evaluated alternative speech-to-text providers including Deepgram and ElevenLabs, identifying a 30–50% latency reduction opportunity; deployed and monitored all services using Docker, New Relic, and Grafana with automated CI/CD pipelines.',
+    ],
   },
 ];
 
-// Progress percentages for when each milestone becomes active
 const milestoneThresholds = [5, 20, 35, 55, 75, 95];
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
   const [activeMilestone, setActiveMilestone] = useState(-1);
+  const [openDialog, setOpenDialog] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +81,6 @@ const Experience = () => {
       const screenHeight = window.innerHeight;
 
       const scrollPercent = (screenHeight - top) / (screenHeight + height);
-      // Adjust progress calculation to ensure it reaches 100% more smoothly
       const newProgress = Math.max(0, Math.min(100, scrollPercent * 120));
 
       setProgress(newProgress);
@@ -73,10 +96,12 @@ const Experience = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Set initial state
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const darwixEntry = experienceData[experienceData.length - 1];
 
   return (
     <section id="experience" className="py-16 sm:py-24 lg:py-32" ref={sectionRef}>
@@ -104,6 +129,7 @@ const Experience = () => {
           {experienceData.map((item, index) => {
             const isReversed = index % 2 !== 0;
             const isActive = index <= activeMilestone;
+            const hasAchievements = item.achievements && item.achievements.length > 0;
             return (
             <div key={index} className={cn(
               "relative transition-all duration-500 ease-out",
@@ -113,6 +139,11 @@ const Experience = () => {
                 <div className={`sm:w-5/12 mb-6 sm:mb-0 text-left sm:text-center ${isReversed ? 'sm:text-left' : 'sm:text-right'} pl-12 sm:pl-0`}>
                   <h3 className="text-xl font-bold">{item.role}</h3>
                   <p className="text-primary">{item.company}</p>
+                  {item.location && (
+                    <p className="text-muted-foreground text-xs flex items-center gap-1 mt-1 justify-start sm:justify-center">
+                      <MapPin size={12} /> {item.location}
+                    </p>
+                  )}
                 </div>
                 
                 <div className={cn(
@@ -128,12 +159,50 @@ const Experience = () => {
                 <div className={`sm:w-5/12 mt-6 sm:mt-0 text-left sm:text-center ${isReversed ? 'sm:text-right' : 'sm:text-left'} pl-12 sm:pl-0`}>
                   <p className="font-black text-2xl sm:text-3xl text-muted-foreground mb-2">{item.year}</p>
                   <p className="text-muted-foreground text-sm sm:text-base">{item.description}</p>
+                  {hasAchievements && (
+                    <button
+                      onClick={() => setOpenDialog(true)}
+                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 hover:border-primary/60 hover:shadow-[0_0_12px_theme(colors.primary/0.3)] transition-all duration-300 group"
+                    >
+                      <ExternalLink size={12} className="group-hover:rotate-12 transition-transform" />
+                      View Work Details
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
           )})}
         </div>
       </div>
+
+      {/* Detailed work dialog for Darwix AI */}
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl flex items-center gap-2">
+              {darwixEntry.role}
+              <span className="text-sm font-normal text-primary bg-primary/10 px-2 py-0.5 rounded-full">Current</span>
+            </DialogTitle>
+            <DialogDescription className="flex flex-col gap-1">
+              <span className="text-base font-semibold text-foreground">{darwixEntry.company}</span>
+              <span className="flex items-center gap-1 text-muted-foreground">
+                <MapPin size={14} /> {darwixEntry.location} • {darwixEntry.period}
+              </span>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-4 space-y-3">
+            <h4 className="text-sm font-semibold text-primary uppercase tracking-wider">Key Achievements</h4>
+            <ul className="space-y-3">
+              {darwixEntry.achievements?.map((achievement, i) => (
+                <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                  <span className="text-primary mt-1 shrink-0">▹</span>
+                  <span>{achievement}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
