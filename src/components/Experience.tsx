@@ -101,7 +101,7 @@ const Experience = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const darwixEntry = experienceData[experienceData.length - 1];
+  
 
   return (
     <section id="experience" className="py-16 sm:py-24 lg:py-32" ref={sectionRef}>
