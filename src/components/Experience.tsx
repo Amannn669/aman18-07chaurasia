@@ -71,7 +71,7 @@ const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
   const [activeMilestone, setActiveMilestone] = useState(-1);
-  const [openDialog, setOpenDialog] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
