@@ -166,42 +166,44 @@ const Experience = () => {
                   <p className="font-black text-2xl sm:text-3xl text-muted-foreground mb-2">{item.year}</p>
                   <p className="text-muted-foreground text-sm sm:text-base">{item.description}</p>
                   {hasAchievements && (
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <button
-                          className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 hover:border-primary/60 hover:shadow-[0_0_12px_theme(colors.primary/0.3)] transition-all duration-300 group"
-                          onMouseEnter={(e) => e.currentTarget.click()}
-                        >
-                          <ExternalLink size={12} className="group-hover:rotate-12 transition-transform" />
-                          View Work Details
-                        </button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-[500px] max-h-[400px] overflow-y-auto scrollbar-hide p-4" side="top" align="start">
-                        <div className="space-y-3">
-                          <div>
-                            <h4 className="text-base font-bold flex items-center gap-2">
-                              {item.role}
-                              <span className="text-[10px] font-normal text-primary bg-primary/10 px-2 py-0.5 rounded-full">Current</span>
-                            </h4>
-                            <p className="text-sm font-semibold text-primary">{item.company}</p>
-                            <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
-                              <MapPin size={10} /> {item.location} • {item.period}
-                            </p>
-                          </div>
-                          <div className="space-y-2">
-                            <h5 className="text-xs font-semibold text-primary uppercase tracking-wider">Key Achievements</h5>
-                            <ul className="space-y-2">
-                              {item.achievements?.map((achievement, i) => (
-                                <li key={i} className="flex gap-2 text-xs text-muted-foreground leading-relaxed">
-                                  <span className="text-primary mt-0.5 shrink-0">▹</span>
-                                  <span>{achievement}</span>
-                                </li>
-                              ))}
-                            </ul>
+                    <div className="relative"
+                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                    >
+                      <button
+                        className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 hover:border-primary/60 hover:shadow-[0_0_12px_theme(colors.primary/0.3)] transition-all duration-300 group"
+                      >
+                        <ExternalLink size={12} className="group-hover:rotate-12 transition-transform" />
+                        View Work Details
+                      </button>
+                      {hoveredIndex === index && (
+                        <div className="absolute bottom-full left-0 mb-2 w-[500px] max-h-[400px] overflow-y-auto scrollbar-hide p-4 rounded-md border bg-popover text-popover-foreground shadow-lg z-50 animate-in fade-in-0 zoom-in-95 duration-200">
+                          <div className="space-y-3">
+                            <div>
+                              <h4 className="text-base font-bold flex items-center gap-2">
+                                {item.role}
+                                <span className="text-[10px] font-normal text-primary bg-primary/10 px-2 py-0.5 rounded-full">Current</span>
+                              </h4>
+                              <p className="text-sm font-semibold text-primary">{item.company}</p>
+                              <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
+                                <MapPin size={10} /> {item.location} • {item.period}
+                              </p>
+                            </div>
+                            <div className="space-y-2">
+                              <h5 className="text-xs font-semibold text-primary uppercase tracking-wider">Key Achievements</h5>
+                              <ul className="space-y-2">
+                                {item.achievements?.map((achievement, i) => (
+                                  <li key={i} className="flex gap-2 text-xs text-muted-foreground leading-relaxed">
+                                    <span className="text-primary mt-0.5 shrink-0">▹</span>
+                                    <span>{achievement}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           </div>
                         </div>
-                      </PopoverContent>
-                    </Popover>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>
