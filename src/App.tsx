@@ -11,6 +11,8 @@ import BlogPostPage from "./pages/BlogPostPage";
 import CustomCursor from "@/components/CustomCursor";
 import ProjectsPage from "./pages/ProjectsPage";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import AuthPage from "./pages/AuthPage";
+import OAuthConsent from "./pages/OAuthConsent";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,8 @@ const App = () => (
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
