@@ -18,7 +18,7 @@ const AnimatedProfileImage = ({ className }: AnimatedProfileImageProps) => {
       <div className="relative aspect-square w-full">
         {/* Default image (new one) - circular */}
         <img
-          src="/lovable-uploads/c81a614d-ba03-435f-96c2-6ceb98a5c519.png"
+          src="/lovable-uploads/2013581d-5abc-433e-bc1f-6b8b083732a8.png"
           alt="Aman Chaurasia"
           className={`w-full h-full object-cover rounded-full shadow-[0_0_30px_black] transition-all duration-500 ${
             isHovered ? 'opacity-0 scale-105' : 'opacity-100'
@@ -27,7 +27,7 @@ const AnimatedProfileImage = ({ className }: AnimatedProfileImageProps) => {
         
         {/* Hover image (original one) - circular */}
         <img
-          src="/lovable-uploads/2013581d-5abc-433e-bc1f-6b8b083732a8.png"
+          src="/lovable-uploads/c81a614d-ba03-435f-96c2-6ceb98a5c519.png"
           alt="Aman Chaurasia"
           className={`absolute top-0 left-0 w-full h-full object-cover rounded-full shadow-[0_0_40px_hsl(var(--primary))] transition-all duration-500 ${
             isHovered ? 'opacity-100 scale-105' : 'opacity-0'
