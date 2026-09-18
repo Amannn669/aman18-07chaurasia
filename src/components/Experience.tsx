@@ -53,10 +53,10 @@ const experienceData: ExperienceItem[] = [
     location: 'Noida, India',
     period: 'August 2026 – Present',
     achievements: [
-      'Architected and shipped a production real-time AI Nudge Generation Service for contact-centre agents: an event-driven pipeline on Azure Function Apps with an Event Hub trigger, running Google Gemini and Gemma on Vertex AI via Google ADK. It surfaces priority-tagged coaching nudges mid-call with sub-second end-to-end latency.',
-      'Designed stateful multi-turn conversation handling using Google ADK session management backed by PostgreSQL, enabling context-aware nudge generation across full call lifecycles without session drift.',
-      'Built dual-path nudge delivery: AI-generated responses via Gemini for dynamic triggers, plus a hardcoded template fallback for guaranteed SLA. Results stream progressively to the agent UI through Azure Web PubSub at chunk level.',
-      'Engineered a five-function post-call AI analytics suite on Azure Service Bus covering Call Metrics Scoring, Behavioral Flag Detection, AI Call Overview, Call Event Detection, and Recommendations. Each function uses Vertex AI with dynamic evaluation schemas from PostgreSQL templates; outputs persist to Azure Blob Storage with Langfuse and OpenTelemetry observability.',
+      'Shipped a real-time AI Nudge Generation Service on Azure Function Apps, using Event Hub and Gemini/Gemma on Vertex AI via Google ADK to deliver priority-tagged coaching nudges with sub-second latency.',
+      'Designed stateful, multi-turn conversation handling with Google ADK sessions backed by PostgreSQL, maintaining accurate context throughout complete call lifecycles.',
+      'Built dual-path delivery with Gemini for dynamic nudges and template fallbacks for guaranteed SLA, streaming results progressively to agents through Azure Web PubSub.',
+      'Engineered five post-call AI analytics functions on Azure Service Bus and Vertex AI, with dynamic PostgreSQL evaluation schemas, Blob Storage persistence, and Langfuse plus OpenTelemetry observability.',
     ],
   },
 ];
@@ -138,7 +138,7 @@ const Experience = () => {
               key={index}
               className={cn(
               "relative transition-all duration-500 ease-out",
-              isActive ? "opacity-100 scale-100" : "opacity-40 scale-95"
+              isActive || hoveredIndex === index ? "opacity-100 scale-100" : "opacity-40 scale-95"
               )}
               onMouseLeave={() => setHoveredIndex(null)}
               onBlur={(event) => {
@@ -198,7 +198,7 @@ const Experience = () => {
                {hasAchievements && hoveredIndex === index && (
                  <div
                    id={`experience-details-${index}`}
-                   className="ml-12 mt-5 overflow-hidden rounded-md border border-primary/25 bg-popover text-popover-foreground shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-200 sm:ml-0 sm:mt-6"
+                   className="mt-5 overflow-hidden rounded-md border border-primary/25 bg-popover text-popover-foreground shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-200 sm:mt-6"
                  >
                    <div className="border-b border-border bg-primary/5 px-4 py-3 sm:px-5">
                      <div className="flex flex-wrap items-center gap-2">
