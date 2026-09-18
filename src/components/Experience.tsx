@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { MapPin, ExternalLink } from 'lucide-react';
+import { MapPin, BriefcaseBusiness, ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface ExperienceItem {
   role: string;
@@ -45,21 +46,17 @@ const experienceData: ExperienceItem[] = [
     description: 'Worked as a data science intern, applying data analysis and machine learning techniques to solve business problems.',
   },
   {
-    role: 'Software Development Engineer',
-    company: 'Darwix AI',
+    role: 'Software Engineer – AI/ML',
+    company: 'Provana',
     year: 'NOW',
-    description: 'Building production-grade AI systems — real-time call intelligence, RAG platforms, and multi-tenant ML pipelines.',
-    location: 'Gurugram, India',
-    period: 'September 2025 – Present',
+    description: 'Building real-time agent-assist systems and post-call AI analytics for contact-centre operations.',
+    location: 'Noida, India',
+    period: 'August 2026 – Present',
     achievements: [
-      'Architected and deployed a real-time AI call intelligence pipeline covering audio ingestion, speech-to-text transcription, NLP, and live agent nudge generation using Python, FastAPI, and WebSockets, achieving 99%+ system uptime.',
-      'Engineered a hybrid Objection Detection Engine combining NLP, semantic similarity search, and LLM validation, achieving 95–98% detection accuracy and reducing false positives by 30–40% across 200+ concurrent users.',
-      'Architected a production-grade multi-tenant RAG platform using a two-service microservices architecture behind an Nginx API gateway, containerized with Docker Compose and deployed on AWS ECS and AWS EKS.',
-      'Built a hybrid retrieval engine combining dense vector search using FAISS and ChromaDB with BM25 keyword search at a 60/40 weighted fusion, achieving sub-500ms P95 query latency across all tenants.',
-      'Implemented multi-tenant data isolation across all system layers including JWT-based company identification, per-company vector namespace separation, and metadata-filtered retrieval, ensuring zero cross-tenant data leakage.',
-      'Designed a real-time call-memory system using Redis for session state management, running conversation summaries, and recent transcript windowing with MongoDB as a fallback store.',
-      'Optimized real-time pipeline performance through asynchronous processing, request buffering, in-memory caching, Redis pipeline batching, and deduplication, reducing end-to-end response latency by 200–500ms.',
-      'Evaluated alternative speech-to-text providers including Deepgram and ElevenLabs, identifying a 30–50% latency reduction opportunity; deployed and monitored all services using Docker, New Relic, and Grafana with automated CI/CD pipelines.',
+      'Shipped a real-time AI Nudge Generation Service on Azure Function Apps, using Event Hub and Gemini/Gemma on Vertex AI via Google ADK to deliver priority-tagged coaching nudges with sub-second latency.',
+      'Designed stateful, multi-turn conversation handling with Google ADK sessions backed by PostgreSQL, maintaining accurate context throughout complete call lifecycles.',
+      'Built dual-path delivery with Gemini for dynamic nudges and template fallbacks for guaranteed SLA, streaming results progressively to agents through Azure Web PubSub.',
+      'Engineered five post-call AI analytics functions on Azure Service Bus and Vertex AI, with dynamic PostgreSQL evaluation schemas, Blob Storage persistence, and Langfuse plus OpenTelemetry observability.',
     ],
   },
 ];
@@ -137,10 +134,20 @@ const Experience = () => {
             const isActive = index <= activeMilestone;
             const hasAchievements = item.achievements && item.achievements.length > 0;
             return (
-            <div key={index} className={cn(
+            <div
+              key={index}
+              className={cn(
               "relative transition-all duration-500 ease-out",
-              isActive ? "opacity-100 scale-100" : "opacity-40 scale-95"
-            )}>
+              isActive || hoveredIndex === index ? "opacity-100" : "opacity-40",
+              isActive ? "scale-100" : "scale-95"
+              )}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                  setHoveredIndex(null);
+                }
+              }}
+            >
               <div className={`sm:flex items-start justify-between ${isReversed ? 'sm:flex-row-reverse' : ''}`}>
                 <div className={`sm:w-5/12 mb-6 sm:mb-0 text-left sm:text-center ${isReversed ? 'sm:text-left' : 'sm:text-right'} pl-12 sm:pl-0`}>
                   <h3 className="text-xl font-bold">{item.role}</h3>
@@ -166,47 +173,57 @@ const Experience = () => {
                   <p className="font-black text-2xl sm:text-3xl text-muted-foreground mb-2">{item.year}</p>
                   <p className="text-muted-foreground text-sm sm:text-base">{item.description}</p>
                   {hasAchievements && (
-                    <div className="relative"
-                      onMouseEnter={() => setHoveredIndex(index)}
-                      onMouseLeave={() => setHoveredIndex(null)}
-                    >
-                      <button
-                        className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 hover:border-primary/60 hover:shadow-[0_0_12px_theme(colors.primary/0.3)] transition-all duration-300 group"
+                     <div>
+                       <Button
+                         type="button"
+                         variant="outline"
+                         size="sm"
+                         className="mt-3 h-8 border-primary/30 bg-transparent px-3 text-xs text-primary hover:border-primary/60 hover:bg-primary/10 hover:text-primary"
+                         aria-expanded={hoveredIndex === index}
+                         aria-controls={`experience-details-${index}`}
+                         onMouseEnter={() => setHoveredIndex(index)}
+                         onFocus={() => setHoveredIndex(index)}
+                         onClick={() => setHoveredIndex((current) => current === index ? null : index)}
                       >
-                        <ExternalLink size={12} className="group-hover:rotate-12 transition-transform" />
+                         <BriefcaseBusiness size={13} />
                         View Work Details
-                      </button>
-                      {hoveredIndex === index && (
-                        <div className="absolute bottom-full left-0 mb-2 w-[500px] max-h-[400px] overflow-y-auto scrollbar-hide p-4 rounded-md border bg-popover text-popover-foreground shadow-lg z-50 animate-in fade-in-0 zoom-in-95 duration-200">
-                          <div className="space-y-3">
-                            <div>
-                              <h4 className="text-base font-bold flex items-center gap-2">
-                                {item.role}
-                                <span className="text-[10px] font-normal text-primary bg-primary/10 px-2 py-0.5 rounded-full">Current</span>
-                              </h4>
-                              <p className="text-sm font-semibold text-primary">{item.company}</p>
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
-                                <MapPin size={10} /> {item.location} • {item.period}
-                              </p>
-                            </div>
-                            <div className="space-y-2">
-                              <h5 className="text-xs font-semibold text-primary uppercase tracking-wider">Key Achievements</h5>
-                              <ul className="space-y-2">
-                                {item.achievements?.map((achievement, i) => (
-                                  <li key={i} className="flex gap-2 text-xs text-muted-foreground leading-relaxed">
-                                    <span className="text-primary mt-0.5 shrink-0">▹</span>
-                                    <span>{achievement}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                         <ChevronDown
+                           size={13}
+                           className={cn("transition-transform", hoveredIndex === index && "rotate-180")}
+                         />
+                       </Button>
                     </div>
                   )}
                 </div>
               </div>
+               {hasAchievements && hoveredIndex === index && (
+                 <div
+                   id={`experience-details-${index}`}
+                   className="mt-5 overflow-hidden rounded-md border border-primary/25 bg-popover text-popover-foreground shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-200 sm:mt-6"
+                 >
+                   <div className="border-b border-border bg-primary/5 px-4 py-3 sm:px-5">
+                     <div className="flex flex-wrap items-center gap-2">
+                       <h4 className="text-sm font-bold sm:text-base">{item.role}</h4>
+                       <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">Current</span>
+                     </div>
+                     <p className="mt-0.5 text-sm font-semibold text-primary">{item.company}</p>
+                     <p className="mt-1 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
+                       <MapPin size={11} /> {item.location} <span aria-hidden="true">•</span> {item.period}
+                     </p>
+                   </div>
+                   <div className="px-4 py-4 sm:px-5">
+                     <h5 className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Key Achievements</h5>
+                     <ul className="grid gap-3 sm:grid-cols-2 sm:gap-x-5">
+                       {item.achievements?.map((achievement, i) => (
+                         <li key={i} className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                           <span className="mt-0.5 shrink-0 font-semibold text-primary">{String(i + 1).padStart(2, '0')}</span>
+                           <span>{achievement}</span>
+                         </li>
+                       ))}
+                     </ul>
+                   </div>
+                 </div>
+               )}
             </div>
           )})}
         </div>

@@ -49,15 +49,15 @@ var techStack = [
 ];
 var experience = [
   {
-    company: "Darwix AI",
-    location: "Gurugram, India",
-    role: "Software Development Engineer",
-    period: "September 2025 \u2013 Present",
+    company: "Provana",
+    location: "Noida, India",
+    role: "Software Engineer \u2013 AI/ML",
+    period: "August 2026 \u2013 Present",
     highlights: [
-      "Architected and deployed a real-time AI call intelligence pipeline covering audio ingestion, speech-to-text transcription, natural language processing and live agent nudges.",
-      "Optimised streaming and inference paths, reducing end-to-end response latency by 200\u2013500ms and per-segment processing latency by 500\u20132300ms.",
-      "Evaluated alternative speech-to-text providers including Deepgram and ElevenLabs, identifying a 30\u201350% latency reduction opportunity.",
-      "Deployed and monitored production services using Docker, New Relic and Grafana with automated CI/CD pipelines."
+      "Architected and shipped a production real-time AI Nudge Generation Service on Azure Function Apps, running Gemini and Gemma on Vertex AI via Google ADK with sub-second end-to-end latency.",
+      "Designed stateful multi-turn conversation handling with Google ADK session management backed by PostgreSQL.",
+      "Built dual-path nudge delivery with Gemini-generated responses, guaranteed-SLA template fallbacks, and chunk-level streaming through Azure Web PubSub.",
+      "Engineered a five-function post-call AI analytics suite on Azure Service Bus and Vertex AI, with Azure Blob Storage persistence and Langfuse plus OpenTelemetry observability."
     ]
   },
   {
