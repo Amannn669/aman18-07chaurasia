@@ -138,7 +138,8 @@ const Experience = () => {
               key={index}
               className={cn(
               "relative transition-all duration-500 ease-out",
-              isActive || hoveredIndex === index ? "opacity-100 scale-100" : "opacity-40 scale-95"
+              isActive || hoveredIndex === index ? "opacity-100" : "opacity-40",
+              isActive ? "scale-100" : "scale-95"
               )}
               onMouseLeave={() => setHoveredIndex(null)}
               onBlur={(event) => {
