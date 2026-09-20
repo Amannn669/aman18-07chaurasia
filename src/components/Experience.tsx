@@ -218,7 +218,9 @@ const Experience = () => {
                    <div className="border-b border-border bg-primary/5 px-4 py-3 sm:px-5">
                      <div className="flex flex-wrap items-center gap-2">
                        <h4 className="text-sm font-bold sm:text-base">{item.role}</h4>
-                       <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">Current</span>
+{item.period?.includes('Present') && (
+                          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">Current</span>
+                        )}
                      </div>
                      <p className="mt-0.5 text-sm font-semibold text-primary">{item.company}</p>
                      <p className="mt-1 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
