@@ -46,6 +46,20 @@ const experienceData: ExperienceItem[] = [
     description: 'Worked as a data science intern, applying data analysis and machine learning techniques to solve business problems.',
   },
   {
+    role: 'Software Development Engineer',
+    company: 'Darwix AI',
+    year: '2025',
+    description: 'Built real-time AI call intelligence and a multi-tenant RAG platform for enterprise voice workflows.',
+    location: 'Gurugram, India',
+    period: 'September 2025 – August 2026',
+    achievements: [
+      'Built a real-time AI call intelligence pipeline with Python, FastAPI, and WebSockets, optimizing async processing to cut end-to-end latency by 200–500ms.',
+      'Developed a hybrid Objection Detection Engine combining NLP, semantic search, and LLM validation, reaching 95–98% detection accuracy.',
+      'Architected a multi-tenant RAG platform behind Nginx with Docker Compose and AWS ECS/EKS, using JWT company-ID isolation with per-company vector namespaces.',
+      'Implemented hybrid retrieval fusing FAISS/ChromaDB dense search with BM25 (60/40 fusion) at sub-500ms P95, with Redis call-memory and MongoDB fallback; shipped CI/CD with Docker, New Relic, and Grafana.',
+    ],
+  },
+  {
     role: 'Software Engineer – AI/ML',
     company: 'Provana',
     year: 'NOW',
@@ -61,7 +75,7 @@ const experienceData: ExperienceItem[] = [
   },
 ];
 
-const milestoneThresholds = [5, 20, 35, 55, 75, 95];
+const milestoneThresholds = [5, 18, 32, 46, 62, 80, 95];
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -204,7 +218,9 @@ const Experience = () => {
                    <div className="border-b border-border bg-primary/5 px-4 py-3 sm:px-5">
                      <div className="flex flex-wrap items-center gap-2">
                        <h4 className="text-sm font-bold sm:text-base">{item.role}</h4>
-                       <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">Current</span>
+{item.period?.includes('Present') && (
+                          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">Current</span>
+                        )}
                      </div>
                      <p className="mt-0.5 text-sm font-semibold text-primary">{item.company}</p>
                      <p className="mt-1 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">

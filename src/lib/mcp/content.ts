@@ -41,6 +41,18 @@ export const techStack = [
 
 export const experience = [
   {
+    company: "Darwix AI",
+    location: "Gurugram, India",
+    role: "Software Development Engineer",
+    period: "September 2025 – August 2026",
+    highlights: [
+      "Built a real-time AI call intelligence pipeline (Python, FastAPI, WebSockets) with async optimizations reducing end-to-end latency by 200–500ms.",
+      "Developed a hybrid Objection Detection Engine (NLP + semantic search + LLM validation) achieving 95–98% accuracy.",
+      "Architected a multi-tenant RAG platform behind Nginx with Docker Compose and AWS ECS/EKS; hybrid retrieval fusing FAISS/ChromaDB dense search with BM25 (60/40 fusion) at sub-500ms P95.",
+      "Enforced multi-tenant isolation via JWT company ID, per-company vector namespaces, and metadata filtering; Redis call-memory with MongoDB fallback; CI/CD with Docker, New Relic, and Grafana.",
+    ],
+  },
+  {
     company: "Provana",
     location: "Noida, India",
     role: "Software Engineer – AI/ML",
